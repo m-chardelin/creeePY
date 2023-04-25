@@ -1,0 +1,13 @@
+
+
+vérifier que pandas, scipy, numpy et mtplotlib sont installés 
+
+installer gfortran et ghostscript
+
+copier les versions d'adeli dans le bon répertoire 
+compiler les versions stochastique et non stochastique d'adeli 
+compiler les codes en pdf ou ps
+
+réunir les fichiers sous le bon pdf à insérer dans le dossier config
+
+export PYTHONPATH=$PYTHONPATH:/Users/marialinechardelin/scripts/creeepy

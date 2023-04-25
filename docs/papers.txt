@@ -1,0 +1,4 @@
+ref;authors;mineral;processes;conditions;equationTeX;comment;journal;year;DOI
+Karato_1993;S.I. Karato, P. Wu;Olivine;Dislocation,Diffusion;Dry,Wet;equation;review;Science;1993;10.1126/science.260.5109.771
+Hirth_2003;G. Hirth, D. Kohlstedt;Olivine;Dislocation,Diffusion,GBS;Dry,Wet;equation;review;American Geophysical Union;2003;10.1029/138GM06
+Demouchy_2013;S. Demouchy, A. Tommasi, T. Boffa Ballaran, P. Cordier;Olivine;DislocationCreep;Dry;equation;calibration;Physics of the Earth and Planetary Interiors;2013;10.1016/j.pepi.2013.04.008

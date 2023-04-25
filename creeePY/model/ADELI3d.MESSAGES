@@ -1,0 +1,155 @@
+0000
+0000 ADELI_3d.1 : TERMINAISON NORMALE
+0000
+0010 ialloc : trop de tableaux alloues
+0011 ialloc : trop d'espace memoire alloue
+0101 inmsh1 : version logicielle non compatible avec le fichier d'entree (j-fichier)
+0102 inmsh1 : calculs permis en 2-D seulement
+0103 inmsh1 : bande de tolerance inertielle mal definie
+0104 inmsh1 : bande d'alerte inertielle mal definie
+0151 inmsh2 : nombre de materiaux superieur au nombre alloue
+0152 inmsh2 : definir le calcul isostatique
+0153 inmsh2 : liste des materiaux incorrecte : derniere valeur de numat
+0153          differente de nmats
+0160 inmsh2 : ncouchm .gt. ncouchx
+0197 inmsh2 : nvalmax sous-dimensionne pour stocker le fichier d'erosion 
+0198 inmsh2 : erreur de lecture d'une chaine de caractere 
+0199 inmsh2 : mot cle incorrect dans le fichier i (voir au dessus) 
+0200 viselas : pas de temps inferieur au temps de relaxation
+0300 BRAUDEL : une valeur propre negative a ete trouveee lors d'une 
+0300           decomposition polaire du tenseur gradient F
+0300           (presence probable d'une element trop deforme)
+0501 betaij : NVALE .GT. MVALE
+0502 betaij : element non compris entre 1 et nelem
+0400 mshfct : regularisation du gradient des tailles non effectuee apres
+0400          itmax iterations
+0500 betaij 
+0610 mesh3d : nombre d'element incorrect (valeur correcte icas=1)
+0611 mesh3d : nombre total d'elements incorrect
+0612 mesh3d : nombre de points alloue (npmax3) insuffisant
+0613 mesh3d : nombre d'elements alloue (nelmax3) insuffisant
+0614 mesh3d : nombre de faces alloue (nfacex) insuffisant
+0615 mesh3d : nombre de points de contours alloue (nfrmax3) insuffisant
+0615          remede : l'augmenter dans le fichier j
+0616 mesh3d : nombre de valences 3D alloue (kval3) insuffisant
+0616          remede : l'augmenter dans le fichier io.f et recompiler
+0701 ingmsh : nombre de points alloue (npmax3) insuffisant
+0702 ingmsh : nombre de faces alloue (nfacex) insuffisant
+0703 ingmsh : nombre d'elements alloue (nelmax3) insuffisant
+0704 ingmsh : nombre de materiau alloue (nmamax) insuffisant
+0705 ingmsh : volume d'element nul ou negatif
+0706 ingmsh : nbr max de noeuds sur la peau (nfrmax3) insuffisant
+0706          remede : l'augmenter dans le fichier j
+0707 ingmsh : nombre de valences 3D alloue (kval3) insuffisant
+0707          remede : l'augmenter dans le fichier io.f et recompiler
+0801 fondations_d : nbr max de noeuds (npmax3) insuffisant
+0801                remede : l'augmenter dans le fichier j
+0802 fondations_d : nbr max de noeuds sur la peau (nfrmax3) insuffisant
+0802                remede : l'augmenter dans le fichier j
+0803 fondations_d : nombre de faces alloue (nfacex) insuffisant
+0901 fondations_r : nbr max de noeuds (npmax3) insuffisant
+0901                remede : l'augmenter dans le fichier j
+0902 fondations_r : nbr max de noeuds sur la peau (nfrmax3) insuffisant
+0902                remede : l'augmenter dans le fichier j
+0903 fondations_r : nombre de faces alloue (nfacex) insuffisant
+1001 valenv2: lelem incorrect
+1801 inicont : comptage contradictoire avec celui de inmsh2
+2001 mshcon : ajustement du nombre de facettes impossible
+2002 mshcon : trop de points de front generes par rapport a nfrmax
+2003 mshcon : nombre de points different du nombre de facette pour
+2003          une face
+2004 mshcon : creation de point en dehors des tolerances admises
+2005 mshcon : moins de 3 points crees sur une face
+2006 mshcon : 0 facette d'element sur une face
+2007 mshcon : nombre de points du contour trop grand par rapport a
+2007          nfrmax
+2500 condlim
+2501 condlim : LFACC(2,IF) .NE. 0
+2503 condlim : nombre de conditions aux limites en vitesse trop
+2503           important par rapport au dimensionnement max. nvmax
+2504 condlim : nombre de conditions aux limites en pression trop
+2504           important par rapport au dimensionnement max. nprmax
+2505 condlim : nombre de conditions aux limites en temperature trop
+2505           important  par rapport au dimensionnement max. nthmax
+2506 condlim : nombre de conditions aux limites en flux trop
+2506           important  par rapport au dimensionnement max. nflmax
+2601 INISTRIKE : point sans vis a vis
+2602 INISTRIKE : vis a vis multiples
+2801 connexions_contour : depassement de tableau pour lcontm
+3020 redfrt : angle d'element trop petit
+3021 redfrt : pas de projection possible
+3022 redfrt : pas de projection possible
+3023 redfrt : surface du materiau courant incorrecte
+3025 redfrt : point cree au dela de nfrmax
+3026 redfrt : element cree au dela de nelmax
+3027 redfrt : aire d'element negative (ELAIRS)
+3028 redfrt : aucun element cree
+3029 redfrt : quadrilatere non divisible
+3030 redfrt : point refuse par PTFRON
+3031 redfrt : point refuse par NEWPTC
+3300 updfrt
+3301 updfrt : nombre nul de segments a inserer
+3302 updfrt : nombre incorrect de points a inserer
+3303 updfrt : nombre de points a inserer superieur a nfrmax
+3304 updfrt : nombre de points du front superieur a nfrmax
+3305 updfrt : nombre de points du front negatif
+3306 updfrt : insersion incomplete
+3307 updfrt : nombre de points du front superieur a nfrmax
+3308 updfrt : nombre de points double superieur a la limite admise (10)
+3309 updfrt : nombre de points du front superieur a nfrmax
+3401 divelm : ieold egal a ienew
+3402 divelm : nombre de points du front superieur a nfrmax
+3501 posiso : ajustement du point C impossible avec la fonction de
+3501          maillage
+3601 cercle1 : calcul d'un point singulier
+3701 valenv : numero de point trouve a zero
+3702 valenv : nombre de connexions d'un point superieur a KVALE
+3703 valenv : nombre d'elements associes a un point superieur a MVALE
+3800 equipt : valence d'un noeud strictement inferieure a 2
+3801 equipt : valence d'un noeud strictement inferieure a 2
+3900 interpol : NPOINO.GT.NELEMO .AND. NLISS.NE.0 .AND. INTER.EQ.3
+3901 interpol : NLISS.GE.2 .AND. INTER.NE.1
+3902 interpol : point non inclus dans l'ancien maillage
+4000 herode : moins d'un point sur la surface topographique 
+4001 herode : l'element ie a maintenant une surface negative
+4002 herode : dimensionnement local depasse
+4100 matxa : matrice non inversible
+4200 invdia : surface d'element negative
+4300 cree6n : noeud milieu non existant ou incorrect
+4301 cree6n : non egalite des surfaces s3 et s6
+4302 cree6n : depassement d'allocation du tableau lcontm
+4303 cree6n : decalage du tableau lcontm incorrect
+4304 cree6n : depassement du tableau lcontm (npcont .ge. npmax)
+4305 cree6n : pas d'element contenant le noeud milieu
+4306 cree6n : noeud milieu introuvable dans l'element considere 
+4400 connexions_maillage : erreur ircode dans connexion_element
+4501 gravstres : barycentre hors du maillage
+4601 cree4f3n  : nombre d'elements crees (4*nelem) > nelmax
+4602 cree4f3n  : nombre de points crees > npmax
+4603 cree4f3n  : non egalite des surfaces t3 et 4t3
+4604 cree4f3n  : noeud non trouve pour lcontm
+4605 cree4f3n  : depassement du tableau lcontm (npcont .ge. npmax)
+4606 cree4f3n  : decalage du tableau lcontm incorrect
+4701 cree2f3n  : grille de depart nx,ny incorrecte (voir lcontm)
+4702 cree2f3n  : element cree avec une surface negative
+4801 cree3f3n  : nombre d'elements crees (4*nelem) > nelmax
+4802 cree3f3n  : nombre de points crees > npmax
+4803 cree3f3n  : non egalite des surfaces t3 et 3t3
+4804 cree3f3n  : noeud non trouve pour lcontm
+4805 cree3f3n  : surface de materiau incorrecte
+4806 cree3f3n  : element a surface negative 
+5010 plasmul   : divergence dans le schema de Newton pour le calcul du
+5010             multiplicateur plastique
+5020 plasmul   : mauvais choix des parametres de la loi plastique
+6101 resolv : mauvais choix de imdf 
+6102 resolv : tolerance superieure quasi statique atteinte (XNORMD)
+6102          avec le pas minimum autorise
+6103 resolv : correction des forces de contact non pro
+7001 tempini: ncoucht est superieure a 10
+7101 herode : nfilero .ne. nevole
+7801 wconta : LFACC(2,IFV) .NE. 0 (points candidats)
+7802 wconta : LFACC(2,IFV) .NE. 0 (lignes antagonistes)
+8201 gravstres : nombre de couches nlitho trop grand
+8202 gravstres : chargement gravitaire mal oriente
+8203 gravstres : element non compris dans la structure en couches
+

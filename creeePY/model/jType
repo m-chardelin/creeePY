@@ -1,0 +1,36 @@
+// 
+//
+VERSION
+3p9
+nvmax   nprmax nfrmax  nelmax  npmax nmamax  nthmax  nflmax nvalmax
+6000    3000   90000    20000    10000  20       1000    100   100
+ndime3  npmax3 nnod3   nelmax3 nfacex nfrmax3
+3       300000   4      500000   150000  140000
+ncouchx nnode   ndime  ntype
+20       3       2      3
+fract   redut   tredut
+ 4.     1.0e-0     .1
+toler   redtol nerrspa
+0.88    0.9    0
+nmixe   nmixs  idual  nbifu
+  1     0      0      0
+iobj    icinem
+  1     1
+inter   nliss
+1       2
+inorm   inormdev  ciner   cisup   ciinf   civar  convth
+2       1        .05e20    1.5     0.5     0.01    1.e-4
+niter   naugt
+1       500
+imdf    damp    ctraine
+1       0.8     0.0
+ioptmsh interp  xmesh
+0       0        1.05
+xplotp  xplott  xplotc	xsave  xdebp	itypp
+0.05    0.05    0.10	1.0    0.0	0
+npxt  npyt xmint ymint xmaxt ymaxt
+0     0    0.001 250   200    450
+nfacep lfacep
+1      5
+gradmax devmin  devmax redelm aigumin
+0.66    5.0     30.0   0.01   8.0

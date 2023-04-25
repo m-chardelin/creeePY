@@ -1,0 +1,7 @@
+
+\newpage
+\section{scriptName}
+\texttt{
+\begin{lslisting}
+\lstinputlisting{scriptDir}
+\end{lslisting}}

@@ -1,0 +1,19 @@
+#!/bin/csh
+
+set exp=nameExp
+set exe=binAdeli
+
+set run=1
+set export=1
+
+if ( $run ) then
+  $exe <<fin 
+$exp
+1
+fin
+endif
+
+if ( $export ) then
+    binVtk $exp
+endif
+

@@ -1,0 +1,9 @@
+process;condition;A;s;n;d;p;fH2O;r;alpha;T;Q;V
+diffusion;dry;1.5e9;100;1;14;3;1;0;30;1473;3.75e5;6.00e6
+diffusion;wet;2.5e9;100;0.9;14;3;1;0.7;30;1473;3.75e5;1.00e7
+diffusion_constant C_OH;wet;1.00e6;100;1;14;3;1;1;30;1473;3.35e5;4.00e6
+dislocation;dry;1.1e5;100;3.5;14;0;1;0;40;1473;5.30e5;0
+dislocation;wet;1600;100;3.5;14;0;1;1.2;40;1473;5.20e5;2.20e7
+dislocation_constant C_OH;wet;90;100;3.5;14;0;1;1.2;40;1473;4.80e5;1.10e7
+GBS_T>1250_Celsius;dry;4.7e10;100;3.5;14;2;1;0;40;1473;600;0
+GBS_T<1250_Celsius;dry;6500;100;3.5;14;2;1;0;40;1473;400;0

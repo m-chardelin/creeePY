@@ -1,0 +1,51 @@
+%%%%%%%%%%%%%       DOCUMENT CLASS AND LIBRAIRIES     %%%%%%%%%%%%%
+\documentclass[a4 paper, landscape, 8pt, twocolumn]{article} 
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[top=1cm, bottom=1.5cm, left=1cm, right=1cm, columnsep=1.2cm]{geometry}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{verbatim}
+\lstset{breaklines=true}
+\lstset{numbers=left, stepnumber=5}
+\lstset{numbers=left,
+numberstyle=\tiny \bf \blue,
+stepnumber=2,
+numbersep=10pt,
+firstnumber=11,
+numberfirstline=true}
+\lstset{frame=lr}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%     TITLE    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{ADELI \\ - Allons DÉformer la LIthosphère - \\ Code source version 3p9 / Configuration}
+\author{}
+\date{November 2021}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%     DOCUMENT   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+\vspace*{\stretch{1}}
+\begin{center}
+
+\large{\textbf{ADELI}} \\
+
+\vspace{1em}
+
+\large{\textbf{- Allons DÉformer la LIthosphère - }}
+
+\vspace{2em}
+
+\\  Configuration / Code source version 3p9
+\end{center}
+\vspace*{\stretch{1}}
+
+%%%% TABLE OF CONTENTS
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+%%%% SCRIPTS
