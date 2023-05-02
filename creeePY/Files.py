@@ -90,7 +90,7 @@ class Files():
             
             todo : attention au niveau de nommage, trop ne sera pas assez précis """
         if cat == '':
-            a = files = [file.replace(dat, '') for file in os.listdir(folder) if file.endswith(dat)]
+            files = [file.replace(dat, '') for file in os.listdir(folder) if file.endswith(dat)]
             self.cat = set([file.split('_')[0] for file in files if file.count('_') > 1])
         else:
             self.cat = cat
