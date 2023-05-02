@@ -215,18 +215,18 @@ class Files():
         
         try:
             writer = pd.ExcelWriter(f'{files.output}/{cat}_{self.table}.xlsx', engine='xlsxwriter')
-                
             c = [cat]
             
             sscat = sorted(files.sscat, reverse = True)
             subcat = sorted(files.subcat)
             sort = sorted(files.sort)
             
+            print('list')
+            
             for it in list(product(c, sscat, subcat, sort)):
                     
                 names = {'id': f'{it[1]}_{it[2]}_{it[3]}', 'cat': it[0], 'sscat': it[1], 'subcat': it[2], 'sort': it[3]}
 
-                    
                 if os.path.exists(f'{files.input}/{it[0]}_{it[1]}_{self.table}.txt'):
                     self.Load(f'{files.input}/{it[0]}_{it[1]}_{self.table}.txt')
                     
@@ -237,7 +237,7 @@ class Files():
                     elif names['subcat'] != 'all':
                         df = self.df[self.df[names['sort']] == names['subcat']]
                         df.to_excel(writer, sheet_name=names['id'], index = None)
-            
+                        
             writer.close()
         except:
             pass
