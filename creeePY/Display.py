@@ -76,6 +76,7 @@ class Display():
             i += 1
         return i-1
         
+        
     def CorrectBar(self, bar, length):
     
         barLength = int(bar.split(' ')[0])
@@ -377,18 +378,19 @@ class Display():
     def FieldMap(self, files, cat):
         res = self.samples.loc[cat, 'XStep']
         fig, ax = self.ParamPlot()
-        
+                
         ebsd = self.Load(f'{files.input}/{cat}_all_EBSD.txt')
         if self.field not in self.df.columns:
             grains = self.Load(f'{files.input}/{cat}_all_Grains.txt')
             ebsd = ebsd.merge(grains, left_on='grain', right_on='id' , how='outer')
         
-        if self.minimum == None:
+        if self.minimum == 'all':
             self.minimum = np.min(ebsd[self.field])
-        if self.maximum == None:
+        if self.maximum == 'all':
             self.maximum = np.max(ebsd[self.field])
         
-        for ssc in files.sscat:
+        sscat = [ssc for ssc in files.sscat if ssc != 'all']
+        for ssc in sscat:
             if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.txt'):
                 ebsd = self.Load(f'{files.input}/{cat}_{ssc}_EBSD.txt')
                 
@@ -408,10 +410,14 @@ class Display():
             ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = None, norm = 'norm')
             
         self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
-
+        
+        self.minimum = None
+        self.maximum = None
+        
         plt.axis('off')
         plt.axis('scaled')
         self.Save(f'{files.output}/{cat}_{self.field}Map.png')
+        
    
 
     def SortMap(self, files, cat):
@@ -484,41 +490,40 @@ class Display():
     def Pie(self, files, file = None):
         if file == None:
             self.Load(f'{files.stats}/resume.txt')
-            self.df.index = self.df.key
+            self.df.index = self.df.id
         else:
             self.Load(file)
 
-        self.df = self.df[self.df['tri'] == f'{self.column}_{self.value}']
+        #self.df = self.df[self.df['sort'] == f'{self.column}{self.value}']
+        self.df = self.df[self.df['subcat'] == 'all']
         self.df = self.df[self.df['sscat'] != 'all']
-
+        
         for c in files.cat:
             cat = self.df[self.df['cat'] == c]
-
+            
             labels = []
             values = []
             colours = []
 
             for ssc in sorted(set(cat.sscat)):
                 labels.append(ssc)
-                values.append(cat.loc[f'{c}_{ssc}_all', '%Area_total'])
-                colours.append(self.param.loc[ssc, 'colour'])
+                values.append(cat.loc[f'{c}_{ssc}_all', f'%catArea'])
+                colours.append(self.param.loc[ssc, 'color'])
    
-            self.ParamPlot()
-            plt.pie(values, labels = labels, colors = colours, normalize = True, autopct='%1.1f%%')
+            fig, ax = self.ParamPlot()
+            ax.pie(values, labels = labels, colors = colours, normalize = True, autopct='%1.1f%%')
             self.Save(f'{files.output}/{c}_pie.png')
 
 
     def PieSubcat(self, files, file = None):
         if file == None:
             self.Load(f'{files.stats}/resume.txt')
-            self.df.index = self.df.key
+            self.df.index = self.df.id
         else:
             self.Load(file)
 
-        self.df = self.df[self.df['tri'] == f'{self.column}_{self.value}']
-        self.df = self.df[self.df['sscat'] != 'all']
-        
-        self.hatches = {'rex': '/', 'porph': ''}
+        self.df = self.df[self.df['sort'] == f'{self.column}{self.value}']
+        self.df = self.df[(self.df['sscat'] != 'all') & (self.df['subcat'] != 'all')]
         
         for c in files.cat:
             cat = self.df[self.df['cat'] == c]
@@ -529,50 +534,55 @@ class Display():
             hatches = []
 
             for ssc in sorted(set(cat.sscat)):
-                for s in self.subcat:
+                for s in sorted(set(cat.subcat)):
                     labels.append(f'{ssc}_{s}')
-                    values.append(cat.loc[f'{c}_{ssc}_{s}', f'%Area_total'])
-                    colours.append(self.param.loc[ssc, 'colour'])
-                    hatches.append(self.hatches[s])
+                    values.append(cat.loc[f'{c}_{ssc}_{s}_{self.column}{self.value}', f'%catArea'])
+                    colours.append(self.param.loc[ssc, 'color'])
+                    hatches.append(self.param.loc[s, 'hatches'])
 
-            self.ParamPlot()
+            fig, ax = self.ParamPlot()
             values = np.nan_to_num(values)
-            plt.pie(values, colors = colours, normalize = True)
-            wedges, _ = plt.pie(values, colors = colours, normalize = True)
-            for i in range(0, len(wedges)):
-                wedges[i].set_hatch(hatches[i])
-                wedges[i].set_edgecolor('black')
-
-            self.Save(f'{files.output}/{c}_pieSubcat.png')
+            ax.pie(values, colors = colours, hatch = hatches, wedgeprops = {"edgecolor" : "black", 'linewidth': 1.5, 'antialiased': True})
+            self.Save(f'{files.output}/{c}_pieSubcat{self.column}{self.value}.png')
 
 
 
     def Histogram(self, files, cat, sscat):
         self.Load(f'{files.input}/{cat}_{sscat}_Grains.txt', sort = True)
+        
+        area = pd.read_csv(f'{files.stats}/resume.txt', sep = '&')
+        area.index = area.id
+        neo = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%sscatArea']*100, 2)
+        neo2 = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%catArea']*100, 2)
+        m = round(area.loc[f'{cat}_{sscat}_all', '%catArea']*100, 2)
+        
         # values
-        self.ParamPlot()
-        plt.hist(self.df[self.field], density = True, facecolor = self.param.loc[sscat, 'colour'], edgecolor = 'black', bins = 'auto', weights = None)
-        plt.xlabel(self.legend)
-        plt.ylabel('Frequency')
+        fig, ax = self.ParamPlot()
+        plt.rcParams["font.family"] = self.fontFamily
+        plt.rcParams["font.size"] = self.fontSize
+        ax.hist(self.df[self.field], density = True, facecolor = self.param.loc[sscat, 'color'], edgecolor = 'black', bins = 'auto', weights = None)
+        ax.set_xlabel(self.legend)
+        ax.set_ylabel('Frequency')
+        ax.set_title(f'{len(self.df[self.field])} grains, {m}% of sample area ({self.sort})')
         self.Save(f'{files.output}/{cat}_{sscat}_all_hist{self.field}_weightNone.png')
 
         # weighted values
-        fig, ax = plt.subplots(dpi = 400)
+        fig, ax = self.ParamPlot()
         plt.rcParams["font.family"] = self.fontFamily
         plt.rcParams["font.size"] = self.fontSize
-        ax.hist(self.df[self.field], density = False, facecolor = self.param.loc[sscat, 'colour'], edgecolor = 'black', bins = self.bins, weights = None)
+        hist, bins = np.histogram(self.df[self.field], weights = self.df[self.weight], bins = self.bins)
+        ax.hist(self.df[self.field], bins = self.bins, weights = self.df[self.weight], facecolor = self.param.loc[sscat, 'color'], edgecolor = 'black')
         ax.set_xlabel(self.legend)
         ax.set_ylabel('total %')
-        ax.set_title(f'{len(self.df[self.field])} values')
+        ax.set_title(f'{len(self.df[self.field])} grains, {m}% of sample area ({self.sort})')
+
+        ax.set_ylim([np.min(hist), np.max(hist)])
         self.weights = self.df[self.weight]
-        locs  = ax.get_yticks()
-        labels = ax.get_yticklabels()
-        r = 2
-        labels = [str(round((loc/np.sum(self.weights))*100, r)) for loc in locs]
+        self.ticks(ax)
         self.Save(f'{files.output}/{cat}_{sscat}_all_hist{self.field}_weight{self.weight}.png')
 
         # weighted values
-        fig, axes = plt.subplots(1, 2, gridspec_kw = {'width_ratios': [2, 1]}, dpi = 400)
+        fig, axes = plt.subplots(1, 2, gridspec_kw = {'width_ratios': [2, 1]}, figsize=(self.width, self.height), dpi = self.dpi)
         plt.rcParams["font.family"] = self.fontFamily
         plt.rcParams["font.size"] = self.fontSize
 
@@ -601,9 +611,9 @@ class Display():
         axes[1].set_yticklabels([])
         hist, bins = np.histogram(self.df[self.field], weights = self.df[self.weight], bins = self.bins)
         #ax3.plot(list(bins)[0:self.bins], hist, color = self.param.loc[sscat, 'colour'])
-        ax3.hist(self.df[self.field], bins = self.bins, weights = self.df[self.weight], facecolor = self.param.loc[sscat, 'colour'], edgecolor = 'black')
-        ax3.tick_params(axis = 'y', labelcolor = self.param.loc[sscat, 'colour'])
-        ax3.yaxis.label.set_color(self.param.loc[sscat, 'colour'])
+        ax3.hist(self.df[self.field], bins = self.bins, weights = self.df[self.weight], facecolor = self.param.loc[sscat, 'color'], edgecolor = 'black')
+        ax3.tick_params(axis = 'y', labelcolor = self.param.loc[sscat, 'color'])
+        ax3.yaxis.label.set_color(self.param.loc[sscat, 'color'])
         ax3.set_ylim([np.min(hist), np.max(hist)])
         self.weights = self.df[self.weight]
         self.ticks(ax3)
@@ -614,12 +624,8 @@ class Display():
         ax2.set_ylabel('porphyroclastes %')
         ax3.set_xlabel(self.legend)
         ax3.set_ylabel('total %')
-
-        area = pd.read_csv(f'{files.stats}/resume.txt', sep = ',')
-        area.index = area.key
-        ind = f'{cat}_{sscat}_rex'
-        #value = round(area.loc[ind, '%Area_total']*100, 2)
-        fig.suptitle(f'{len(self.df[self.field])} grains')
-        fig.tight_layout()
-        self.Save(f'{files.output}/{cat}_{sscat}_subcat_hist{self.field}_weight{self.weight}.png')
+        
+        fig.suptitle(f'{len(self.df[self.field])} grains, {neo}% neoblasts in mineral, {neo2}% in total thin section ({self.sort})')
+        #fig.tight_layout()
+        self.Save(f'{files.output}/{cat}_{sscat}_subcat_hist{self.field}weight{self.weight}{self.sort}.png')
 

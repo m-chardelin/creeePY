@@ -31,7 +31,7 @@ class Files():
 
             if iterMineral == True:
                 for ssc in files.sscat:
-                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.table}.txt'):
+                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.txt'):
                         func(files, c, ssc)
 
     

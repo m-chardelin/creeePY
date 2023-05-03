@@ -33,7 +33,7 @@ class Tex():
 
     
     def Save(self, files, file):
-        with open(f'{files.tex}/{file}.tex', 'w') as file:
+        with open(f'{files.output}/{file}.tex', 'w') as file:
             file.write(self.text)
             
     
@@ -46,6 +46,7 @@ class Tex():
                 for ssc in files.sscat:
                     if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.txt'):
                         func(files, c, ssc)
+
 
     def Area(self, files):
         text = self.GetTxt(files, 'areaType')
@@ -79,19 +80,44 @@ class Tex():
         os.system('pwd')
         os.system(f'latex area.tex')
         os.system(f'dvipdf area.dvi')
-        
-        #text = self.GetTxt(files, 'plotType')
-        #text = text.replace('textAdd', self.textAdd)
-        #self.text = text
-        #self.Save(files, 'plot')
-        #os.system(f'latex plot.tex')
-        
-        #text = self.GetTxt(files, 'title')
-        #text = text.replace('textAdd', self.textAdd)
-        #self.text = text
-        #self.Save(files, 'title')
-        #os.system(f'pdflatex title.tex')
+    
 
+    def ThinSection(self, files):
+        
+        for c in files.cat:
+            text = self.GetTxt(files, 'lameType')
+            img = PIL.Image.open(f'{files.texFigures}/{c}_PhasesMap.eps')
+            width, height = img.size
+            
+            if width / height > 1:
+                PARAM = 'width = \\linewidth'
+            elif width / height < 1:
+                PARAM = 'width = \\linewidth, angle = 90'
+            elif width / height == 1:
+                PARAM = 'height = 0.45\\paperheight'
+            
+            text = text.replace('CAT', c)
+            text = text.replace('PARAM', PARAM)
+            text = text.replace('FIGURESDIR', files.figures)
+            
+            self.ts = self.area[self.area['cat'] == c]
+            self.ts = self.ts[self.ts['subcat'] == 'all']
+            self.ts = self.ts.sort_values(by = ['%Area_total'])
+            self.ts.index = np.arange(0, len(self.ts['sscat']), 1)
+            for i in self.ts.index:
+                text = text.replace(f'mineral{i}', self.ts.loc[i, 'sscat'])
+  
+
+            self.text = text
+            self.Save(files, 'ts')
+            
+            os.system(f'cd {files.tex}')
+            os.chdir(f'{files.tex}')
+            os.system('pwd')
+            os.system(f'latex -jobname={c} ts.tex')
+            os.system(f'dvipdf {c}.dvi')
+
+        #self.Merge(files)
         
 
     def Merge(self, files):
@@ -114,61 +140,3 @@ class Tex():
             merger.append(f'{c}.pdf')
         self.merger.write("areaZabargad.pdf")
         merger.close()
-
-
-    def ThinSection(self, files):
-        
-        
-        for c in files.cat:
-            text = self.GetTxt(files, 'lameType')
-            img = PIL.Image.open(f'{files.texFigures}/{c}__PHASES.eps')
-            width, height = img.size
-            
-            if width / height > 1:
-                PARAM = 'width = \\linewidth'
-            elif width / height < 1:
-                PARAM = 'width = \\linewidth, angle = 90'
-            elif width / height == 1:
-                PARAM = 'height = 0.45\\paperheight'
-            
-            text = text.replace('CAT', c)
-            text = text.replace('PARAM', PARAM)
-            text = text.replace('FIGURESDIR', files.texFigures)
-            
-            self.ts = self.area[self.area['cat'] == c]
-            self.ts = self.ts[self.ts['subcat'] == 'all']
-            self.ts = self.ts.sort_values(by = ['%Area_total'])
-            self.ts.index = np.arange(0, len(self.ts['sscat']), 1)
-            for i in self.ts.index:
-                text = text.replace(f'mineral{i}', self.ts.loc[i, 'sscat'])
-  
-
-            self.text = text
-            self.Save(files, 'ts')
-            
-            os.system(f'cd {files.tex}')
-            os.chdir(f'{files.tex}')
-            os.system('pwd')
-            os.system(f'latex -jobname={c} ts.tex')
-            os.system(f'dvipdf {c}.dvi')
-
-        #self.Merge(files)
-        
-
-
-    def CPO(self, files, cat):
-        self.Load(f'{files.meanTables}/areas_um2.txt')
-        subcat = self.df[self.df['cat'] == cat]
-        txt = ''
-        for ssc in subcat.sscat:
-            txt = txt + f'\n \includegraphics[width = 0.75\linewidth]{{{cat}_{ssc}_CPO.eps}} \n \includegraphics[width = 0.25\linewidth]{{{cat}_{ssc}_{ssc}_ipf.eps}} \n \n'
-        self.txt = self.txt.replace('includeCPO', txt)
-
-   
-    def HIST(self, files, cat):
-        self.Load(f'{files.meanTables}/areas_um2.txt')
-        subcat = self.df[self.df['cat'] == cat]
-        txt = ''
-        for ssc in subcat.sscat:
-            txt = txt + f'\n \includegraphics[width = 0.5\linewidth]{{{cat}_{ssc}_subcat_histequivalentRadius_weightarea.eps}} \n \includegraphics[width = 0.5\linewidth]{{{cat}_{ssc}_subcat_histshapeFactor_weightarea.eps}} \n \n'
-        self.txt = self.txt.replace('includeHIST', txt)
