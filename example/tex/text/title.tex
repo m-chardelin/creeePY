@@ -1,0 +1,38 @@
+\documentclass{article}
+ \usepackage[utf8]{inputenc}
+\usepackage[top=1cm, bottom=0cm, left=0cm, right=2cm]{geometry}
+\usepackage[]{tikz}
+\usepackage{graphicx}
+
+\graphicspath{{/Users/marialinechardelin/analysis/tex/figures/}}
+
+\newcommand{\framePaper}{
+\begin{tikzpicture}[remember picture,overlay]
+ \draw[very thick]
+ ([yshift=-20pt,xshift=20pt]current page.north west)--
+ ([yshift=-20pt,xshift=-20pt]current page.north east)--
+ ([yshift=20pt,xshift=-20pt]current page.south east)--
+ ([yshift=20pt,xshift=20pt]current page.south west)--cycle;
+ \end{tikzpicture}
+ }
+
+
+
+\begin{document}
+
+\newpage
+
+%\framePaper
+
+\begin{center}
+\begin{tabular}{c}
+\\
+ZABARGAD \\
+\\
+textAdd
+\\
+\\
+\end{tabular}
+\end{center}
+
+\end{tabular}

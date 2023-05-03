@@ -1,0 +1,76 @@
+\documentclass{article} 
+ \usepackage[utf8]{inputenc}
+\usepackage[top=1cm, bottom=0cm, left=0cm, right=2cm]{geometry}
+\usepackage[]{tikz}
+\usepackage{graphicx}
+
+\graphicspath{{/storage/emulated/0/scripts/EBSD/examples/peridotitesZabargad/tex/figures}}
+
+\newcommand{\framePaper}{
+\begin{tikzpicture}[remember picture,overlay] 
+ \draw[very thick] 
+ ([yshift=-20pt,xshift=20pt]current page.north west)-- 
+ ([yshift=-20pt,xshift=-20pt]current page.north east)-- 
+ ([yshift=20pt,xshift=-20pt]current page.south east)-- 
+ ([yshift=20pt,xshift=20pt]current page.south west)--cycle; 
+ \end{tikzpicture}
+ }
+
+
+
+\begin{document} 
+
+\newpage
+
+%\framePaper
+
+
+\begin{center}
+\huge{85ZA1}
+\end{center}
+
+ \begin{tabular}{c c} 
+\hline
+\includegraphics[width=0.65\linewidth]{blank.eps} & \includegraphics[width=0.35\linewidth]{85ZA1_pie.eps} \\
+\hline
+ \end{tabular}
+
+ \begin{tabular}{c} 
+ \includegraphics[width = \linewidth]{85ZA1__PHASES.eps} \\
+ \end{tabular} 
+
+\newpage
+
+ \begin{tabular}{c} 
+ \includegraphics[height=0.3\paperheight, angle = rotAngle]{85ZA1_Mis2MeanMap.eps} \\
+ \end{tabular} 
+
+ \begin{tabular}{c c} 
+\hline
+\includegraphics[height = 0.15\paperheight]{85ZA1_AmphiboleA_all_CPO.eps} & \includegraphics[height = 0.15\paperheight]{85ZA1_AmphiboleA_all_IPF.eps} \\
+\includegraphics[height = 0.15\paperheight]{85ZA1_Spinelle_all_CPO.eps} & \includegraphics[height = 0.15\paperheight]{85ZA1_Spinelle_all_IPF.eps} \\
+\includegraphics[height = 0.15\paperheight]{85ZA1_Clinopyroxene_all_CPO.eps} & \includegraphics[height=0.15\paperheight]{85ZA1_Clinopyroxene_all_IPF.eps} \\
+\includegraphics[height = 0.15\paperheight]{85ZA1_Plagioclase_all_CPO.eps} & \includegraphics[height = 0.15\paperheight]{85ZA1_Plagioclase_all_IPF.eps} \\
+\hline
+ \end{tabular}
+
+\newpage
+
+ \begin{tabular}{c c} 
+ \includegraphics[width = 0.6\linewidth, angle = rotAngle]{85ZA1_Sort.eps} & \includegraphics[width = 0.3\linewidth]{85ZA1_pieSubcat.eps} \\ 
+\hline
+\end{tabular}
+
+
+ \begin{tabular}{c c} 
+\includegraphics[width=0.45\linewidth]{85ZA1_AmphiboleA_subcat_histequivalentRadius_weightarea.eps} & \includegraphics[width=0.45\linewidth]{85ZA1_Spinelle_subcat_histequivalentRadius_weightarea.eps} \\
+\includegraphics[width=0.45\linewidth]{85ZA1_Clinopyroxene_subcat_histequivalentRadius_weightarea.eps} & \includegraphics[width=0.45\linewidth]{85ZA1_Plagioclase_subcat_histequivalentRadius_weightarea.eps} \\
+\hline
+ \end{tabular}
+
+
+\newpage
+
+%\includegraphics[width = 0.95\linewidth, angle = rotAngle]{85ZA1_LPA.jpg}
+
+\end{document}
