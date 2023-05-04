@@ -21,9 +21,9 @@ class Display():
         
         self.__dict__.update(kwargs)
 
-        self.param = pd.read_csv(f'{files.param}/param.txt', sep = '&', index_col = 0)
+        self.param = pd.read_csv(f'{files.param}/param.csv', sep = '&', index_col = 0)
         
-        self.samples  = pd.read_csv(f'{files.folder}/samples.txt', sep = '&', index_col = 0)
+        self.samples  = pd.read_csv(f'{files.folder}/samples.csv', sep = '&', index_col = 0)
         
         self.unit = {'um': 0, 'mm': 3, 'cm': 4, 'dm': 5, 'm': 6}
         self.scale = {'1': 'um', '2': 'um', '3': 'mm', '4': 'cm', '5': 'dm', '6': 'm'}
@@ -49,7 +49,7 @@ class Display():
 
             if iterMineral == True:
                 for ssc in files.sscat:
-                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.txt'):
+                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.csv'):
                         func(files, c, ssc)
         
     
@@ -174,11 +174,11 @@ class Display():
         
         
     def PlotPoints(self, files, cat, ax, gap, minX = 0, maxX = 0, minY = 0, maxY = 0):
-        self.Load(f'{files.output}/points.txt')
+        self.Load(f'{files.output}/points.csv')
         self.df = self.df[self.df['point'] == 'data']
         self.df.index = np.arange(0, self.df.shape[0], 1)
         self.df['id'] = self.df.index
-        self.df.to_csv(f'{files.output}/pointsId.txt', sep = '&', index = None)
+        self.df.to_csv(f'{files.output}/pointsId.csv', sep = '&', index = None)
         self.df = self.df[self.df['cat'] == cat]
         
         if minX != None:
@@ -233,12 +233,12 @@ class Display():
         res = self.samples.loc[cat, 'XStep']
         fig, ax = self.ParamPlot()
         for ssc in files.sscat:
-            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.txt') and ssc != 'all':
-                self.Load(f'{files.input}/{cat}_{ssc}_EBSD.txt')
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.csv') and ssc != 'all':
+                self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
                 ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = self.param.loc[ssc, 'edgecolor'], facecolor = self.param.loc[ssc, 'facecolor'], cmap = None, norm = 'norm')
 
-        if os.path.exists(f'{files.input}/{cat}_Boundaries.txt'):
-            self.Load(f'{files.input}/{cat}_Boundaries.txt')
+        if os.path.exists(f'{files.input}/{cat}_Boundaries.csv'):
+            self.Load(f'{files.input}/{cat}_Boundaries.csv')
             ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = None, norm = 'norm')
                     
         self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
@@ -250,7 +250,7 @@ class Display():
  
  
     def PointsMap(self, files, cat):
-        points = self.Load(f'{files.output}/points.txt')
+        points = self.Load(f'{files.output}/points.csv')
         zones = points[(points['point'] == 'zone') & (self.df['cat'] == cat)]
         zones['count'] = np.arange(1, zones.shape[0]+1, 1)
         count = np.arange(0, zones.shape[0] + 3, 3)
@@ -258,12 +258,12 @@ class Display():
         res = self.samples.loc[cat, 'XStep']
         fig, ax = self.ParamPlot()
         for ssc in files.sscat:
-            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.txt') and ssc != 'all':
-                self.Load(f'{files.input}/{cat}_{ssc}_EBSD.txt')
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.csv') and ssc != 'all':
+                self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
                 ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = self.param.loc[ssc, 'edgecolor'], facecolor = self.param.loc[ssc, 'facecolor'], cmap = None, norm = 'norm')
                 
-        if os.path.exists(f'{files.input}/{cat}_Boundaries.txt'):
-            self.Load(f'{files.input}/{cat}_Boundaries.txt')
+        if os.path.exists(f'{files.input}/{cat}_Boundaries.csv'):
+            self.Load(f'{files.input}/{cat}_Boundaries.csv')
             ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = None, norm = 'norm')
 
         gap = self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
@@ -276,7 +276,7 @@ class Display():
             ax.plot([np.min(xy['xdata']), np.min(xy['xdata'])], [np.min(xy['ydata']), np.max(xy['ydata'])], color = 'white')
             ax.text(np.min(xy['xdata']) + gap/2, np.max(xy['ydata']) - 5*gap/2, i, color='white', fontsize = 36)
 
-        #self.Load(f'{files.output}/points.txt')
+        #self.Load(f'{files.output}/points.csv')
         plt.axis('off')
         plt.axis('scaled')
         self.Save(f'{files.output}/{cat}_ZonesMap.png')
@@ -291,14 +291,14 @@ class Display():
             
             fig, ax = self.ParamPlot()
             for ssc in files.sscat:
-                if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.txt') and ssc != 'all':
-                    self.Load(f'{files.input}/{cat}_{ssc}_EBSD.txt')
+                if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.csv') and ssc != 'all':
+                    self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
                     self.df = self.df[(self.df['x'] > minX) & (self.df['x'] < maxX)]
                     self.df = self.df[(self.df['y'] > minY) & (self.df['y'] < maxY)]
                     ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = self.param.loc[ssc, 'edgecolor'], facecolor = self.param.loc[ssc, 'facecolor'], cmap = None, norm = 'norm', alpha = 0.6)
                     
-            if os.path.exists(f'{files.input}/{cat}_Boundaries.txt'):
-                self.Load(f'{files.input}/{cat}_Boundaries.txt')
+            if os.path.exists(f'{files.input}/{cat}_Boundaries.csv'):
+                self.Load(f'{files.input}/{cat}_Boundaries.csv')
                 self.df = self.df[(self.df['x'] > minX) & (self.df['x'] < maxX)]
                 self.df = self.df[(self.df['y'] > minY) & (self.df['y'] < maxY)]
                 ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'dimgray', cmap = None, norm = 'norm')
@@ -325,11 +325,11 @@ class Display():
     def SelectPoints(self, files, cat):
         fig = plt.figure()
         for ssc in files.sscat:
-            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.txt') and ssc != 'all':
-                self.Load(f'{files.input}/{cat}_{ssc}_EBSD.txt')
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.csv') and ssc != 'all':
+                self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
                 plt.scatter(self.df['x'], self.df['y'], color = self.param.loc[ssc, 'facecolor'], s = 0.005)
-        if os.path.exists(f'{files.input}/{cat}_Boundaries.txt'):
-            self.Load(f'{files.input}/{cat}_Boundaries.txt')
+        if os.path.exists(f'{files.input}/{cat}_Boundaries.csv'):
+            self.Load(f'{files.input}/{cat}_Boundaries.csv')
             plt.scatter(self.df['x'], self.df['y'], color = 'black', s = 0.005, picker=True, pickradius=2)
         plt.axis('off')
         plt.axis('scaled')
@@ -337,8 +337,8 @@ class Display():
         self.cat = cat
         def click(event):
             print(f'{self.cat}&{event.button}&{event.x}&{event.y}&{event.xdata}&{event.ydata}')
-            if os.path.exists(f'{files.output}/points.txt') == False:
-                with open(f'{self.output}/points.txt', 'w') as file:
+            if os.path.exists(f'{files.output}/points.csv') == False:
+                with open(f'{self.output}/points.csv', 'w') as file:
                     file.write('cat&point&x&y&xdata&ydata\n')
             
             if event.dblclick:
@@ -351,7 +351,7 @@ class Display():
                 plt.scatter(event.xdata, event.ydata, facecolor = 'white', edgecolor = 'purple', marker = 'X', s = 50)
                 point = 'data'
                 
-            with open(f'{self.output}/points.txt', 'a') as file:
+            with open(f'{self.output}/points.csv', 'a') as file:
                 file.write(f'{self.cat}&{point}&{event.x}&{event.y}&{event.xdata}&{event.ydata}\n')
                 
         cid = fig.canvas.mpl_connect('button_press_event', click)
@@ -361,27 +361,27 @@ class Display():
     def BoundariesMap(self, files, cat):
         res = self.samples.loc[cat, 'XStep']
         fig, ax = self.ParamPlot()
-        if os.path.exists(f'{files.input}/{cat}_Boundaries.txt'):
-            self.Load(f'{files.input}/{cat}_Boundaries.txt')
+        if os.path.exists(f'{files.input}/{cat}_Boundaries.csv'):
+            self.Load(f'{files.input}/{cat}_Boundaries.csv')
             ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = None, norm = 'norm')
             
-            self.Load(f'{files.input}/{cat}_InnerBoundaries.txt')
+            self.Load(f'{files.input}/{cat}_InnerBoundaries.csv')
             ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'blue', cmap = None, norm = 'norm')
             
             self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
             
             plt.axis('off')
             plt.axis('scaled')
-            self.Save(f'{files.output}/{cat}_Boundaries.png')
+            self.Save(f'{files.output}/{cat}_BoundariesMap.png')
             
 
     def FieldMap(self, files, cat):
         res = self.samples.loc[cat, 'XStep']
         fig, ax = self.ParamPlot()
                 
-        ebsd = self.Load(f'{files.input}/{cat}_all_EBSD.txt')
+        ebsd = self.Load(f'{files.input}/{cat}_all_EBSD.csv')
         if self.field not in self.df.columns:
-            grains = self.Load(f'{files.input}/{cat}_all_Grains.txt')
+            grains = self.Load(f'{files.input}/{cat}_all_Grains.csv')
             ebsd = ebsd.merge(grains, left_on='grain', right_on='id' , how='outer')
         
         if self.minimum == 'all':
@@ -391,11 +391,11 @@ class Display():
         
         sscat = [ssc for ssc in files.sscat if ssc != 'all']
         for ssc in sscat:
-            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.txt'):
-                ebsd = self.Load(f'{files.input}/{cat}_{ssc}_EBSD.txt')
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.csv'):
+                ebsd = self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
                 
                 if self.field not in self.df.columns:
-                    grains = self.Load(f'{files.input}/{cat}_{ssc}_Grains.txt')
+                    grains = self.Load(f'{files.input}/{cat}_{ssc}_Grains.csv')
                     ebsd = ebsd.merge(grains, left_on='grain', right_on='id' , how='outer')
 
                 if self.color == 'sscat':
@@ -406,8 +406,11 @@ class Display():
                 ax = self.PlotPatch(ax, cat, ebsd, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = self.colorScale, norm = self.normScale, array = self.field)
 
         if self.boundaries == True:
-            self.Load(f'{files.input}/{cat}_Boundaries.txt')
+            self.Load(f'{files.input}/{cat}_Boundaries.csv')
             ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = None, norm = 'norm')
+            boundaries = 'Boundaries'
+        else:
+            boundaries = 'Noboundaries'
             
         self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
         
@@ -416,7 +419,7 @@ class Display():
         
         plt.axis('off')
         plt.axis('scaled')
-        self.Save(f'{files.output}/{cat}_{self.field}Map.png')
+        self.Save(f'{files.output}/{cat}_Field{self.field}{boundaries}Map.png')
         
    
 
@@ -424,14 +427,16 @@ class Display():
         res = self.samples.loc[cat, 'XStep']
         fig, ax = self.ParamPlot()
         for ssc in files.sscat:
-            if os.path.exists(f'{files.input}/{cat}_{ssc}_Grains.txt'):
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_Grains.csv'):
             
-                grains = self.Load(f'{files.input}/{cat}_{ssc}_Grains.txt', sort = True)
-                ebsd = self.Load(f'{files.input}/{cat}_{ssc}_EBSD.txt')
+                grains = self.Load(f'{files.input}/{cat}_{ssc}_Grains.csv', sort = True)
+                ebsd = self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
                 
                 ebsd = ebsd.merge(grains, left_on = 'grain', right_on = 'id', how = 'outer')
 
-                for s in ['rex', 'porph']:
+                subcat = [s for s in self.subcat if s != 'all']
+                
+                for s in subcat:
                     sub = ebsd[ebsd[f'{self.sort}'] == s]
                     xx = sub['x'].to_numpy()
                     yy = sub['y'].to_numpy()
@@ -443,23 +448,23 @@ class Display():
                     #ax.scatter(sub['x'], sub['y'], s = 0.01, color=self.param.loc[s, 'color'])
                     
         if self.boundaries == True:
-            self.Load(f'{files.input}/{cat}_Boundaries.txt')
+            self.Load(f'{files.input}/{cat}_Boundaries.csv')
             ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = None, norm = 'norm')
             boundaries = 'Boundaries'
         else:
-            boundaries = False
+            boundaries = 'Noboundaries'
             
         self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
         plt.axis('off')
         plt.axis('scaled')
-        self.Save(f'{files.output}/{cat}_Sort{self.sort}{boundaries}.png')
+        self.Save(f'{files.output}/{cat}_Sort{self.sort}{boundaries}Map.png')
                 
                
     def ColorBar(self, files, cat):
     
-        ebsd = self.Load(f'{files.input}/{cat}_all_EBSD.txt')
+        ebsd = self.Load(f'{files.input}/{cat}_all_EBSD.csv')
         if self.field not in self.df.columns:
-            grains = self.Load(f'{files.input}/{cat}_all_Grains.txt')
+            grains = self.Load(f'{files.input}/{cat}_all_Grains.csv')
             ebsd = ebsd.merge(grains, left_on='grain', right_on='id' , how='outer')
         
         if self.minimum == None:
@@ -489,7 +494,7 @@ class Display():
 
     def Pie(self, files, file = None):
         if file == None:
-            self.Load(f'{files.stats}/resume.txt')
+            self.Load(f'{files.stats}/resume.csv')
             self.df.index = self.df.id
         else:
             self.Load(file)
@@ -517,7 +522,7 @@ class Display():
 
     def PieSubcat(self, files, file = None):
         if file == None:
-            self.Load(f'{files.stats}/resume.txt')
+            self.Load(f'{files.stats}/resume.csv')
             self.df.index = self.df.id
         else:
             self.Load(file)
@@ -548,9 +553,9 @@ class Display():
 
 
     def Histogram(self, files, cat, sscat):
-        self.Load(f'{files.input}/{cat}_{sscat}_Grains.txt', sort = True)
+        self.Load(f'{files.input}/{cat}_{sscat}_Grains.csv', sort = True)
         
-        area = pd.read_csv(f'{files.stats}/resume.txt', sep = '&')
+        area = pd.read_csv(f'{files.stats}/resume.csv', sep = '&')
         area.index = area.id
         neo = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%sscatArea']*100, 2)
         neo2 = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%catArea']*100, 2)
