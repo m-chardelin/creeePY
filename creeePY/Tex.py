@@ -11,7 +11,7 @@ class Tex():
                         
         self.__dict__.update(kwargs)
 
-        self.area = pd.read_csv(f'{files.stats}/resume.txt', sep = ',')
+        self.area = pd.read_csv(f'{files.stats}/resume.csv', sep = ',')
 
         #### Functions
     
@@ -44,7 +44,7 @@ class Tex():
 
             if iterMineral == True:
                 for ssc in files.sscat:
-                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.txt'):
+                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.csv'):
                         func(files, c, ssc)
 
 

@@ -31,7 +31,7 @@ class Files():
 
             if iterMineral == True:
                 for ssc in files.sscat:
-                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.txt'):
+                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.csv'):
                         func(files, c, ssc)
 
     
@@ -227,8 +227,8 @@ class Files():
                     
                 names = {'id': f'{it[1]}_{it[2]}_{it[3]}', 'cat': it[0], 'sscat': it[1], 'subcat': it[2], 'sort': it[3]}
 
-                if os.path.exists(f'{files.input}/{it[0]}_{it[1]}_{self.table}.txt'):
-                    self.Load(f'{files.input}/{it[0]}_{it[1]}_{self.table}.txt')
+                if os.path.exists(f'{files.input}/{it[0]}_{it[1]}_{self.table}.csv'):
+                    self.Load(f'{files.input}/{it[0]}_{it[1]}_{self.table}.csv')
                     
                     if names['subcat'] == 'all':
                         names['id'] = f'{it[1]}_{it[2]}'
@@ -256,7 +256,7 @@ class Files():
                 files = [file for file in files if e not in file]
                 
         for file in files:
-            file = file.replace('.txt', '')
+            file = file.replace('.csv', '')
             try:
                 writer = pd.ExcelWriter(f'{destination}/{file}.xlsx', engine='xlsxwriter')
                 self.Load(f'{source}/{file}')

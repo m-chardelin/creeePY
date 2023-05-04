@@ -11,9 +11,9 @@ class Statistics():
         
         self.__dict__.update(kwargs)
 
-        self.samples = pd.read_csv(f'{files.folder}/samples.txt', sep = '&', index_col = 'cat')
+        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = '&', index_col = 'cat')
         
-        with open(f'{files.folder}/resolution.txt', 'w') as file:
+        with open(f'{files.folder}/resolution.csv', 'w') as file:
             file.write('cat\tdata\tvalue\n')
      
     def Load(self, table, sort = False):
@@ -35,7 +35,7 @@ class Statistics():
 
             if iterMineral == True:
                 for ssc in files.sscat:
-                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.txt'):
+                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.csv'):
                         func(files, c, ssc)
                         
                         
@@ -44,7 +44,7 @@ class Statistics():
         for i in [5, 6, 7, 8]:
             try:
                 line = linecache.getline(f'{files.ctf}/{cat}.ctf', i)
-                with open(f'{files.folder}/resolution.txt', 'a') as file:
+                with open(f'{files.folder}/resolution.csv', 'a') as file:
                     file.write(f'{cat}\t{line}')
             except:
                 pass
@@ -52,7 +52,7 @@ class Statistics():
                 
     def Res(self, files):
         """Inclu la table des résolutions à la table des échantillons principaux"""
-        df = pd.read_csv(f'{files.folder}/resolution.txt', sep = '\t')
+        df = pd.read_csv(f'{files.folder}/resolution.csv', sep = '\t')
         ind = []
         for i in df.index:
             ind.append(str(df.loc[i, 'cat']) + '_' + str(df.loc[i, 'data']))
@@ -60,8 +60,8 @@ class Statistics():
         for cat in set(df['cat']):
             for d in set(df['data']):
                 self.samples.loc[cat, d] = df.loc[f'{cat}_{d}', 'value']
-        self.samples.to_csv(f'{files.folder}/samples.txt', sep = '&')
-        self.samples = pd.read_csv(f'{files.folder}/samples.txt', sep = '&', index_col = 'cat')
+        self.samples.to_csv(f'{files.folder}/samples.csv', sep = '&')
+        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = '&', index_col = 'cat')
         
         
     def Combine(self, files, cat):
@@ -74,15 +74,15 @@ class Statistics():
             pass
             
         for inp in self.inp:
-            if os.path.exists(f'{files.input}/{cat}_{inp}_{self.table}.txt'):
-                self.Load(f'{files.input}/{cat}_{inp}_{self.table}.txt')
+            if os.path.exists(f'{files.input}/{cat}_{inp}_{self.table}.csv'):
+                self.Load(f'{files.input}/{cat}_{inp}_{self.table}.csv')
                 if self.out == 'all':
                     self.df['sscat'] = inp
                 grains = pd.concat([grains, self.df])
 
         if grains.shape[0] > 0:
             grains.sort_values(by = ['id'])
-            grains.to_csv(f'{files.output}/{cat}_{self.out}_{self.table}.txt', sep = '&', index = None)
+            grains.to_csv(f'{files.output}/{cat}_{self.out}_{self.table}.csv', sep = '&', index = None)
 
 
 
@@ -102,7 +102,7 @@ class Statistics():
 
     def Sort(self, files, cat, sscat):
         """Tri des recristallisations et des porphyroclastes selon les valeurs indiquées et les colonnes indiquées"""
-        self.Load(f'{files.input}/{cat}_{sscat}_Grains.txt')
+        self.Load(f'{files.input}/{cat}_{sscat}_Grains.csv')
         
         if 'EGD' not in self.df.columns:
             self.df = self.Calculate(files, cat, self.sortRes)
@@ -115,7 +115,7 @@ class Statistics():
             self.df.loc[self.df['GOS'] > 1, f'{self.column}{self.crit}'] = 'porph'
             self.df.loc[self.df['GOS'] <= 1, f'{self.column}{self.crit}'] = 'rex'
             self.df.loc[self.df['EGD'] > 400, f'{self.column}{self.crit}'] = 'porph'
-            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.txt', sep = '&', index = None)
+            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = '&', index = None)
         else:
             self.crit = self.value
             self.val = self.value
@@ -123,11 +123,11 @@ class Statistics():
         if self.crit != 'mixte':
             self.df.loc[self.df[self.column] > self.val, f'{self.column}{self.crit}'] = 'porph'
             self.df.loc[self.df[self.column] <= self.val, f'{self.column}{self.crit}'] = 'rex'
-            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.txt', sep = '&', index = None)
+            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = '&', index = None)
             
         if sscat == 'Amphibole':
             self.df[f'{self.column}{self.crit}'] = 'rex'
-            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.txt', sep = '&', index = None)
+            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = '&', index = None)
 
 
     def DescribeDf(self, df):
@@ -149,8 +149,8 @@ class Statistics():
             
             names = {'id': f'{it[0]}_{it[1]}_{it[2]}_{it[3]}', 'cat': it[0], 'sscat': it[1], 'subcat': it[2], 'sort': it[3]}
             
-            if os.path.exists(f'{files.input}/{it[0]}_{it[1]}_{self.table}.txt'):
-                self.Load(f'{files.input}/{it[0]}_{it[1]}_{self.table}.txt')
+            if os.path.exists(f'{files.input}/{it[0]}_{it[1]}_{self.table}.csv'):
+                self.Load(f'{files.input}/{it[0]}_{it[1]}_{self.table}.csv')
                  
                 if names['subcat'] == 'all':
                     describe = self.DescribeDf(self.df)
@@ -168,15 +168,15 @@ class Statistics():
                 self.stats = pd.concat([self.stats, describe])
         
         self.stats = self.stats.drop_duplicates(keep = 'last')
-        self.stats.to_csv(f'{files.output}/{cat}_{self.stat}.txt', sep = '&', index = None)
+        self.stats.to_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = '&', index = None)
         
         
     def IntermediaryCalculations(self, files, cat, sscat):
         """Calcule les valeurs d'un champ * les coefficients de l'aire pour chaque grain, garde en mémoire les tri effectués"""
         
-        grains = self.Load(f'{files.input}/{cat}_{sscat}_Grains.txt')
+        grains = self.Load(f'{files.input}/{cat}_{sscat}_Grains.csv')
         
-        area = pd.read_csv(f'{files.input}/{cat}_GrainsStats.txt', sep = '&')
+        area = pd.read_csv(f'{files.input}/{cat}_GrainsStats.csv', sep = '&')
         area = area[area['operation'] == 'sum']
         area.index = area['id']
         
@@ -198,19 +198,19 @@ class Statistics():
         for p in self.ponderation:
             self.calculations[f'pond{p}'] = grains[p]*self.calculations['pondArea']
             
-        self.calculations.to_csv(f'{files.output}/{cat}_{sscat}_IntermediaryCalculations.txt', sep = '&', index = None)
+        self.calculations.to_csv(f'{files.output}/{cat}_{sscat}_IntermediaryCalculations.csv', sep = '&', index = None)
         
 
     def AreaResume(self, files, cat):
         """Concatène les tables pour une opération statistique données, avec les bons index, calcule les rapports de surface selon les différentes catégories et calcule les variables pondérées par la surface"""
     
-        if os.path.exists(f'{files.output}/resume.txt'):
-            self.resume = pd.read_csv(f'{files.output}/resume.txt', sep = '&')
+        if os.path.exists(f'{files.output}/resume.csv'):
+            self.resume = pd.read_csv(f'{files.output}/resume.csv', sep = '&')
         else:
             self.resume = pd.DataFrame()
      
-        intStats = self.Load(f'{files.input}/{cat}_IntermediaryStats.txt')
-        grainsStats = self.Load(f'{files.input}/{cat}_GrainsStats.txt')
+        intStats = self.Load(f'{files.input}/{cat}_IntermediaryStats.csv')
+        grainsStats = self.Load(f'{files.input}/{cat}_GrainsStats.csv')
         
         sum = grainsStats[grainsStats['operation'] == 'sum']
         intStats = intStats[intStats['operation'] == 'sum']
@@ -257,13 +257,13 @@ class Statistics():
                     except:
                         pass
                         
-        self.resume.to_csv(f'{files.output}/resume.txt', sep = '&', index = None)
+        self.resume.to_csv(f'{files.output}/resume.csv', sep = '&', index = None)
 
   
     def SortCategories(self, files):
         """Trie les catégories de lames selon les critères définis"""
         
-        self.resume = pd.read_csv(f'{files.output}/resume.txt', sep = '&', index_col = 'id')
+        self.resume = pd.read_csv(f'{files.output}/resume.csv', sep = '&', index_col = 'id')
         
         for it in list(product(files.cat, self.sort)):
         
@@ -313,15 +313,15 @@ class Statistics():
             #except:
             #    pass
                 
-        self.samples.to_csv(f'{files.output}/samples.txt', sep = '&')
+        self.samples.to_csv(f'{files.output}/samples.csv', sep = '&')
 
 
     def CalculateMeanGrains(self, files, cat):
         """Calcule les grandeurs moyennes à partir des pixels pour chaques grains, ne garde que les colonnes voulues """
         for ssc in files.sscat:
-            if os.path.exists(f'{files.input}/{cat}_{ssc}_{self.table1}.txt'):
-                table1 = self.Load(f'{files.input}/{cat}_{ssc}_{self.table1}.txt')
-                print(f'{files.input}/{cat}_{ssc}_{self.table1}.txt')
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_{self.table1}.csv'):
+                table1 = self.Load(f'{files.input}/{cat}_{ssc}_{self.table1}.csv')
+                print(f'{files.input}/{cat}_{ssc}_{self.table1}.csv')
                 
                 df = pd.DataFrame()
                 id = list(set(table1['grain']))
@@ -343,7 +343,7 @@ class Statistics():
                     except:
                         pass
                     
-                table2 = self.Load(f'{files.input}/{cat}_{ssc}_{self.table2}.txt')
+                table2 = self.Load(f'{files.input}/{cat}_{ssc}_{self.table2}.csv')
                 
                 table2['id'] = table2['id'].astype(int)
                 
@@ -354,7 +354,7 @@ class Statistics():
                 
                 table2 = table2.merge(df, on = 'id', how = 'outer')
             
-                table2.to_csv(f'{files.output}/{cat}_{ssc}_{self.name}.txt', sep = '&', index = None)
+                table2.to_csv(f'{files.output}/{cat}_{ssc}_{self.name}.csv', sep = '&', index = None)
                     
 
     # COMBINER DES DATAFRAMES EN NE GARDANT QUE LES BONNES COLONNES
