@@ -17,15 +17,15 @@ files.SetSubFolders(files.tex, ['figures', 'text'])
 files.CleanFiles([files.calculations, files.display, files.graphs, files.ctf, files.stats])
 
 # copie des fichiers utiles dans les répertoires
-files.CopyFiles(dataClean, [files.ctf], extension = '.ctf', exception = ['r_'])
+files.CopyFiles(dataClean, [files.ctf], extension = '.ctf', exception = ['r.ctf'])
 files.CopyFiles(f'{tasks}/Grains', [files.display], exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
-files.CopyFiles(f'{tasks}/EBSD', [files.display], extension = 'txt', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'png', 'eps'])
-files.CopyFiles(f'{tasks}/Boundaries', [files.display], extension = 'txt', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
-files.CopyFiles(f'{tasks}/Neighbors', [files.display, files.calculations], extension = 'txt')
+files.CopyFiles(f'{tasks}/EBSD', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'png', 'eps'])
+files.CopyFiles(f'{tasks}/Boundaries', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
+files.CopyFiles(f'{tasks}/Neighbors', [files.display, files.calculations], extension = 'csv')
 files.CopyFiles(f'{tasks}/CPO', [files.figures], extension = 'eps')
 files.CopyFiles(f'{tasks}/ipf', [files.figures], extension = 'eps')
 
-files.SetCats(f'{tasks}/Grains', '.txt')
+files.SetCats(f'{tasks}/Grains', '.csv')
 
 # statistiques
 stats = Statistics.Statistics(files)
@@ -39,7 +39,6 @@ for table in ['Grains', 'EBSD']:
     stats.SetParam(inp = ['Anorthite', 'Bytownite', 'Hornblende'], out = 'Plagioclase')
     stats.Iteration(files, stats.Combine)
     files.SetFiles(inp = files.display, out = files.display, table = 'Grains')
-    files.SetCats(files.display, '.txt')
     stats.SetParam(inp = files.sscat, out = 'all')
     stats.Iteration(files, stats.Combine)
 
@@ -48,7 +47,7 @@ for table in ['Grains', 'EBSD']:
 
 files.CopyFiles(files.display, [files.calculations], exception = ['r_', 'EBSD', 'Boundaries'])
 
-files.SetCats(files.display, '.txt')
+files.SetCats(files.display, '.csv')
 
 # table des résolutions pour les ctf
 stats.Iteration(files, stats.GetRes)

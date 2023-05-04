@@ -10,12 +10,12 @@ files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'g
 
 files.SetSubFolders(files.tex, ['figures', 'text'])
 
-files.CopyFiles(files.calculations, [files.display], extension = 'txt')
+files.CopyFiles(files.calculations, [files.display], extension = 'csv')
 
 # Display
 
 files.SetFiles(inp = files.display, out = files.plot)
-files.SetCats(files.display, '.txt')
+files.SetCats(files.display, '.csv')
 disp = Display.Display(files)
 
 columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
@@ -25,28 +25,23 @@ for eps in [False, True]:
     files.SetFiles(inp = files.display, out = files.plot)
     disp.SetParam(fontFamily = 'serif', fontSize = 18, height = 30, width = 15, dpi = 400, version = 'EN', eps = eps, sort = 'EGD_200', barLegend = '12 mm', grad = 6, text = None)
         
-    #disp.Iteration(files, disp.SelectPoints)
-    #disp.SetParam(quadri = True)
-    #disp.Iteration(files, disp.PointsMap)
-    #disp.SetParam(quadri = False)
-    #disp.Iteration(files, disp.PointsMap)
     #disp.Iteration(files, disp.PhasesMap)
     #disp.Iteration(files, disp.BoundariesMap)
 
     disp.SetParam(minimum = 0, maximum = 15, color = 'sscat', field = 'grod', colorbar = False, boundaries = True)
+    #disp.Iteration(files, disp.FieldMap)
+    #disp.Iteration(files, disp.ColorBar)
+
+    disp.SetParam(minimum = 'all', maximum = 'all', color = 'black', field = 'area', colorbar = False, boundaries = True, all = True)
     disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
-    disp.SetParam(minimum = None, maximum = None, color = 'black', field = 'area', colorbar = False, boundaries = True, all = True)
-    disp.Iteration(files, disp.FieldMap)
-    #disp.Iteration(files, disp.ColorBar)
-
-    disp.SetParam(minimum = None, maximum = None, color = 'teal', field = 'GOS', colorbar = False, boundaries = True, all = True)
+    disp.SetParam(minimum = 'all', maximum = 'all', color = 'teal', field = 'GOS', colorbar = False, boundaries = True, all = True)
     #disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 0, maximum = 4, color = 'sscat', field = 'kam', colorbar = False, boundaries = True)
-    #disp.Iteration(files, disp.FieldMap)
+    disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     for s in ['EGDmixte']:
@@ -64,7 +59,7 @@ for eps in [False, True]:
 
         disp.SetParam(height = 8, width = 10, bins = 40, density = False, task = 'Grains', weight = 'area', fontSize = 12)
         disp.SetParam(field = 'EGD', legend = 'EGD (µm)')
-        disp.Iteration(files, disp.Histogram, iterMineral = True)
+        #disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'shapeFactor', legend = 'Shape Factor')
         #disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'GOS', legend = 'GOS')
@@ -73,5 +68,5 @@ for eps in [False, True]:
 
 files.CopyFiles(files.plot, [files.figures], extension = 'eps')
 
-taskCat = ['PhasesMap', 'BoundariesMap', 'areaMap', 'kamMap', 'grodMap', 'histEGD', 'histshapeFactor', 'histGOS']
+taskCat = ['PhasesMap', 'BoundariesMap', 'kamMap', 'grodMap', 'histEGD', 'histshapeFactor', 'histGOS', 'SortEGD']
 files.SortFiles([files.plot], taskCat)

@@ -414,8 +414,6 @@ class Display():
             
         self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
         
-        self.minimum = None
-        self.maximum = None
         
         plt.axis('off')
         plt.axis('scaled')

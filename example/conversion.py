@@ -18,9 +18,7 @@ files.SetSubFolders(files.tex, ['figures', 'text'])
 # statistiques
 stats = Statistics.Statistics(files)
 
-files.SetCats(files.calculations, '.txt')
-
-files.cat = ['85ZA1c', '85ZA7b-newc']
+files.SetCats(files.calculations, '.csv')
 
 columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
 values = ['manuel', 'mixte', 2, 1, 1.5, 0.5, 200]
@@ -34,15 +32,15 @@ stats.SetParam(columns1 = ['id', 'grod', 'kam'], table1 = 'EBSD', table2 = 'Grai
 #stats.Iteration(files, stats.CalculateMeanGrains)
 
 # copie dans le dossier résultat pour archivage
-#files.SetSubFolders(files.results, ['xls', 'txt', 'fig', 'tables', 'fiches'])
-#files.CopyFiles(files.calculations, [files.txt])
-#files.CopyFiles(files.stats, [files.tables])
+files.SetSubFolders(files.results, ['xls', 'csv', 'fig', 'tables', 'fiches'])
+files.CopyFiles(files.calculations, [files.csv])
+files.CopyFiles(files.stats, [files.tables])
 
 # conversion en .xls
-#files.SetFiles(inp = files.txt, out = files.xls)
-#files.SetParam(table = 'Grains', subcat = ['all', 'rex', 'porph'], sort = stats.sort)
-#files.Iteration(files, files.CombineCatsXls)
-#files.SetParam(table = 'IntermediaryCalculations')
-#files.Iteration(files, files.CombineCatsXls)
-#files.ConvertXls(files.txt, files.xls, extension = '.txt')
+files.SetFiles(inp = files.csv, out = files.xls)
+files.SetParam(table = 'Grains', subcat = ['all', 'rex', 'porph'], sort = sort)
+files.Iteration(files, files.CombineCatsXls)
+files.SetParam(table = 'IntermediaryCalculations')
+files.Iteration(files, files.CombineCatsXls)
+#files.ConvertXls(files.txt, files.xls, extension = '.csv')
 

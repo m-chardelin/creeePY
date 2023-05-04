@@ -12,7 +12,7 @@ files.SetSubFolders(files.tex, ['figures', 'text'])
 # Display
 
 files.SetFiles(inp = files.tex, out = files.tex)
-files.SetCats(files.display, '.txt')
+files.SetCats(files.display, '.csv')
 
 ## LaTeX
 
