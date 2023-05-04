@@ -525,7 +525,7 @@ class Display():
         else:
             self.Load(file)
 
-        self.df = self.df[self.df['sort'] == f'{self.column}{self.value}']
+        self.df = self.df[self.df['sort'] == f'{self.sort}']
         self.df = self.df[(self.df['sscat'] != 'all') & (self.df['subcat'] != 'all')]
         
         for c in files.cat:
@@ -539,14 +539,14 @@ class Display():
             for ssc in sorted(set(cat.sscat)):
                 for s in sorted(set(cat.subcat)):
                     labels.append(f'{ssc}_{s}')
-                    values.append(cat.loc[f'{c}_{ssc}_{s}_{self.column}{self.value}', f'%catArea'])
+                    values.append(cat.loc[f'{c}_{ssc}_{s}_{self.sort}', f'%catArea'])
                     colours.append(self.param.loc[ssc, 'color'])
                     hatches.append(self.param.loc[s, 'hatches'])
 
             fig, ax = self.ParamPlot()
             values = np.nan_to_num(values)
             ax.pie(values, colors = colours, hatch = hatches, wedgeprops = {"edgecolor" : "black", 'linewidth': 1.5, 'antialiased': True})
-            self.Save(f'{files.output}/{c}_pieSubcat{self.column}{self.value}.png')
+            self.Save(f'{files.output}/{c}_pieSubcat{self.sort}.png')
 
 
 
@@ -585,7 +585,7 @@ class Display():
         self.Save(f'{files.output}/{cat}_{sscat}_all_hist{self.field}_weight{self.weight}.png')
 
         # weighted values
-        fig, axes = plt.subplots(1, 2, gridspec_kw = {'width_ratios': [2, 1]}, figsize=(self.width, self.height), dpi = self.dpi)
+        fig, axes = plt.subplots(1, 2, gridspec_kw = {'width_ratios': [2, 2]}, figsize=(self.width, self.height), dpi = self.dpi)
         plt.rcParams["font.family"] = self.fontFamily
         plt.rcParams["font.size"] = self.fontSize
 

@@ -1,2 +1,0 @@
-process;condition;A;s;mu;n;Q;T;p;q;s_P
-dislocation;dry;1.699e16;100;80e9;3;460e3;1473;1.5;2;2e9

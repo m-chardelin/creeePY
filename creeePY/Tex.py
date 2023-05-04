@@ -11,7 +11,7 @@ class Tex():
                         
         self.__dict__.update(kwargs)
 
-        self.area = pd.read_csv(f'{files.stats}/resume.csv', sep = ',')
+        self.area = pd.read_csv(f'{files.stats}/resume.csv', sep = '&')
 
         #### Functions
     
@@ -35,6 +35,10 @@ class Tex():
     def Save(self, files, file):
         with open(f'{files.output}/{file}.tex', 'w') as file:
             file.write(self.text)
+            
+            
+    def Convert(files, inputFormat, outputFormat):
+        os.system(f'for file in *.{inputFormat}; do convert $file "`basename $file .{inputFormat}`.{outputFormat}"; done')
             
     
     def Iteration(self, files, func, iterMineral = False):
@@ -86,23 +90,29 @@ class Tex():
         
         for c in files.cat:
             text = self.GetTxt(files, 'lameType')
-            img = PIL.Image.open(f'{files.texFigures}/{c}_PhasesMap.eps')
+            img = PIL.Image.open(f'{files.figures}/{c}_PhasesMap.eps')
             width, height = img.size
             
             if width / height > 1:
                 PARAM = 'width = \\linewidth'
+                rotAngle = 0
             elif width / height < 1:
                 PARAM = 'width = \\linewidth, angle = 90'
+                rotAngle = 90
             elif width / height == 1:
                 PARAM = 'height = 0.45\\paperheight'
+                rotAngle = 0
             
             text = text.replace('CAT', c)
             text = text.replace('PARAM', PARAM)
             text = text.replace('FIGURESDIR', files.figures)
+            text = text.replace('rotAngle', str(rotAngle))
+            
             
             self.ts = self.area[self.area['cat'] == c]
             self.ts = self.ts[self.ts['subcat'] == 'all']
-            self.ts = self.ts.sort_values(by = ['%Area_total'])
+            self.ts = self.ts.sort_values(by = ['%catArea'], ascending=False)
+            print(self.ts[['id', 'cat', 'sscat', '%catArea']])
             self.ts.index = np.arange(0, len(self.ts['sscat']), 1)
             for i in self.ts.index:
                 text = text.replace(f'mineral{i}', self.ts.loc[i, 'sscat'])

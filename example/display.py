@@ -33,7 +33,7 @@ for eps in [False, True]:
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 'all', maximum = 'all', color = 'black', field = 'area', colorbar = False, boundaries = True, all = True)
-    disp.Iteration(files, disp.FieldMap)
+    #disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 'all', maximum = 'all', color = 'teal', field = 'GOS', colorbar = False, boundaries = True, all = True)
@@ -41,7 +41,7 @@ for eps in [False, True]:
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 0, maximum = 4, color = 'sscat', field = 'kam', colorbar = False, boundaries = True)
-    disp.Iteration(files, disp.FieldMap)
+    #disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     for s in ['EGDmixte']:
@@ -53,13 +53,13 @@ for eps in [False, True]:
 
     for col, val in zip(columns, values):
 
-        disp.SetParam(column = col, value = val)
+        disp.SetParam(column = col, value = val, sort = f'{col}{val}')
         #disp.Pie(files)
         #disp.PieSubcat(files)
 
-        disp.SetParam(height = 8, width = 10, bins = 40, density = False, task = 'Grains', weight = 'area', fontSize = 12)
+        disp.SetParam(height = 5, width = 10, bins = 40, density = False, task = 'Grains', weight = 'area', fontSize = 14)
         disp.SetParam(field = 'EGD', legend = 'EGD (µm)')
-        #disp.Iteration(files, disp.Histogram, iterMineral = True)
+        disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'shapeFactor', legend = 'Shape Factor')
         #disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'GOS', legend = 'GOS')

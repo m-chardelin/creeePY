@@ -1,2 +1,0 @@
-process;condition;A,pmA;Q;pmQ;s_P;pms_P;T;pmT;p;q
-dislocation;dry;1;0.2;450;60;15;4;1218;418;0.5;2
