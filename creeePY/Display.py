@@ -595,17 +595,19 @@ class Display():
         #axes[0].hist(rex[self.field], density = False, bins = self.bins, color = 'gray', alpha = 0.4, weights = rex[self.weight])
 
         hist, bins = np.histogram(rex[self.field], weights = rex[self.weight], bins = self.bins)
-        axes[0].plot(list(bins)[0:self.bins], hist, color = 'gray')
-        axes[0].tick_params(axis = 'y', labelcolor = 'gray')
+        axes[0].plot(list(bins)[0:self.bins], hist, color = self.param.loc['rex', 'color'])
+        axes[0].tick_params(axis = 'y', labelcolor = self.param.loc['rex', 'color'])
         axes[0].set_ylim([np.min(hist), np.max(hist)])
         self.weights = rex[self.weight]
-        axes[0].yaxis.label.set_color('gray')
+        axes[0].yaxis.label.set_color(self.param.loc['rex', 'color'])
         self.ticks(axes[0])
 
         ax2 = axes[0].twinx()
         #ax2.hist(porph[self.field], density = False, bins = self.bins, color = 'black', alpha = 0.4, weights = porph[self.weight])
         hist, bins = np.histogram(porph[self.field], weights = porph[self.weight], bins = self.bins)
-        ax2.plot(list(bins)[0:self.bins], hist, color = 'black')
+        ax2.plot(list(bins)[0:self.bins], hist, color = self.param.loc['porph', 'color'])
+        ax2.tick_params(axis = 'y', labelcolor = self.param.loc['porph', 'color'])
+        ax2.yaxis.label.set_color(self.param.loc['porph', 'color'])
         ax2.set_ylim([np.min(hist), np.max(hist)])
         self.weights = porph[self.weight]
         self.ticks(ax2)
@@ -626,9 +628,10 @@ class Display():
         axes[0].set_ylabel('recristallisations %')
         ax2.set_ylabel('porphyroclastes %')
         ax3.set_xlabel(self.legend)
+        axes[0].set_xlabel(self.legend)
         ax3.set_ylabel('total %')
         
         fig.suptitle(f'{len(self.df[self.field])} grains, {neo}% neoblasts in mineral, {neo2}% in total thin section ({self.sort})')
-        #fig.tight_layout()
+        fig.tight_layout()
         self.Save(f'{files.output}/{cat}_{sscat}_subcat_hist{self.field}weight{self.weight}{self.sort}.png')
 

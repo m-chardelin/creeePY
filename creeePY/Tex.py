@@ -52,71 +52,91 @@ class Tex():
                         func(files, c, ssc)
 
 
-    def Area(self, files):
-        text = self.GetTxt(files, 'areaType')
-        txt = ''
-        for c in files.cat:
-            add = self.GetTxt(files, 'areaAdd')
-        
-            img = PIL.Image.open(f'{files.texFigures}/{c}_Area.eps')
-            width, height = img.size
-            
-            if width / height > 1:
-                PARAM = 'width = \\linewidth'
-            elif width / height < 1:
-                PARAM = 'width = \\linewidth, angle = 90'
-            elif width / height == 1:
-                PARAM = 'height = 0.45\\paperheight'
-                    
-            text = text.replace('textAdd', self.textAdd)
-            add = add.replace('CAT', c)
-            add = add.replace('PARAM', PARAM)
-            
-            txt = txt + add
-            
-        text = text.replace('includeFIELD', txt)
-        self.text = text.replace('FIGURESDIR', files.texFigures)
-
-        self.Save(files, 'area')
-            
-        os.system(f'cd {files.tex}')
-        os.chdir(f'{files.tex}')
-        os.system('pwd')
-        os.system(f'latex area.tex')
-        os.system(f'dvipdf area.dvi')
+    def addTEXT(self, files, name, cat, subcat, iter, rep = '', begin = 1):
     
+        if hasattr(self, 'ts') == False:
+            self.ts = self.area[self.area['cat'] == cat]
+            self.ts = self.ts[self.ts['subcat'] == subcat]
+            self.ts = self.ts.sort_values(by = ['%catArea'], ascending=False)
+            self.ts.index = np.arange(0, len(self.ts['sscat']), 1)
+        
+        text = ''
+        if iter == 1 :
+            end = len(self.ts['sscat'])
+        else:
+            end = len(self.ts['sscat'])
+            
+        while begin < end:
+            add = self.GetTxt(files, name)
+            add = add.replace('SUBCAT', subcat)
+            add = add.replace('CAT', cat)
+            add = add.replace(f'MINERAL1', self.ts.loc[begin, 'sscat'])
+            if begin + 1 in self.ts.index:
+                add = add.replace(f'MINERAL2', self.ts.loc[begin + 1, 'sscat'])
+            else:
+                add = add.replace('rep', 'blank_hist.eps')
+            text = text + add
+            begin += iter
+        return text
+        
+        
+    def GetParam(self, files, cat, name):
+        img = PIL.Image.open(f'{files.figures}/{cat}_{name}.eps')
+        width, height = img.size
+            
+        if width / height > 1:
+            PARAM = 'width = \\linewidth'
+            rotAngle = 0
+        elif width / height < 1:
+            PARAM = 'width = \\linewidth, angle = 90'
+            rotAngle = 90
+        elif width / height == 1:
+            PARAM = 'height = 0.45\\paperheight'
+            rotAngle = 0
+            
+        return PARAM, rotAngle
 
-    def ThinSection(self, files):
+
+    def Area(self, files, sort):
         
         for c in files.cat:
-            text = self.GetTxt(files, 'lameType')
-            img = PIL.Image.open(f'{files.figures}/{c}_PhasesMap.eps')
-            width, height = img.size
-            
-            if width / height > 1:
-                PARAM = 'width = \\linewidth'
-                rotAngle = 0
-            elif width / height < 1:
-                PARAM = 'width = \\linewidth, angle = 90'
-                rotAngle = 90
-            elif width / height == 1:
-                PARAM = 'height = 0.45\\paperheight'
-                rotAngle = 0
+        
+            text = self.GetTxt(files, 'areaType')
+        
+            PARAM, rotAngle = self.GetParam(files, c, f'Sort{sort}NoboundariesMap')
             
             text = text.replace('CAT', c)
             text = text.replace('PARAM', PARAM)
             text = text.replace('FIGURESDIR', files.figures)
             text = text.replace('rotAngle', str(rotAngle))
             
+            self.text = text
+            self.Save(files, 'ts')
             
-            self.ts = self.area[self.area['cat'] == c]
-            self.ts = self.ts[self.ts['subcat'] == 'all']
-            self.ts = self.ts.sort_values(by = ['%catArea'], ascending=False)
-            print(self.ts[['id', 'cat', 'sscat', '%catArea']])
-            self.ts.index = np.arange(0, len(self.ts['sscat']), 1)
-            for i in self.ts.index:
-                text = text.replace(f'mineral{i}', self.ts.loc[i, 'sscat'])
-  
+            os.system(f'cd {files.tex}')
+            os.chdir(f'{files.tex}')
+            os.system('pwd')
+            os.system(f'latex -jobname={c}_{sort} ts.tex')
+            os.system(f'dvipdf {c}_{sort}.dvi')
+    
+
+    def ThinSection(self, files):
+        
+        for c in files.cat:
+            text = self.GetTxt(files, 'lameType')
+            
+            PARAM, rotAngle = self.GetParam(files, c, 'PhasesMap')
+            
+            text = text.replace('CAT', c)
+            text = text.replace('PARAM', PARAM)
+            text = text.replace('FIGURESDIR', files.figures)
+            text = text.replace('rotAngle', str(rotAngle))
+            
+            cpo = self.addTEXT(files, 'addCPO', c, 'all', 1)
+            hist = self.addTEXT(files, 'addHIST', c, 'all', 2, 'CAT_MINERAL2_subcat_histEGDweightareaEGDmixte.eps')
+            
+            text = text.replace('CPO', cpo)
+            text = text.replace('HIST', hist)
 
             self.text = text
             self.Save(files, 'ts')
@@ -126,9 +146,7 @@ class Tex():
             os.system('pwd')
             os.system(f'latex -jobname={c} ts.tex')
             os.system(f'dvipdf {c}.dvi')
-
-        #self.Merge(files)
-        
+            
 
     def Merge(self, files):
 
