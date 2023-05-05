@@ -1,4 +1,0 @@
-plot&plotX&plotY&catXY&key&X&Y&color&facecolor&edgecolor&marker&alpha&table&label
-1&subcat&sscat&None&cat&EGD&SF&sscat&sscat&subcat&lithology&0.1&Grains&cat
-2&subcat&sscat&None&cat&EGD&EGD&sscat&sscat&subcat&lithology&0.1&Grains&cat
-3&subcat&sscat&None&cat&EGD&aspectRatio&sscat&sscat&subcat&lithology&0.1&Grains&cat
