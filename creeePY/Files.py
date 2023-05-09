@@ -101,7 +101,7 @@ class Files():
             self.sscat = sscat
 
    
-    def SortFiles(self, folders, liste):
+    def SortFiles(self, folders, liste, sep):
         """tri des données selon la liste de clefs données en argument :
             - vérifie parmi tous les fichiers d'un dossier ceux content les éléments
             - crée un dossier s'il n'existe pas déjà
@@ -110,7 +110,7 @@ class Files():
             ==> permet de classer la multitude de fichiers de sortie en des dossiers facilement consultables"""
         for folder in folders:
             for lis in liste:
-                files = [file for file in os.listdir(folder) if lis in file]
+                files = [file for file in os.listdir(folder) if f'{lis}{sep}' in file]
                 for file in files:
                     os.makedirs(f'{folder}/{lis}', exist_ok = True)
                     try:

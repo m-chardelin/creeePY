@@ -148,7 +148,6 @@ class Creep():
             S      strain rate               [s-1]
         '''
         
-        if kwargskwargs['Min']
         
         self.S = self.A * self.s**self.n * (1/self.d)**self.p  * self.fH2O**self.r * np.exp(self.alpha*self.phi) * np.exp( -self.Q /(self.R * self.T)) 
         
