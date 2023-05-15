@@ -28,7 +28,7 @@ class Plot():
 
 
     def Load(self, table, sort = False):
-        self.df = pd.read_csv(table, sep = ',')
+        self.df = pd.read_csv(table, sep = '&')
         
         if sort == True:
             self.subcat = set(self.df[self.sort])
@@ -94,6 +94,9 @@ class Plot():
             
             
     def PlotTernary(self, files, T, L, R, df, facecolor, edgecolor, marker):
+
+        df = self.Load(f'{files.input}/{df}.csv')
+        
         fig, ax = self.ParamPlot(1, 1, subplot_kw=dict(projection="ternary"))
         
         for i in df.index:
@@ -102,6 +105,13 @@ class Plot():
             right = df.loc[i, R]
 
             ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker )
+
+            if ls[2] in ['*', '.']:
+                self.s = 450
+            else:
+                self.s = 300
+
+
             ax.scatter(top, left, right, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
             #print(ls)
             #print(df.loc[i])
@@ -113,6 +123,115 @@ class Plot():
         self.Save(f'{files.output}/TernaryPlot_{T}{L}{R}.png')
 
             
+    def PlotScatterXY(self, files, X, Y, df, facecolor, edgecolor, marker, sep, sort = None):
+
+        df = pd.read_csv(f'{files.input}/{df}.csv', sep = ',')
+        
+        if sort != None:
+            df = df[df[sort[0]] == sort[1]]
+
+
+        fig, ax = self.ParamPlot(1, 1)
+        
+        for i in df.index:
+            x = df.loc[i, X]
+            y = df.loc[i, Y]
+            t = df.loc[i, 'cat']
+
+            ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker )
+
+            if ls[2] in ['*', '.']:
+                self.s = 450
+            else:
+                self.s = 300
+
+            ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
+            ax.annotate(t, (x, y))
+            #print(ls)
+            #print(df.loc[i])
+
+        ax.set_xlabel(X)
+        ax.set_ylabel(Y)
+
+        self.Save(f'{files.output}/Plot_{X}{Y}{sort[1]}ann.png')
+
+
+    def PlotScatterXY(self, files, X, Y, df, facecolor, edgecolor, marker, sep, sort = None):
+
+        df = pd.read_csv(f'{files.input}/{df}.csv', sep = ',')
+        
+        if sort != None:
+            df = df[df[sort[0]] == sort[1]]
+
+
+        fig, ax = self.ParamPlot(1, 1)
+        
+        for i in df.index:
+            x = df.loc[i, X]
+            y = df.loc[i, Y]
+            t = df.loc[i, 'cat']
+
+            ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker )
+
+            if ls[2] in ['*', '.']:
+                self.s = 450
+            else:
+                self.s = 300
+
+            ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
+            ax.annotate(t, (x, y))
+            #print(ls)
+            #print(df.loc[i])
+
+        ax.set_xlabel(X)
+        ax.set_ylabel(Y)
+
+        self.Save(f'{files.output}/Plot_{X}{Y}{sort[1]}ann.png')
+
+
+    def ColumnsPlot(self, files, plot = 'auto'):
+
+        plot = self.Load(f'{files.param}/plot.csv')
+
+        X = []
+        Y = []
+        IND = []
+
+        for x, y, ind in zip(plot.pX, plot.pY, plot.id):
+
+            df = self.Load(f'{files.output}/{df.csv}')
+
+            if x == 'auto' and y == 'auto':
+                X, Y, IND = self.XY(X, Y, IND, df.X. df.Y, ind)
+            if x == 'auto' and y != 'auto':
+                X, Y, IND = self.XY(X, Y, IND, df.X, y, ind)
+            if x != 'auto' and y == 'auto':
+                X, Y, IND = self.XY(X, Y, IND, x, df.Y, ind)
+        
+
+        self.plot pd.DataFrame(list(zip(IND, X, Y)), columns = ['id', 'X', 'Y'])
+        self.plot = self.plot.merge(plot, on = 'id', how = 'outer')
+
+
+    def XY(self, X, Y, IND, x, y, ind):
+            
+        xx, yy = list(product(x, y))
+        ind = [ind] * len(yy)
+        X = X + xx
+        Y = Y + yy
+        IND = IND + ind
+        return X, Y, IND
+
+    
+    def Iterate(self, files):
+
+
+        for x, y in zip(self.plot.X,):
+
+            
+
+
+
 
     def Save(self, title):
         if self.eps == False:

@@ -259,7 +259,81 @@ class Statistics():
                         
         self.resume.to_csv(f'{files.output}/resume.csv', sep = '&', index = None)
 
-  
+ 
+    def ModalResume(self, files):
+
+        self.resume = self.Load(f'{files.stats}/resume.csv')
+        self.resume.index = self.resume['id']
+        self.modalResume = pd.DataFrame()
+
+        for c, ssc in list(product(files.cat, files.sscat)):
+            
+            try:
+                a = self.resume[(self.resume['cat'] == c) & (self.resume['sscat'] == ssc) & (self.resume['subcat'] == 'all')]
+                a = a['%catArea']
+                b = self.resume[(self.resume['cat'] == c) & (self.resume['sscat'] == ssc) & (self.resume['subcat'] == 'all')]
+                b = b['area']
+                
+                self.modalResume.loc[c, ssc] = a[0]
+                self.modalResume.loc[c, f'area{ssc}'] = b[0]
+                self.modalResume.loc[c, 'cat'] = c
+            except:
+                self.modalResume.loc[c, ssc] = 0
+                self.modalResume.loc[c, f'area{ssc}'] = 0
+                self.modalResume.loc[c, 'cat'] = c
+
+
+        self.modalResume = self.samples.merge(self.modalResume, on = 'cat', how = 'outer')
+
+        df = self.modalResume
+
+        df['Al'] = df['areaClinopyroxene'] + df['areaPlagioclase'] + df['areaSpinelle'] + df['areaAmphibole']
+        df['Cpx'] = df['areaClinopyroxene'] / df['Al']
+        df['PlSp'] = (df['areaPlagioclase'] + df['areaSpinelle']) / df['Al']
+        df['Amph'] = df['areaAmphibole'] / df['Al']
+        
+        df['OlOpxAl'] = df['areaOlivine'] + df['areaOrthopyroxene'] + df['Al']
+        df['Ol'] = df['areaOlivine'] / df['OlOpxAl']
+        df['Opx'] = df['areaOrthopyroxene'] / df['OlOpxAl']
+        df['CpxPlSpAmph'] = df['Al'] / df['OlOpxAl']
+
+        self.modalResume = df
+
+        self.modalResume.to_csv(f'{files.output}/modalResume.csv', sep = '&', index = None)
+     
+
+    def TernaryComposition(self, df):
+
+            name = ''.join(self.names)
+
+            for i, j in zip(['a', 'b', 'c'], self.names):
+                setattr(self, i, j)
+            
+            for i, j in zip(['va', 'vb', 'vc'], self.values):
+                setattr(self, i, j)
+                if '_' in j:
+                    elements = j.split('_')
+                    df[i] = df[elements[0]]
+                    print(elements[0])
+                    for e in range(1, len(elements)):
+                        df[i] = df[i] + df[elements[e]]
+                        print(elements[e])
+                    setattr(self, f'{i}col', df[i])
+                else:
+                    setattr(self, f'{i}col', df[j])
+            df['va'] = self.vacol
+            df['vb'] = self.vbcol
+            df['vc'] = self.vccol
+            df[name] = self.vacol + self.vbcol + self.vccol
+
+            for i, j in zip([self.a, self.b, self.c], [self.vacol, self.vbcol, self.vccol]):
+                df[i] = j/df[name]
+
+            df[f'control{name}'] = df[self.a] + df[self.b] + df[self.c]
+
+            return df
+
+
     def SortCategories(self, files):
         """Trie les catégories de lames selon les critères définis"""
         
