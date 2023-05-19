@@ -223,6 +223,7 @@ class Display():
         if self.eps == True:
             title = title.replace('.png', '.eps')
             plt.savefig(title, dpi = 600, bbox_inches = 'tight', pad_inches = 0, format = 'eps')
+        plt.close()
         plt.clf()
 
 

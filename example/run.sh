@@ -1,9 +1,6 @@
 #!/bin/bash
 
-dir='/Users/marialinechardelin/current/Zabargad/3_4_deformation/4_analysis'
-example=$scripts/creeePY/example
-
-cp -r $example/* $dir
+./get.py
 
 # matlab..... command line ? lancer la macro depuis python !
 
@@ -14,3 +11,5 @@ cp -r $example/* $dir
 #python3 plot.py
 python3 display.py
 #python3 tex.py
+
+./put.py

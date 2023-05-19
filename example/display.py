@@ -33,7 +33,7 @@ for eps in [True]:
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 'all', maximum = 'all', color = 'black', field = 'area', colorbar = False, boundaries = True, all = True)
-    #disp.Iteration(files, disp.FieldMap)
+    disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 'all', maximum = 'all', color = 'teal', field = 'GOS', colorbar = False, boundaries = True, all = True)
@@ -48,7 +48,7 @@ for eps in [True]:
         disp.SetParam(subcat = ['rex', 'porph'], sort = s, boundaries = True)
         #disp.Iteration(files, disp.SortMap)
         disp.SetParam(sort = s, boundaries = False)
-        #disp.Iteration(files, disp.SortMap)
+        disp.Iteration(files, disp.SortMap)
 
 
     for col, val in zip(columns, values):
@@ -59,7 +59,7 @@ for eps in [True]:
 
         disp.SetParam(height = 6, width = 9, bins = 40, density = False, task = 'Grains', weight = 'area', fontSize = 14)
         disp.SetParam(field = 'EGD', legend = 'EGD (µm)')
-        disp.Iteration(files, disp.Histogram, iterMineral = True)
+        #disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'shapeFactor', legend = 'Shape Factor')
         #disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'GOS', legend = 'GOS')
