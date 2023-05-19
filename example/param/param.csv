@@ -1,0 +1,22 @@
+value&color&facecolor&marker&hatches&alpha&edgecolor
+Olivine&red&red&o&&1&red
+Orthopyroxene&blue&blue&s&&1&blue
+Clinopyroxene&lime&lime&D&&1&lime
+Spinelle&magenta&magenta&*&&1&magenta
+Plagioclase&yellow&yellow&+&&1&yellow
+Amphibole&aquamarine&aquamarine&.&&1&aquamarine
+Calcite&grey&grey&_&&1&grey
+Chlorite&grey&grey&_&&1&grey
+notIndexed&white&white&.&&1&white
+nan&white&white&.&&1&white
+rex&orange&orange&o&&1&orange
+porph&purple&purple&o&/&1&purple
+all&black&black&o&/&1&black
+south&black&black&.&&1&black
+center&grey&grey&.&&1&black
+north&white&white&.&&1&black
+protomylonite BT&grey&grey&*&&1&grey
+protomylonite HT&grey&grey&.&&1&grey
+mylonite HT&grey&grey&s&&1&grey
+mylonite BT&grey&grey&D&&1&grey
+ultramylonite&grey&grey&ˆ&&1&grey

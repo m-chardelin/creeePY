@@ -18,7 +18,6 @@ files.SetCats(files.display, '.csv')
 
 files.SetFiles(inp = files.text, out = files.tex)
 tex = Tex.Tex(files)
-#tex.textAdd = f'{stats.column},   {stats.value}'
-#tex.Area(files)
-tex.ThinSection(files)
-#tex.Merge(files)
+
+tex.Area(files, sort = 'EGDmixte')
+#tex.ThinSection(files)

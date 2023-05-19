@@ -101,23 +101,26 @@ class Tex():
         
         for c in files.cat:
         
-            text = self.GetTxt(files, 'areaType')
-        
-            PARAM, rotAngle = self.GetParam(files, c, f'Sort{sort}NoboundariesMap')
+            try:
+                text = self.GetTxt(files, 'areaType')
             
-            text = text.replace('CAT', c)
-            text = text.replace('PARAM', PARAM)
-            text = text.replace('FIGURESDIR', files.figures)
-            text = text.replace('rotAngle', str(rotAngle))
-            
-            self.text = text
-            self.Save(files, 'ts')
-            
-            os.system(f'cd {files.tex}')
-            os.chdir(f'{files.tex}')
-            os.system('pwd')
-            os.system(f'latex -jobname={c}_{sort} ts.tex')
-            os.system(f'dvipdf {c}_{sort}.dvi')
+                PARAM, rotAngle = self.GetParam(files, c, f'Sort{sort}NoboundariesMap')
+                
+                text = text.replace('CAT', c)
+                text = text.replace('PARAM', PARAM)
+                text = text.replace('FIGURESDIR', files.figures)
+                text = text.replace('rotAngle', str(rotAngle))
+                
+                self.text = text
+                self.Save(files, 'ts')
+                
+                os.system(f'cd {files.tex}')
+                os.chdir(f'{files.tex}')
+                os.system('pwd')
+                os.system(f'latex -jobname={c}_{sort} ts.tex')
+                #os.system(f'dvipdf {c}_{sort}.dvi')
+            except:
+                pass
     
 
     def ThinSection(self, files):

@@ -1,0 +1,855 @@
+GNU bash, version 5.2.12(1)-release (aarch64-unknown-linux-android)
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+
+This is free software; you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+LFortran version: 0.18.0-dirty
+Platform: Linux
+Python 3.11.0
+GNU Enscript 1.6.6
+Copyright (C) 1995-2003, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
+GNU Enscript comes with NO WARRANTY, to the extent permitted by law.
+You may redistribute copies of GNU Enscript under the terms of the GNU
+General Public License, version 3 or, at your option, any later version.
+For more information about these matters, see the files named COPYING.
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 21.6.0 Darwin Kernel Version 21.6.0: Wed Aug 10 14:28:35 PDT 2022; root:xnu-8020.141.5~2/RELEASE_ARM64_T8101 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin21)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin MacBook-Air-de-infoadmingm.local 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4
+Darwin airdeinoadmingm.home 22.2.0 Darwin Kernel Version 22.2.0: Fri Nov 11 02:04:44 PST 2022; root:xnu-8792.61.2~4/RELEASE_ARM64_T8103 arm64
+GNU bash, version 3.2.57(1)-release (arm64-apple-darwin22)
+Copyright (C) 2007 Free Software Foundation, Inc.
+Python 3.10.4

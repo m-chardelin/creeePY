@@ -34,10 +34,11 @@ stats = Statistics.Statistics(files)
 
 for table in ['Grains', 'EBSD']:
     files.SetFiles(inp = f'{tasks}/{table}', out = files.display)
-    stats.SetParam(inp = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Tremolite'], out = 'Amphibole', table = table)
+    stats.SetParam(inp = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Tremolite', 'Hornblende'], out = 'Amphibole', table = table)
     stats.Iteration(files, stats.Combine)
-    stats.SetParam(inp = ['Anorthite', 'Bytownite', 'Hornblende'], out = 'Plagioclase')
+    stats.SetParam(inp = ['Anorthite', 'Bytownite'], out = 'Plagioclase')
     stats.Iteration(files, stats.Combine)
+    files.SetCats(files.display, '.csv')
     files.SetFiles(inp = files.display, out = files.display, table = 'Grains')
     stats.SetParam(inp = files.sscat, out = 'all')
     stats.Iteration(files, stats.Combine)

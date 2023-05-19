@@ -21,7 +21,7 @@ disp = Display.Display(files)
 columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
 values = ['manuel', 'mixte', 2, 1, 1.5, 0.5, 200]
 
-for eps in [False, True]:
+for eps in [True]:
     files.SetFiles(inp = files.display, out = files.plot)
     disp.SetParam(fontFamily = 'serif', fontSize = 18, height = 30, width = 15, dpi = 400, version = 'EN', eps = eps, sort = 'EGD_200', barLegend = '12 mm', grad = 6, text = None)
         
@@ -57,7 +57,7 @@ for eps in [False, True]:
         #disp.Pie(files)
         #disp.PieSubcat(files)
 
-        disp.SetParam(height = 5, width = 10, bins = 40, density = False, task = 'Grains', weight = 'area', fontSize = 14)
+        disp.SetParam(height = 6, width = 9, bins = 40, density = False, task = 'Grains', weight = 'area', fontSize = 14)
         disp.SetParam(field = 'EGD', legend = 'EGD (µm)')
         disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'shapeFactor', legend = 'Shape Factor')
@@ -68,5 +68,5 @@ for eps in [False, True]:
 
 files.CopyFiles(files.plot, [files.figures], extension = 'eps')
 
-taskCat = ['PhasesMap', 'BoundariesMap', 'kamMap', 'grodMap', 'histEGD', 'histshapeFactor', 'histGOS', 'SortEGD']
-files.SortFiles([files.plot], taskCat)
+taskCat = ['PhasesMap', 'BoundariesMap', 'kamMap', 'grodMap', 'histEGD', 'histshapeFactor', 'histGOS', 'SortEGD', 'pieSubcat', 'pie']
+files.SortFiles([files.plot], taskCat, sep = '')

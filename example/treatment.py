@@ -20,8 +20,10 @@ filesTreatment.CleanFiles([filesTreatment.lames, filesTreatment.tasks])
 
 # copie des fichiers et classement en fonction des lames, puis en fonction des tâches effectuées
 filesTreatment.CopyFiles(filesTreatment.total, [filesTreatment.lames, filesTreatment.tasks])
-filesTreatment.SortFiles([filesTreatment.lames], filesTreatment.cat)
-taskCat = ['PHASES', 'BANDCONTRAST', 'BOUNDARY', 'Boundaries', 'Grains', 'EBSD', 'Neighbors', 'CPO', 'ipf', 'ORIENTATIONS']
-filesTreatment.SortFiles([filesTreatment.tasks], taskCat)
+filesTreatment.SortFiles([filesTreatment.lames], filesTreatment.cat, sep = "_")
+taskCat = ['PHASES', 'BANDCONTRAST', 'BOUNDARY', 'Boundaries', 'Grains', 'EBSD', 'Neighbors', 'CPO', 'IPF', 'ORIENTATIONS']
+filesTreatment.SortFiles([filesTreatment.tasks], taskCat, sep = ".")
+taskCat = ['CPO']
+filesTreatment.SortFiles([filesTreatment.tasks], taskCat, sep = "_")
 filesTreatment.TransferFiles(filesTreatment.tasks, [f'{filesTreatment.tasks}/divers'], extension = '.csv')
 filesTreatment.TransferFiles(filesTreatment.lames, [f'{filesTreatment.lames}/divers'], extension = '.csv')
