@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./get.py
+#./get.py
 
 # matlab..... command line ? lancer la macro depuis python !
 
@@ -12,4 +12,4 @@
 python3 display.py
 #python3 tex.py
 
-./put.py
+#./put.py
