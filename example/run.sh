@@ -1,6 +1,9 @@
 #!/bin/bash
 
-#cd /data/data/com.termux/files/home/storage/shared/toDo/ZabargadToDo/3_4_deformation/4_analysis
+dir='/Users/marialinechardelin/current/Zabargad/3_4_deformation/4_analysis'
+example=$scripts/creeePY/example
+
+cp -r $example/* $dir
 
 # matlab..... command line ? lancer la macro depuis python !
 
