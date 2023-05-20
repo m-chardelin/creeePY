@@ -267,7 +267,7 @@ class Plot():
 
     def readXY(self, val, df):
         print(val)
-        val = val.split('_')
+        val = val.split('_')                                  # make a slice
         print(val)
         if 'auto' in val:                                     # toutes les valeurs d'une colonne donnée
             cat = list(set(df[val[1]]))                       
