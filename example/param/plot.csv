@@ -1,1 +1,3 @@
-plot.id&plot.xx&plot.yy&plot.x&plot.y&plot.df&plot.facecolor&plot.edgecolor&plot.marker&plot.s&plot.alpha&plot.c&plot.cmap&plot.type&plot.proj&plot.annotate&plot.xlim&plot.ylim&plot.sort&plot.values&plot.textbox&plot.shareX&plot.shareY
+id&xx&yy&x&y&df&facecolor&edgecolor&marker&s&alpha&c&cmap&type&proj&annotate&xlim&ylim&sort&values&textbox&shareX&shareY
+1&auto_subcat&auto_sscat&pondEGD&pondSF&massif&subcat&massif&value_sscat&value_sscat&&&XY&XY&&&&sort_&EGDmixte&True&False&False
+2&list_subcat_all_rex&list_sscat_Olivine_Orthopyroxene&pondEGD&pondSF&massif&subcat&massif&minmax_sscat_20&value_sscat&&&XY&XY&&&&sort_&EGDmixte&True&False&False

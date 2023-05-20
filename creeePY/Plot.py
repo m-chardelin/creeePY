@@ -60,6 +60,7 @@ class Plot():
             a = getattr(self, f'{it[1]}')
             a[it[0]] = self.param.loc[it[0], it[1]]
             setattr(self, f'{it[1]}', a)
+            a = getattr(self, f'{it[1]}')
             
 
     def SetScatterParam(self, i, df, **kwargs):    
@@ -80,7 +81,7 @@ class Plot():
         self.df = self.resume.merge(self.samples[keys], on=key, how='outer')
 
 
-    def PlotXY(self, ax, df, x, y, colAnn, ann, fc, ec, m, s, alpha, c, cmap)
+    def PlotXY(self, ax, df, x, y, colAnn, ann, fc, ec, m, s, alpha, c, cmap):
         for i in df.index:
             x = df.loc[i, x]
             y = df.loc[i, y]
@@ -126,8 +127,6 @@ class Plot():
                 self.s = 300
 
             ax.scatter(top, left, right, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
-            #print(ls)
-            #print(df.loc[i])
 
         ax.set_tlabel(T)
         ax.set_llabel(L)
@@ -160,8 +159,6 @@ class Plot():
 
             ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
             ax.annotate(t, (x, y))
-            #print(ls)
-            #print(df.loc[i])
 
         ax.set_xlabel(X)
         ax.set_ylabel(Y)
@@ -174,7 +171,7 @@ class Plot():
         self.ColumnsPlot(files)
         plot = self.plot
 
-        for ind, xx, yy, x, y, df, fc, ec, m, s, alpha, c, cmap, typ, proj, ann, xlim, ylim, sort, values, textbox, sharex, sharey: in zip(plot.id, plot.xx, plot.yy, plot.x, plot.y, plot.df, plot.facecolor, plot.edgecolor, plot.marker, plot.s, plot.alpha, plot.c, plot.cmap, plot.type, plot.proj, plot.annotate, plot.xlim, plot.ylim, plot.sort, plot.values, plot.textbox, plot.shareX, plot.shareY):
+        for ind, xx, yy, px, py, df, fc, ec, m, s, alpha, c, cmap, typ, proj, ann, xlim, ylim, sort, values, textbox, sharex, sharey in zip(plot.id, plot.xx, plot.yy, plot.x, plot.y, plot.df, plot.facecolor, plot.edgecolor, plot.marker, plot.s, plot.alpha, plot.c, plot.cmap, plot.type, plot.proj, plot.annotate, plot.xlim, plot.ylim, plot.sort, plot.values, plot.textbox, plot.shareX, plot.shareY):
 
             catX, colCatX = self.readXY(xx, df)
             catY, colCatX = self.readXY(yy, df)
@@ -190,7 +187,7 @@ class Plot():
                 ax = self.SetAxes(fig, axes, catx, catx, catX, catY)
 
                 if sort != '':
-                    df = SortDataFrame(df, sort, values):
+                    df = SortDataFrame(df, sort, values)
 
                 df, s, alpha = self.SetSizeAlpha(df, s, alpha)
                 
@@ -198,7 +195,7 @@ class Plot():
 
                 self.PlotXY(ax, dcat, px, py, colAnn, ann, fc, ec, m, s, alpha, c, cmap)
             
-                if textbox = True:
+                if textbox == True:
                     ax.text(0, 0.9, f'{catx}, {caty}', transform = ax.transAxes)
                     annot = 'ann'
                 else:
@@ -230,28 +227,48 @@ class Plot():
         else:
             plot = pd.read_csv(f'{files.param}/plot.csv', sep = '&', index_col = 0)
 
+        plot['id'] = plot.index
+
         X = []
         Y = []
         IND = []
 
-        for x, y, ind, df in zip(plot.id, plot.pX, plot.pY, plot.df):
+        for ind, x, y, df in zip(plot.id, plot.x, plot.y, plot.df):
 
-            df = self.Load(f'{files.input}/{df}.csv')
+            dff = self.Load(f'{files.input}/{df}.csv')
 
-            x = readXY(x, df)
-            y = readXY(y, df)
-            X, Y, IND, DF = self.XY(X, Y, IND, x. y, ind)
-
-        plot = pd.DataFrame(list(zip(IND, X, Y)), columns = ['id', 'pX', 'pY'])
+            x = self.readPlotXY(x, dff)
+            y = self.readPlotXY(y, dff)
+            X, Y, IND = self.XY(X, Y, IND, x, y, ind)
+        
+        plot = pd.DataFrame(list(zip(IND, X, Y)), columns = ['ind', 'pX', 'pY'])
         plot = plot.drop_duplicates(keep = 'last')
-        self.plot = self.plot.merge(plot, on = 'id', how = 'outer')
-        self.plot.to_csv(f'{files.output}/plotConfig.csv', sep = '&', index = None)
+        self.plot['ind'] = self.plot['id']
+        self.plot = self.plot.merge(plot, on = 'ind', how = 'outer')
+        del self.plot['id']
+        self.plot.index = np.arange(0, self.plot.shape[0], 1)
+        for i in self.plot.index:
+            a = self.plot.loc[i, 'ind']
+            self.plot.loc[i, 'id'] = f'{a}-{i}'
+        self.plot.to_csv(f'{files.output}/plotConfig.csv', sep = ',')
 
 
-    def readXY(self, val, df):
+    def readPlotXY(self, val, df):
 
         val = val.split('_')
 
+        if 'auto' in val:                                       # toutes les valeurs d'une colonne donnée
+            cat = [col for col in df.columns if col not in val[1:]]                       
+        elif 'list' in val:                                   # une liste de valeurs dans une colonne donnée
+            cat = val[1:]
+
+        return cat
+
+
+    def readXY(self, val, df):
+        print(val)
+        val = val.split('_')
+        print(val)
         if 'auto' in val:                                     # toutes les valeurs d'une colonne donnée
             cat = list(set(df[val[1]]))                       
         elif 'list' in val:                                   # une liste de valeurs dans une colonne donnée
@@ -260,7 +277,7 @@ class Plot():
             cat = [1]
         elif 'iter' in val:                                   # plot itérant uniquement sur les valeurs de x et non y (les plots 2:3 pour 6 minéraux)
             cat = ['iter']
-    
+        
         countCat = np.arange(0, len(cat), 1)
         colCat = val[1] 
 
@@ -269,15 +286,21 @@ class Plot():
 
     def XY(self, X, Y, IND, x, y, ind):
             
-        xx, yy = list(product(x, y))
+        b = list(product(x, y))
+        xx = []
+        yy = []
+        for bb in b:
+            xx.append(bb[0])
+            yy.append(bb[1])
+
         ind = [ind] * len(yy)
-        X = X + xx
-        Y = Y + yy
+        X = X + list(xx)
+        Y = Y + list(yy)
         IND = IND + ind
         return X, Y, IND
 
    
-    def SetAxes(self, fig, axes, catx, catx, catX, catY)
+    def SetAxes(self, fig, axes, catx, caty, catX, catY):
         if caty != 1 and caty != 'iter' :
             n = catX.index(catx)
             m = catY.index(caty)
@@ -295,9 +318,16 @@ class Plot():
         col = []
         for name, element in zip(['s', 'alpha'], [s, alpha]):
             val = element.split('_')
-            if 'values' in val:
+            if 'values' in val:                                                            # valeur de la colonne avec la colonne param
                 c = val[1]
-            elif 'minmax' in val:
+            elif 'minmax' in val:                                                          # min et max indiqué : minmax_col_minSize_minValue_maxValue
+                c = val[1]
+                mini = val[3]
+                maxi = val[4] + mini
+                df[f'{name}MinMax'] = 1 - ((maxi - df[c]) / maxi)
+                df[f'{name}MinMax'] = df[f'{name}MinMax'] * val[2]
+                c = f'{name}MinMax'
+            elif 'auto' in val:                                                           # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue 
                 c = val[1]
                 mini = np.min(df[c])
                 maxi = np.max(df[c]) + mini
