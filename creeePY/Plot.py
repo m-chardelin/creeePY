@@ -81,28 +81,32 @@ class Plot():
         self.df = self.resume.merge(self.samples[keys], on=key, how='outer')
 
 
-    def PlotXY(self, ax, df, x, y, colAnn, ann, fc, ec, m, s, alpha, c, cmap):
+    def PlotXY(self, ax, df, xx, yy, colAnn, ann, fc, ec, m, s, alpha, c, cmap):
+
+        df.index = np.arange(0, df.shape[0], 1)
         for i in df.index:
-            x = df.loc[i, x]
-            y = df.loc[i, y]
+            x = df.loc[i, xx]
+            y = df.loc[i, yy]
             t = df.loc[i, colAnn]
             
             if 'MinMax' in alpha and 'MinMax' not in s:
                 a = df.loc[i, alpha]
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, s = s, c = c, cmap = cmap)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3], c = ls[4], cmap = ls[5])
+                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s)
+                aix.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3])
             if 'MinMax' in s and 'MinMax' not in alpha:
                 s = df.loc[i, s]
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha, c = c, cmap = cmap)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = s, c = ls[4], cmap = ls[5])
-            elif 'MinMiax' in s and 'MinMax' in alpha:
+                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha)
+                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = s)
+            elif 'MinMax' in s and 'MinMax' in alpha:
                 s = df.loc[i, s]
                 a = df.loc[i, alpha]
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, c = c, cmap = cmap)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = alpha, s = s, c = ls[3], cmap = ls[4])
+                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m)
+                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = alpha, s = s)
             else:
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, s = s, alpha = alpha, c = c, cmap = cmap)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = ls[5], cmap = ls[6])
+                #ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, c = c, cmap = cmap)
+                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha)
+                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4])
+                #ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = ls[5], cmap = ls[6])
 
             if t in ann:
                 ax.annotate(t, (x, y))
@@ -170,30 +174,29 @@ class Plot():
 
         self.ColumnsPlot(files)
         plot = self.plot
+        
+        for ind, xx, yy, px, py, dff, fc, ec, m, s, alpha, c, cmap, typ, proj, ann, xlim, ylim, sort, values, textbox, sharex, sharey, labels in zip(plot.id, plot.xx, plot.yy, plot.pX, plot.pY, plot.df, plot.facecolor, plot.edgecolor, plot.marker, plot.s, plot.alpha, plot.c, plot.cmap, plot.type, plot.proj, plot.annotate, plot.xlim, plot.ylim, plot.sort, plot.sortvalues, plot.textbox, plot.shareX, plot.shareY, plot.labels):
 
-        for ind, xx, yy, px, py, df, fc, ec, m, s, alpha, c, cmap, typ, proj, ann, xlim, ylim, sort, values, textbox, sharex, sharey in zip(plot.id, plot.xx, plot.yy, plot.x, plot.y, plot.df, plot.facecolor, plot.edgecolor, plot.marker, plot.s, plot.alpha, plot.c, plot.cmap, plot.type, plot.proj, plot.annotate, plot.xlim, plot.ylim, plot.sort, plot.values, plot.textbox, plot.shareX, plot.shareY):
+            df = self.Load(f'{files.input}/{dff}.csv')
+        
+            catX, colCatX, countCatX = self.readXY(xx, df)
+            catY, colCatY, countCatY = self.readXY(yy, df)
+            annT, colAnn, countAnn = self.readXY(str(ann), df)
 
-            catX, colCatX = self.readXY(xx, df)
-            catY, colCatX = self.readXY(yy, df)
-            annT, colAnn = self.readXY(ann, df)
+            fig, axes = self.ParamPlot(len(catX), len(catY), sharex = sharex, sharey = sharey)
 
-            df = self.Load(f'{files.input}/{df}.csv')
+            for catx, caty, ppx, ppy in list(product(catX, catY, [px], [py])):
             
+                ax = self.SetAxes(fig, axes, catx, caty, catX, catY)
 
-            fig, axes = self.ParamPlot(len(catX), len(catY), shareX = sharex, shareY = sharey)
+                if sort != 'no':
+                    df = self.SortDataFrame(df, sort, values)
 
-            for catx, caty, px, py in list(product(catX, catY, x, y)):
-            
-                ax = self.SetAxes(fig, axes, catx, catx, catX, catY)
-
-                if sort != '':
-                    df = SortDataFrame(df, sort, values)
-
-                df, s, alpha = self.SetSizeAlpha(df, s, alpha)
+                df, ss, aalpha = self.SetSizeAlpha(df, s, alpha)
                 
                 dcat = df[(df[colCatX] == catx) & (df[colCatY] == caty)]
-
-                self.PlotXY(ax, dcat, px, py, colAnn, ann, fc, ec, m, s, alpha, c, cmap)
+                
+                self.PlotXY(ax, dcat, ppx, ppy, colAnn, ann, fc, ec, m, ss, aalpha, c, cmap)
             
                 if textbox == True:
                     ax.text(0, 0.9, f'{catx}, {caty}', transform = ax.transAxes)
@@ -201,10 +204,10 @@ class Plot():
                 else:
                     annot = ''
 
-                if xlim != '':
+                if xlim != 'False':
                     xlim = xlim.split('_')
                     ax.set_xlim(xlim[0], xlim[1])
-                if ylim != '':
+                if ylim != 'False':
                     ylim = ylim.split('_')
                     ax.set_ylim(ylim[0], ylim[1])
 
@@ -266,9 +269,7 @@ class Plot():
 
 
     def readXY(self, val, df):
-        print(val)
         val = val.split('_')                                  # make a slice
-        print(val)
         if 'auto' in val:                                     # toutes les valeurs d'une colonne donnée
             cat = list(set(df[val[1]]))                       
         elif 'list' in val:                                   # une liste de valeurs dans une colonne donnée
@@ -277,6 +278,8 @@ class Plot():
             cat = [1]
         elif 'iter' in val:                                   # plot itérant uniquement sur les valeurs de x et non y (les plots 2:3 pour 6 minéraux)
             cat = ['iter']
+        elif 'None' in val:
+            cat = []
         
         countCat = np.arange(0, len(cat), 1)
         colCat = val[1] 
@@ -318,23 +321,23 @@ class Plot():
         col = []
         for name, element in zip(['s', 'alpha'], [s, alpha]):
             val = element.split('_')
-            if 'values' in val:                                                            # valeur de la colonne avec la colonne param
-                c = val[1]
-            elif 'minmax' in val:                                                          # min et max indiqué : minmax_col_minSize_minValue_maxValue
-                c = val[1]
+            if 'values' in val:                         # valeur de la colonne avec la colonne param
+                cc = val[1]
+            elif 'minmax' in val:                       # min et max indiqué : minmax_col_minSize_minValue_maxValue
+                cc = val[1]
                 mini = val[3]
                 maxi = val[4] + mini
-                df[f'{name}MinMax'] = 1 - ((maxi - df[c]) / maxi)
+                df[f'{name}MinMax'] = 1 - ((maxi - df[cc]) / maxi)
                 df[f'{name}MinMax'] = df[f'{name}MinMax'] * val[2]
-                c = f'{name}MinMax'
-            elif 'auto' in val:                                                           # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue 
-                c = val[1]
-                mini = np.min(df[c])
-                maxi = np.max(df[c]) + mini
-                df[f'{name}MinMax'] = 1 - ((maxi - df[c]) / maxi)
+                cc = f'{name}MinMax'
+            elif 'auto' in val:                         # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue 
+                cc = val[1]
+                mini = np.min(df[cc])
+                maxi = np.max(df[cc]) + mini
+                df[f'{name}MinMax'] = 1 - ((maxi - df[cc]) / maxi)
                 df[f'{name}MinMax'] = df[f'{name}MinMax'] * val[2]
-                c = f'{name}MinMax'
-            col.append(c)
+                cc = f'{name}MinMax'
+            col.append(cc)
         s = col[0]
         alpha = col[1]
         return df, s, alpha
