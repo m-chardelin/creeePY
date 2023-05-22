@@ -12,4 +12,4 @@
 python3 display.py
 #python3 tex.py
 
-#./put.py
+#./put.sh

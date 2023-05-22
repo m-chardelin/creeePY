@@ -14,17 +14,20 @@ files.SetCats(files.data, '.txt')
 
 
 files.SetFiles(inp = files.stats, out = files.fig)
-files.SetFiles(inp = files.stats, out = files.fig)
+
 plot = Plot.Plot(files)
        
 plot.SetParam(fontFamily = 'serif', fontSize = 18, height = 30, width = 15, dpi = 400, version = 'EN', eps = False, s = 100)
 
 plot.GetParam()
         
-        
-plot.GetParam()
-import pandas as pd
-df = pd.read_csv('/storage/emulated/0/scripts/tests/ternaryPlot/test.txt', sep = '/')
+#df = pd.read_csv('/storage/emulated/0/scripts/tests/ternaryPlot/test.txt', sep = '/')
 
-plot.PlotTernary(files, 'Ol', 'Opx', 'Al', df, 'massif', 'massif', 'facies_EGDmixte')
-plot.PlotTernary(files, 'CpxAl', 'PlSpAl', 'TrAl', df, 'massif', 'massif', 'facies_EGDmixte')
+#plot.PlotTernary(files, 'Ol', 'Opx', 'Al', df, 'massif', 'massif', 'facies_EGDmixte')
+#plot.PlotTernary(files, 'CpxAl', 'PlSpAl', 'TrAl', df, 'massif', 'massif', 'facies_EGDmixte')
+
+plot.PlotScatterXYSave(files, 'pondGOSrexEGDmixte', 'pondaspectRatioporphEGDmixte', 'comb', 'sscat', 'sscat', 'sscat', 'sscat', ';', sort = 'sscat_Olivine')
+
+plot.SetParam(fontFamily = 'serif', fontSize = 18, height = 42, width = 30, dpi = 400, version = 'EN', eps = False, s = 100)
+
+plot.IterationPlot(files)

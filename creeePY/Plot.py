@@ -88,20 +88,21 @@ class Plot():
             x = df.loc[i, xx]
             y = df.loc[i, yy]
             t = df.loc[i, colAnn]
-            
+
+
             if 'MinMax' in alpha and 'MinMax' not in s:
                 a = df.loc[i, alpha]
                 ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s)
-                aix.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3])
+                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3])
             if 'MinMax' in s and 'MinMax' not in alpha:
-                s = df.loc[i, s]
+                size = df.loc[i, s]
                 ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = s)
+                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size)
             elif 'MinMax' in s and 'MinMax' in alpha:
-                s = df.loc[i, s]
+                size = df.loc[i, s]
                 a = df.loc[i, alpha]
                 ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = alpha, s = s)
+                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size)
             else:
                 #ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, c = c, cmap = cmap)
                 ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha)
@@ -136,14 +137,16 @@ class Plot():
         ax.set_llabel(L)
         ax.set_rlabel(R)
 
-        self.Save(f'{files.output}/TernaryPlot_{T}{L}{R}.png')
+        self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}.png')
 
             
-    def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, sep, sort = None):
+    def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, sort = None):
 
-        df = pd.read_csv(f'{files.input}/{df}.csv', sep = ',')
+        df = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
         
+
         if sort != None:
+            sort = sort.split('_')
             df = df[df[sort[0]] == sort[1]]
 
 
@@ -154,20 +157,15 @@ class Plot():
             y = df.loc[i, Y]
             t = df.loc[i, 'cat']
 
-            ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker )
+            ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s)
 
-            if ls[2] in ['*', '.']:
-                self.s = 450
-            else:
-                self.s = 300
-
-            ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
+            ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3])
             ax.annotate(t, (x, y))
 
         ax.set_xlabel(X)
         ax.set_ylabel(Y)
 
-        self.Save(f'{files.output}/Plot_{X}{Y}{sort[1]}ann.png')
+        self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}ann.png')
 
 
     def IterationPlot(self, files):
@@ -196,31 +194,38 @@ class Plot():
                 
                 dcat = df[(df[colCatX] == catx) & (df[colCatY] == caty)]
                 
-                self.PlotXY(ax, dcat, ppx, ppy, colAnn, ann, fc, ec, m, ss, aalpha, c, cmap)
+                self.PlotXY(ax, dcat, ppx, ppy, colAnn, annT, fc, ec, m, ss, aalpha, c, cmap)
             
                 if textbox == True:
                     ax.text(0, 0.9, f'{catx}, {caty}', transform = ax.transAxes)
-                    annot = 'ann'
+                    lab = 'lab'
                 else:
-                    annot = ''
+                    lab = 'no'
+                
+                if xlim != False:
+                    xxlim = xlim.split('_')
+                    ax.set_xlim(xxlim[0], xxlim[1])
+                if ylim != False:
+                    yylim = ylim.split('_')
+                    ax.set_ylim(yylim[0], yylim[1])
 
-                if xlim != 'False':
-                    xlim = xlim.split('_')
-                    ax.set_xlim(xlim[0], xlim[1])
-                if ylim != 'False':
-                    ylim = ylim.split('_')
-                    ax.set_ylim(ylim[0], ylim[1])
+                if annT == 'no':
+                    annot = 'no'
+                else:
+                    annot = 'ann'
 
-            xa = len(catX)//2
-            axes[xa, 0].set_ylabel(py)
-            ya = len(catY)//2
-            axes[0, ya].set_xlabel(px)
+            if 'iter' not in catY:
+                xa = len(catX)//2
+                axes[xa, 0].set_ylabel(py)
+                ya = len(catY)//2
+                axes[0, ya].set_xlabel(px)
 
             if labels == True:
                 for ax in fig.get_axes():
                     ax.label_outer()
 
-            self.Save(f'{files.output}/{colCatX}-{colCatY}-{px}-{py}{ann}.png')
+            print(colCatX, colCatY, px, py, annot)
+            self.Save(fig, f'{files.output}/{ind}_{colCatX}-{colCatY}-{px}-{py}-{lab}-{annot}.png')
 
 
     def ColumnsPlot(self, files, plot = 'auto'):
@@ -278,7 +283,7 @@ class Plot():
             cat = [1]
         elif 'iter' in val:                                   # plot itérant uniquement sur les valeurs de x et non y (les plots 2:3 pour 6 minéraux)
             cat = ['iter']
-        elif 'None' in val:
+        elif 'no' in val:
             cat = []
         
         countCat = np.arange(0, len(cat), 1)
@@ -335,7 +340,7 @@ class Plot():
                 mini = np.min(df[cc])
                 maxi = np.max(df[cc]) + mini
                 df[f'{name}MinMax'] = 1 - ((maxi - df[cc]) / maxi)
-                df[f'{name}MinMax'] = df[f'{name}MinMax'] * val[2]
+                df[f'{name}MinMax'] = df[f'{name}MinMax'] * float(val[2])
                 cc = f'{name}MinMax'
             col.append(cc)
         s = col[0]
@@ -346,15 +351,19 @@ class Plot():
     def SortDataFrame(self, df, sort, values):
         sort = sort.split('_')
         values = values.split('_')
+        ddf = pd.DataFrame()
         for s, val in zip(sort, values):
-            df = df[df[s] == val]
-        return df
+            d = df[df[s] == val]
+            ddf = pd.concat([ddf, d])
+        return ddf
 
 
-    def Save(self, title):
+    def Save(self, fig, title):
         if self.eps == False:
-            plt.savefig(title, bbox_inches = 'tight', dpi = 400)
+            plt.savefig(title, bbox_inches = 'tight', dpi = 400, pad_inches = 0)
         if self.eps == True:
             title = title.replace('.png', '.eps')
-            plt.savefig(title, bbox_inches = 'tight', format = 'eps')
+            plt.savefig(title, bbox_inches = 'tight', dpi = 400, pad_inches = 0, format = 'eps')
+        fig.clear()
+        plt.close(fig)
         plt.clf()

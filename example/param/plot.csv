@@ -1,3 +1,3 @@
-id&xx&yy&x&y&df&facecolor&edgecolor&marker&s&alpha&c&cmap&type&proj&annotate&xlim&ylim&sort&values&textbox&shareX&shareY
-1&auto_subcat&auto_sscat&pondEGD&pondSF&massif&subcat&massif&value_sscat&value_sscat&&&XY&XY&&&&sort_&EGDmixte&True&False&False
-2&list_subcat_all_rex&list_sscat_Olivine_Orthopyroxene&pondEGD&pondSF&massif&subcat&massif&minmax_sscat_20&value_sscat&&&XY&XY&&&&sort_&EGDmixte&True&False&False
+id&xx&yy&x&y&df&facecolor&edgecolor&marker&s&alpha&c&cmap&type&proj&annotate&xlim&ylim&sort&sortvalues&textbox&shareX&shareY&labels
+1&auto_sscat&auto_subcat&list_pondEGD_pondGOS_pondaspectRatio&list_pondSF&resume&sscat&subcat&sscat&values_sscat&values_sscat&no&no&XY&XY&auto_cat&False&False&sort_sort&EGDmixte_all&True&False&False&False
+2&list_sscat_all_Olivine_Orthopyroxene_Clinopyroxene_Plagioclase&list_subcat_all_porph_rex&list_pondEGD_pondGOS_pondaspectRatio&list_pondSF&resume&sscat&subcat&sscat&values_sscat&values_sscat&no&no&XY&XY&no_cat&False&False&sort_sort&EGDmixte_all&True&False&False&False
