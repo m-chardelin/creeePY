@@ -21,7 +21,7 @@ disp = Display.Display(files)
 columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
 values = ['manuel', 'mixte', 2, 1, 1.5, 0.5, 200]
 
-for eps in [True]:
+for eps in [False]:
     files.SetFiles(inp = files.display, out = files.plot)
     disp.SetParam(fontFamily = 'serif', fontSize = 18, height = 30, width = 15, dpi = 400, version = 'EN', eps = eps, sort = 'EGD_200', barLegend = '12 mm', grad = 6, text = None)
         
@@ -29,11 +29,11 @@ for eps in [True]:
     #disp.Iteration(files, disp.BoundariesMap)
 
     disp.SetParam(minimum = 0, maximum = 15, color = 'sscat', field = 'grod', colorbar = False, boundaries = True)
-    #disp.Iteration(files, disp.FieldMap)
+    disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 'all', maximum = 'all', color = 'black', field = 'area', colorbar = False, boundaries = True, all = True)
-    disp.Iteration(files, disp.FieldMap)
+    #disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 'all', maximum = 'all', color = 'teal', field = 'GOS', colorbar = False, boundaries = True, all = True)
@@ -41,14 +41,14 @@ for eps in [True]:
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 0, maximum = 4, color = 'sscat', field = 'kam', colorbar = False, boundaries = True)
-    #disp.Iteration(files, disp.FieldMap)
+    disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     for s in ['EGDmixte']:
         disp.SetParam(subcat = ['rex', 'porph'], sort = s, boundaries = True)
         #disp.Iteration(files, disp.SortMap)
         disp.SetParam(sort = s, boundaries = False)
-        disp.Iteration(files, disp.SortMap)
+        #disp.Iteration(files, disp.SortMap)
 
 
     for col, val in zip(columns, values):

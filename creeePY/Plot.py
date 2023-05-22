@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as mplc
 import matplotlib as mpl
-import mpltern
+#import mpltern
 from colour import Color
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from itertools import product, combinations, chain
@@ -72,13 +72,14 @@ class Plot():
         return listScatter
 
 
-    def Combine(self, key, *fields):
-        self.samples = self.Load(f'{files.input}/samples.txt')
-        self.resume = self.Load(f'{files.input}/resume.txt')
+    def Combine(self, files, key, *fields):
+        self.samples = self.Load(f'{files.input}/samples.csv')
+        self.resume = self.Load(f'{files.input}/resume.csv')
         keys = [key]
         for e in fields:
             keys.append(e)
         self.df = self.resume.merge(self.samples[keys], on=key, how='outer')
+        self.df.to_csv(f'{files.stats}/all.csv', sep = '&', index = None)
 
 
     def PlotXY(self, ax, df, xx, yy, colAnn, ann, fc, ec, m, s, alpha, c, cmap):
@@ -89,24 +90,43 @@ class Plot():
             y = df.loc[i, yy]
             t = df.loc[i, colAnn]
 
-
             if 'MinMax' in alpha and 'MinMax' not in s:
                 a = df.loc[i, alpha]
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3])
+                if c == 'no':
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s)
+                    ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3])
+                else:
+                    cc = df.loc[i, c]
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
+                    ax.scatter(x, y, marker = ls[2], alpha = a, s = ls[3], c = cc, cmap = ls[4])
             if 'MinMax' in s and 'MinMax' not in alpha:
                 size = df.loc[i, s]
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size)
+                if c == 'no':
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha)
+                    ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size)
+                else:
+                    cc = df.loc[i, c]
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha, cmap = cmap)
+                    ax.scatter(x, y, marker = ls[2], alpha = ls[3], s = size, c = cc, cmap = ls[4])
             elif 'MinMax' in s and 'MinMax' in alpha:
                 size = df.loc[i, s]
                 a = df.loc[i, alpha]
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size)
+                if c == 'no':
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m)
+                    ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size)
+                else:
+                    cc = df.loc[i, c]
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, cmap = cmap)
+                    ax.scatter(x, y, marker = ls[2], alpha = alpha, s = size, c = cc, cmap = ls[3])
             else:
                 #ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, c = c, cmap = cmap)
-                ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha)
-                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4])
+                if c == 'no':
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha)
+                    ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4])
+                else:
+                    cc = df.loc[i, c]
+                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, cmap = cmap)
+                    ax.scatter(x, y, marker = ls[2], s = ls[3], alpha = ls[4], c = cc, cmap = ls[5])
                 #ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = ls[5], cmap = ls[6])
 
             if t in ann:
@@ -140,7 +160,7 @@ class Plot():
         self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}.png')
 
             
-    def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, sort = None):
+    def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None):
 
         df = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
         
@@ -155,17 +175,32 @@ class Plot():
         for i in df.index:
             x = df.loc[i, X]
             y = df.loc[i, Y]
-            t = df.loc[i, 'cat']
+            
+            if c == None:
+                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s)
+                ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3])
+            else:
+                cc = df.loc[i, c]
+                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap)
+                ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4])
+            
+            
+            if ann != None:
+                t = df.loc[i, ann]
+                ax.annotate(t, (x, y))
+                ann = 'ann'
+            else:
+                ann = ''
 
-            ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s)
-
-            ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3])
-            ax.annotate(t, (x, y))
-
+        if xlim != None:
+            ax.set_xlim(xlim[0], xlim[1])
+        if ylim != None:
+            ax.set_ylim(ylim[0], ylim[1])
+        
         ax.set_xlabel(X)
         ax.set_ylabel(Y)
 
-        self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}ann.png')
+        self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}{ann}.png')
 
 
     def IterationPlot(self, files):
@@ -284,7 +319,7 @@ class Plot():
         elif 'iter' in val:                                   # plot itérant uniquement sur les valeurs de x et non y (les plots 2:3 pour 6 minéraux)
             cat = ['iter']
         elif 'no' in val:
-            cat = []
+            cat = ['no']
         
         countCat = np.arange(0, len(cat), 1)
         colCat = val[1] 
@@ -335,13 +370,15 @@ class Plot():
                 df[f'{name}MinMax'] = 1 - ((maxi - df[cc]) / maxi)
                 df[f'{name}MinMax'] = df[f'{name}MinMax'] * val[2]
                 cc = f'{name}MinMax'
-            elif 'auto' in val:                         # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue 
+            elif 'auto' in val:                         # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue
                 cc = val[1]
                 mini = np.min(df[cc])
                 maxi = np.max(df[cc]) + mini
                 df[f'{name}MinMax'] = 1 - ((maxi - df[cc]) / maxi)
                 df[f'{name}MinMax'] = df[f'{name}MinMax'] * float(val[2])
                 cc = f'{name}MinMax'
+            else:
+                cc = val[1]
             col.append(cc)
         s = col[0]
         alpha = col[1]

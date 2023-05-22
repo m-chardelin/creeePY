@@ -216,14 +216,15 @@ class Display():
         return df1
         
 
-    def Save(self, title):
+    def Save(self, fig, title):
         if self.eps == False:
             plt.tight_layout()
             plt.savefig(title, dpi = 600, bbox_inches = 'tight', pad_inches = 0)
         if self.eps == True:
             title = title.replace('.png', '.eps')
             plt.savefig(title, dpi = 600, bbox_inches = 'tight', pad_inches = 0, format = 'eps')
-        plt.close()
+        fig.clear()
+        plt.close(fig)
         plt.clf()
 
 
@@ -247,7 +248,7 @@ class Display():
         plt.axis('off')
         plt.axis('scaled')
 
-        self.Save(f'{files.output}/{cat}_PhasesMap.png')
+        self.Save(fig, f'{files.output}/{cat}_PhasesMap.png')
  
  
     def PointsMap(self, files, cat):
@@ -280,7 +281,7 @@ class Display():
         #self.Load(f'{files.output}/points.csv')
         plt.axis('off')
         plt.axis('scaled')
-        self.Save(f'{files.output}/{cat}_ZonesMap.png')
+        self.Save(fig, f'{files.output}/{cat}_ZonesMap.png')
         
         
         for i in range(0, len(count)-1):
@@ -320,7 +321,7 @@ class Display():
                 quadri = ''
                             
             ax.axis('scaled')
-            self.Save(f'{files.output}/{cat}_ZonesMap{quadri}-{i}.png')
+            self.Save(fig, f'{files.output}/{cat}_ZonesMap{quadri}-{i}.png')
             
  
     def SelectPoints(self, files, cat):
@@ -373,7 +374,7 @@ class Display():
             
             plt.axis('off')
             plt.axis('scaled')
-            self.Save(f'{files.output}/{cat}_BoundariesMap.png')
+            self.Save(fig, f'{files.output}/{cat}_BoundariesMap.png')
             
 
     def FieldMap(self, files, cat):
@@ -418,7 +419,7 @@ class Display():
         
         plt.axis('off')
         plt.axis('scaled')
-        self.Save(f'{files.output}/{cat}_Field{self.field}{boundaries}Map.png')
+        self.Save(fig, f'{files.output}/{cat}_Field{self.field}{boundaries}Map.png')
         
    
 
@@ -456,7 +457,7 @@ class Display():
         self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
         plt.axis('off')
         plt.axis('scaled')
-        self.Save(f'{files.output}/{cat}_Sort{self.sort}{boundaries}Map.png')
+        self.Save(fig, f'{files.output}/{cat}_Sort{self.sort}{boundaries}Map.png')
                 
                
     def ColorBar(self, files, cat):
@@ -479,7 +480,7 @@ class Display():
                 norm = mpl.colors.Normalize(vmin=self.minimum, vmax=self.maximum)
                 cbar = ax.figure.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=self.colorScale), ax=ax, pad=.05, extend='both', fraction=fraction)
                 ax.axis('off')
-                self.Save(f"{files.output}/{self.field}_{self.param.loc[ssc, 'color']}_{self.minimum}-{self.maximum}.png")
+                self.Save(fig, f"{files.output}/{self.field}_{self.param.loc[ssc, 'color']}_{self.minimum}-{self.maximum}.png")
         else:
             fig, ax = self.ParamPlot()
             fraction = 1  # .05
@@ -487,7 +488,7 @@ class Display():
             norm = mpl.colors.Normalize(vmin=self.minimum, vmax=self.maximum)
             cbar = ax.figure.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=self.colorScale), ax=ax, pad=.05, extend='both', fraction=fraction)
             ax.axis('off')
-            self.Save(f'{files.output}/{cat}_{self.field}_{self.color}_{self.minimum}-{self.maximum}.png')
+            self.Save(fig, f'{files.output}/{cat}_{self.field}_{self.color}_{self.minimum}-{self.maximum}.png')
                 
         
 
@@ -516,7 +517,7 @@ class Display():
    
             fig, ax = self.ParamPlot()
             ax.pie(values, labels = labels, colors = colours, normalize = True, autopct='%1.1f%%')
-            self.Save(f'{files.output}/{c}_pie.png')
+            self.Save(fig, f'{files.output}/{c}_pie.png')
 
 
     def PieSubcat(self, files, file = None):
@@ -547,7 +548,7 @@ class Display():
             fig, ax = self.ParamPlot()
             values = np.nan_to_num(values)
             ax.pie(values, colors = colours, hatch = hatches, wedgeprops = {"edgecolor" : "black", 'linewidth': 1.5, 'antialiased': True})
-            self.Save(f'{files.output}/{c}_pieSubcat{self.sort}.png')
+            self.Save(fig, f'{files.output}/{c}_pieSubcat{self.sort}.png')
 
 
 
@@ -568,7 +569,7 @@ class Display():
         ax.set_xlabel(self.legend)
         ax.set_ylabel('Frequency')
         ax.set_title(f'{len(self.df[self.field])} grains, {m}% of sample area ({self.sort})')
-        self.Save(f'{files.output}/{cat}_{sscat}_all_hist{self.field}_weightNone.png')
+        self.Save(fig, f'{files.output}/{cat}_{sscat}_all_hist{self.field}_weightNone.png')
 
         # weighted values
         fig, ax = self.ParamPlot()
@@ -583,7 +584,7 @@ class Display():
         ax.set_ylim([np.min(hist), np.max(hist)])
         self.weights = self.df[self.weight]
         self.ticks(ax)
-        self.Save(f'{files.output}/{cat}_{sscat}_all_hist{self.field}_weight{self.weight}.png')
+        self.Save(fig, f'{files.output}/{cat}_{sscat}_all_hist{self.field}_weight{self.weight}.png')
 
         # weighted values
         fig, axes = plt.subplots(1, 2, gridspec_kw = {'width_ratios': [2, 2]}, figsize=(self.width, self.height), dpi = self.dpi)
@@ -634,5 +635,5 @@ class Display():
         
         fig.suptitle(f'{len(self.df[self.field])} grains, {neo}% neoblasts in mineral, {neo2}% in total thin section ({self.sort})')
         fig.tight_layout()
-        self.Save(f'{files.output}/{cat}_{sscat}_subcat_hist{self.field}weight{self.weight}{self.sort}.png')
+        self.Save(fig, f'{files.output}/{cat}_{sscat}_subcat_hist{self.field}weight{self.weight}{self.sort}.png')
 

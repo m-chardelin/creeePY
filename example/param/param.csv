@@ -1,21 +1,22 @@
-value&color&facecolor&edgecolor&marker&hatches&alpha&size
-Olivine&red&red&red&o&&1&50
-Orthopyroxene&blue&blue&blue&s&&1&50
-Clinopyroxene&lime&lime&lime&D&&1&50
-Spinelle&magenta&magenta&magenta&*&&1&50
-Plagioclase&yellow&yellow&yellow&+&&1&50
-Amphibole&aquamarine&aquamarine&aquamarine&.&&1&50
-Calcite&grey&grey&grey&_&&1&50
-Chlorite&grey&grey&grey&_&&1&50
-notIndexed&white&white&white&.&&1&50
-nan&white&white&white&.&&1&50
-rex&orange&orange&orange&o&&1&50
-porph&purple&purple&purple&o&/&1&50
-all&black&black&black&o&/&1&50
-south&black&black&black&.&&1&50
-center&grey&grey&black&.&&1&50
-north&white&white&black&.&&1&50
-protomylonite BT&grey&grey&grey&*&&1&50
-mylonite HT&grey&grey&grey&s&&1&50
-mylonite BT&grey&grey&grey&D&&1&50
-ultramylonite&grey&grey&grey&ˆ&&1&50
+value&color&facecolor&edgecolor&marker&hatches&alpha&size&cmap
+Olivine&red&red&red&o&&1&50&Reds
+Orthopyroxene&blue&blue&blue&s&&1&50&Blues
+Clinopyroxene&lime&lime&lime&D&&1&50&Greens
+Spinelle&magenta&magenta&magenta&*&&1&50&PuRd
+Plagioclase&yellow&yellow&yellow&+&&1&50&Wistia
+Amphibole&aquamarine&aquamarine&aquamarine&.&&1&50&GnBu
+Calcite&grey&grey&grey&_&&1&50&bone
+Chlorite&grey&grey&grey&_&&1&50&bone
+notIndexed&white&white&white&.&&1&50&bone
+nan&white&white&white&.&&1&50&bone
+rex&orange&orange&orange&o&&1&50&bone
+porph&purple&purple&purple&o&/&1&50&bone
+all&black&black&black&o&/&1&50&bone
+south&black&black&black&.&&1&50&bone
+center&grey&grey&black&.&&1&50&bone
+north&white&white&black&.&&1&50&bone
+protomylonite BT&grey&grey&grey&*&&1&50&bone
+mylonite HT&grey&grey&grey&s&&1&50&bone
+mylonite BT&grey&grey&grey&D&&1&50&bone
+ultramylonite&grey&grey&grey&o&&1&50&bone
+no&grey&grey&grey&.&&1&50&bone

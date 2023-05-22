@@ -40,6 +40,8 @@ class Tex():
     def Convert(files, inputFormat, outputFormat):
         os.system(f'for file in *.{inputFormat}; do convert $file "`basename $file .{inputFormat}`.{outputFormat}"; done')
             
+    def ConvertDVI(files):
+        os.system('for file in *.dvi; do dvipdf $file ; done')
     
     def Iteration(self, files, func, iterMineral = False):
         for c in files.cat:
@@ -102,6 +104,7 @@ class Tex():
         for c in files.cat:
         
             try:
+                print(c)
                 text = self.GetTxt(files, 'areaType')
             
                 PARAM, rotAngle = self.GetParam(files, c, f'Sort{sort}NoboundariesMap')
