@@ -133,7 +133,7 @@ class Plot():
                 ax.annotate(t, (x, y))
 
             
-    def PlotTernary(self, files, T, L, R, df, facecolor, edgecolor, marker):
+    def PlotTernary(self, files, T, L, R, df, facecolor, edgecolor, marker, labels = True):
 
         df = self.Load(f'{files.input}/{df}.csv')
         
@@ -156,8 +156,15 @@ class Plot():
         ax.set_tlabel(T)
         ax.set_llabel(L)
         ax.set_rlabel(R)
+        
+        if labels == False:
+            for ax in fig.get_axes():
+                ax.label_outer()
+            label = 'lab'
+        else:
+            label = ''
 
-        self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}.png')
+        self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}-{lab}.png')
 
             
     def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None):
