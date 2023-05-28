@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as mplc
 import matplotlib as mpl
-#import mpltern
+import mpltern
 from colour import Color
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from itertools import product, combinations, chain
@@ -137,8 +137,10 @@ class Plot():
 
         df = self.Load(f'{files.input}/{df}.csv')
         
-        fig, ax = self.ParamPlot(1, 1, subplot_kw=dict(projection="ternary"))
-        
+        plt.rcParams["font.family"] = self.fontFamily
+        plt.rcParams["font.size"] = self.fontSize                                       
+        fig, ax = plt.subplots(1, 1, figsize=(self.width, self.height), dpi = self.dpi, subplot_kw=dict(projection="ternary"))
+
         for i in df.index:
             top = df.loc[i, T]
             left = df.loc[i, L]
@@ -164,7 +166,7 @@ class Plot():
         else:
             label = ''
 
-        self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}-{lab}.png')
+        self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}-{label}.png')
 
             
     def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None):
@@ -189,15 +191,17 @@ class Plot():
             else:
                 cc = df.loc[i, c]
                 ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap)
-                ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4])
+                print(cc, ls[4])
+                #ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4])
+                ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], c = cc, cmap = 'bone', vmin = 0, vmax = 1)
             
             
-            if ann != None:
+            if ann == None:
+                annot = ''
+            else:
                 t = df.loc[i, ann]
                 ax.annotate(t, (x, y))
-                ann = 'ann'
-            else:
-                ann = ''
+                annot = 'ann'
 
         if xlim != None:
             ax.set_xlim(xlim[0], xlim[1])
@@ -207,7 +211,7 @@ class Plot():
         ax.set_xlabel(X)
         ax.set_ylabel(Y)
 
-        self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}{ann}.png')
+        self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}{annot}.png')
 
 
     def IterationPlot(self, files):

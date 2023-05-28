@@ -23,8 +23,10 @@ plot.GetParam()
         
 #df = pd.read_csv('/storage/emulated/0/scripts/tests/ternaryPlot/test.txt', sep = '/')
 
-#plot.PlotTernary(files, 'Ol', 'Opx', 'Al', df, 'massif', 'massif', 'facies_EGDmixte')
-#plot.PlotTernary(files, 'CpxAl', 'PlSpAl', 'TrAl', df, 'massif', 'massif', 'facies_EGDmixte')
+plot.PlotTernary(files, 'Ol', 'Opx', 'Al', 'finalCorrect', 'massif', 'lithology', 'deformation')
+plot.PlotTernary(files, 'Ol', 'Opx', 'Al', 'finalCorrect', 'massif', 'lithology', 'deformation')
+plot.PlotTernary(files, 'Cpx', 'PlSp', 'Amph', 'finalCorrect', 'massif', 'lithology', 'deformation', labels = False)
+plot.PlotTernary(files, 'Cpx', 'PlSp', 'Amph', 'finalCorrect', 'massif', 'lithology', 'deformation', labels = False)
 
 #plot.PlotScatterXYSave(files, 'pondGOSrexEGDmixte', 'pondaspectRatioporphEGDmixte', 'combSort', 'sscat', 'sscat', 'sscat', 'sscat', ';', sort = 'sscat_Olivine')
 #plot.PlotScatterXYSave(files, 'pondGOSrexEGDmixte', 'pondaspectRatioporphEGDmixte', 'combSort', 'sscat', 'sscat', 'sscat', 'sscat', ';', sort = 'sscat_Orthopyroxene')
@@ -32,9 +34,15 @@ plot.GetParam()
 #plot.PlotScatterXYSave(files, 'J', 'BA', 'index', 'sscat', 'sscat', 'sscat', 'sscat', '&', xlim = [0, 15], ylim = [0, 1], sort = 'sscat_Olivine')
 #plot.PlotScatterXYSave(files, 'J', 'BA', 'index', 'sscat', 'sscat', 'sscat', 'sscat', '&', xlim = [0, 15], ylim = [0, 1], sort = 'sscat_Orthopyroxene')
     
-plot.PlotScatterXYSave(files, 'J', 'BA', 'index', 'sscat', 'sscat', 'sscat', 'sscat', '&', xlim = [0, 15], ylim = [0, 1], sort = 'sscat_Orthopyroxene', c = 'J', cmap = 'sscat')
+#plot.PlotScatterXYSave(files, 'BA', 'J', 'index', 'sscat', 'sscat', 'facies_EGDmixte', 'sscat', '&', xlim = [0, 1], ylim = [0, 15], sort = 'sscat_Olivine', c = 'no', cmap = 'sscat')
+
+plot.PlotScatterXYSave(files, 'pondSFOlivine', 'pondSFOrthopyroxene', 'combSscat', 'massif', 'lithologyDef', 'facies_EGDmixte', 'massif', ';', sort = 'sort_EGDmixte')
+plot.PlotScatterXYSave(files, 'pondGOSOlivine', 'pondGOSOrthopyroxene', 'combSscat', 'massif', 'lithologyDef', 'facies_EGDmixte', 'massif', ';', sort = 'sort_EGDmixte')
+plot.PlotScatterXYSave(files, 'pondaspectRatioOlivine', 'pondaspectRatioOrthopyroxene', 'combSscat', 'massif', 'lithologyDef', 'facies_EGDmixte', 'massif', ';', sort = 'sort_EGDmixte')
+
+plot.PlotScatterXYSave(files, 'BA', 'J', 'indexMerge2', 'massif', 'lithologyDef', 'facies_EGDmixte', 'massif', '&', xlim = [0, 1], ylim = [0, 15], sort = 'sscat_Olivine')
     
 #plot.Combine(files, 'cat', 'massif', 'lithologyDef', 'facies_EGDmixte')
 
-#plot.SetParam(fontFamily = 'serif', fontSize = 18, height = 42, width = 30, dpi = 400, version = 'EN', eps = False, s = 100)
-#plot.IterationPlot(files)
+plot.SetParam(fontFamily = 'serif', fontSize = 18, height = 35, width = 30, dpi = 400, version = 'EN', eps = False, s = 100)
+plot.IterationPlot(files)

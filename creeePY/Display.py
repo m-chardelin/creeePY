@@ -297,15 +297,17 @@ class Display():
                     self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
                     self.df = self.df[(self.df['x'] > minX) & (self.df['x'] < maxX)]
                     self.df = self.df[(self.df['y'] > minY) & (self.df['y'] < maxY)]
-                    ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = self.param.loc[ssc, 'edgecolor'], facecolor = self.param.loc[ssc, 'facecolor'], cmap = None, norm = 'norm', alpha = 0.6)
+                    #ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = self.param.loc[ssc, 'edgecolor'], facecolor = self.param.loc[ssc, 'facecolor'], cmap = None, norm = 'norm', alpha = 0.6)
+                    ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = self.param.loc[ssc, 'edgecolor'], facecolor = self.param.loc[ssc, 'facecolor'], cmap = None, norm = 'norm', alpha = 1)
                     
             if os.path.exists(f'{files.input}/{cat}_Boundaries.csv'):
                 self.Load(f'{files.input}/{cat}_Boundaries.csv')
                 self.df = self.df[(self.df['x'] > minX) & (self.df['x'] < maxX)]
                 self.df = self.df[(self.df['y'] > minY) & (self.df['y'] < maxY)]
-                ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'dimgray', cmap = None, norm = 'norm')
+                #ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'dimgray', cmap = None, norm = 'norm')
+                ax = self.PlotPatch(ax, cat, self.df, res, linewidth = 0, edgecolor = 'black', facecolor = 'black', cmap = None, norm = 'norm')
 
-            gap = self.barScale(cat, ax, self.df, f'1750 um', text = self.text)       # 1750 = ecran de la microsonde 
+            gap = self.barScale(cat, ax, self.df, f'12 mm', text = self.text)       # 1750 = ecran de la microsonde
             
             ax.text(np.min(xy['xdata']) + gap/2, np.max(xy['ydata']) - 5*gap/2, i, color='white', fontsize = 46)
    

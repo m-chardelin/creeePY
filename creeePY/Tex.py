@@ -54,31 +54,38 @@ class Tex():
                         func(files, c, ssc)
 
 
-    def addTEXT(self, files, name, cat, subcat, iter, rep = '', begin = 1):
-    
-        if hasattr(self, 'ts') == False:
-            self.ts = self.area[self.area['cat'] == cat]
-            self.ts = self.ts[self.ts['subcat'] == subcat]
-            self.ts = self.ts.sort_values(by = ['%catArea'], ascending=False)
-            self.ts.index = np.arange(0, len(self.ts['sscat']), 1)
+    def addTEXT(self, files, name, cat, subcat, task, rep = '', re = '', begin = 1):
+
+        ts = self.area[(self.area['cat'] == cat) & (self.area['subcat'] == 'all')]
+        ts = ts.sort_values(by = ['%catArea'], ascending=False)
+        ind = np.arange(0, len(ts['sscat']), 1)
+        ts.index = ind
+        print(ts)
+  
+        end = ts.shape[0]
         
-        text = ''
-        if iter == 1 :
-            end = len(self.ts['sscat'])
-        else:
-            end = len(self.ts['sscat'])
-            
-        while begin < end:
-            add = self.GetTxt(files, name)
-            add = add.replace('SUBCAT', subcat)
-            add = add.replace('CAT', cat)
-            add = add.replace(f'MINERAL1', self.ts.loc[begin, 'sscat'])
-            if begin + 1 in self.ts.index:
-                add = add.replace(f'MINERAL2', self.ts.loc[begin + 1, 'sscat'])
-            else:
-                add = add.replace('rep', 'blank_hist.eps')
-            text = text + add
-            begin += iter
+        add = self.GetTxt(files, name)
+        
+        for i in np.arange(begin, len(ts['sscat']), 1):
+            mineral = ts.loc[i, 'sscat']
+            print(f'{files.figures}/{cat}_{mineral}_{subcat}_{task}.eps')
+            mine = f'MINERAL{i}'
+            if os.path.exists(f'{files.figures}/{cat}_{mineral}_{subcat}_{task}.eps'):
+                add = add.replace(mine, mineral)
+                
+        for ii in np.arange(begin, len(files.sscat), 1):
+            print('blank')
+            mine = f'MINERAL{ii}'
+            if mine in add:
+                for r, ree in zip(rep, re):
+                    print(r, ree)
+                    ee = r.replace('mine', mine)
+                    add = add.replace(ee, f'blank_{ree}.eps')
+        
+        print(add)
+        add = add.replace('SUBCAT', subcat)
+        add = add.replace('CAT', cat)
+        text = add
         return text
         
         
@@ -129,29 +136,34 @@ class Tex():
     def ThinSection(self, files):
         
         for c in files.cat:
-            text = self.GetTxt(files, 'lameType')
-            
-            PARAM, rotAngle = self.GetParam(files, c, 'PhasesMap')
-            
-            text = text.replace('CAT', c)
-            text = text.replace('PARAM', PARAM)
-            text = text.replace('FIGURESDIR', files.figures)
-            text = text.replace('rotAngle', str(rotAngle))
-            
-            cpo = self.addTEXT(files, 'addCPO', c, 'all', 1)
-            hist = self.addTEXT(files, 'addHIST', c, 'all', 2, 'CAT_MINERAL2_subcat_histEGDweightareaEGDmixte.eps')
-            
-            text = text.replace('CPO', cpo)
-            text = text.replace('HIST', hist)
+            try:
+                print(c)
+                text = self.GetTxt(files, 'lameType')
+                
+                PARAM, rotAngle = self.GetParam(files, c, 'PhasesMap')
+                
+                text = text.replace('CAT', c)
+                text = text.replace('PARAM', PARAM)
+                text = text.replace('FIGURESDIR', files.figures)
+                text = text.replace('rotAngle', str(rotAngle))
+                
+                cpo = self.addTEXT(files, 'addCPO', c, 'all', 'CPO', rep = ['CAT_mine_SUBCAT_CPO.eps', 'CAT_mine_SUBCAT_IPF.eps'], re = ['CPO', 'IPF'])
+                
+                hist = self.addTEXT(files, 'addHIST', c, 'subcat', 'histEGDweightareaEGDmixte', rep = ['CAT_mine_SUBCAT_histEGDweightareaEGDmixte.eps'], re = ['histEGDweightareaEGDmixte'])
+                
+                text = text.replace('CPO', cpo)
+                text = text.replace('HIST', hist)
 
-            self.text = text
-            self.Save(files, 'ts')
-            
-            os.system(f'cd {files.tex}')
-            os.chdir(f'{files.tex}')
-            os.system('pwd')
-            os.system(f'latex -jobname={c} ts.tex')
-            os.system(f'dvipdf {c}.dvi')
+                self.text = text
+                self.Save(files, 'ts')
+                
+                os.system(f'cd {files.tex}')
+                os.chdir(f'{files.tex}')
+                os.system('pwd')
+                os.system(f'latex -jobname={c} ts.tex')
+                #os.system(f'dvipdf {c}.dvi')
+            except:
+                pass
             
 
     def Merge(self, files):
@@ -174,3 +186,42 @@ class Tex():
             merger.append(f'{c}.pdf')
         self.merger.write("areaZabargad.pdf")
         merger.close()
+
+
+
+
+    #def addTEXT(self, files, name, cat, subcat, task, iter, rep = '', re = '', begin = 1):
+
+        #ts = self.area[(self.area['cat'] == cat) & (self.area['subcat'] == 'all')]
+        #ts = ts.sort_values(by = ['%catArea'], ascending=False)
+        #ts.index = np.arange(0, len(ts['sscat']), 1)
+        #print(ts)
+        
+        #text = ''
+        #end = ts.shape[0]
+        
+        #while begin < end:
+        #    add = self.GetTxt(files, name)
+        #    mineral = ts.loc[begin, 'sscat']
+        #    print(f'{files.figures}/{cat}_{mineral}_{subcat}_{task}.eps')
+            
+        #    if os.path.exists(f'{files.figures}/{cat}_{mineral}_{subcat}_{task}.eps'):
+        #        add = add.replace('MINERAL1', mineral)
+        #        print(add)
+        #    else:
+        #        for r, re in zip(rep, res):
+        #            add = add.replace(r, f'blank_{re}.eps')
+        #            print(f'blank_{re}.eps')
+
+        #    if begin + 1 in self.ts.index:
+        #        add = add.replace(f'MINERAL2', self.ts.loc[begin + 1, 'sscat'])
+        #    else:
+        #        for r, re in zip(rep, res):
+        #            add = add.replace(r, f'blank_{re}.eps')
+        #            print(f'blank_{re}')
+                    
+            #add = add.replace('CAT', cat)
+            #add = add.replace('SUBCAT', subcat)
+            #text = text + add
+            #begin += iter
+        #return text

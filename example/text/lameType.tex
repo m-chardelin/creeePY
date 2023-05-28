@@ -1,0 +1,87 @@
+\documentclass{article} 
+ \usepackage[utf8]{inputenc}
+\usepackage[top=1cm, bottom=0cm, left=0cm, right=2cm]{geometry}
+\usepackage[]{tikz}
+\usepackage{graphicx}
+
+\graphicspath{{FIGURESDIR/}}
+
+\newcommand{\framePaper}{
+\begin{tikzpicture}[remember picture,overlay] 
+ \draw[very thick] 
+ ([yshift=25pt,xshift=20pt]current page.north west)-- 
+ ([yshift=25pt,xshift=-20pt]current page.north east)-- 
+ ([yshift=70pt,xshift=-20pt]current page.south east)-- 
+ ([yshift=70pt,xshift=20pt]current page.south west)--cycle; 
+ \end{tikzpicture}
+ }
+
+
+
+\begin{document} 
+
+\newpage
+
+\framePaper
+
+
+\begin{center}
+\huge{CAT}
+\end{center}
+
+ \begin{tabular}{c c} 
+\hline
+\includegraphics[height=0.3\paperheight]{blank.eps} & \includegraphics[height=0.3\paperheight]{CAT_pie.eps} \\
+\hline
+ \end{tabular}
+
+ \begin{tabular}{c} 
+ \includegraphics[PARAM]{CAT_PhasesMap.eps} \\
+ \end{tabular} 
+
+
+\newpage
+
+\framePaper
+
+ \begin{tabular}{c c c c} 
+CPO
+ \end{tabular}
+
+
+\newpage
+
+\framePaper
+
+ \begin{tabular}{c} 
+ 	\includegraphics[width = \linewidth, angle = rotAngle]{CAT_FieldgrodBoundariesMap.eps} \\
+	\includegraphics[width = \linewidth, angle = rotAngle]{CAT_FieldkamBoundariesMap.eps} \\
+ \end{tabular} 
+
+
+%\newpage
+
+%\framePaper
+
+% \begin{tabular}{c c} 
+%	\includegraphics[width = \linewidth, angle = rotAngle]{CAT_SortEGDmixteNoboundariesMap.eps}\\
+% 	\includegraphics[width = \linewidth, angle = rotAngle]{CAT_SortEGDmixteNoboundariesMap.eps}\\
+%\end{tabular}
+
+
+\newpage
+
+\framePaper
+
+ \begin{tabular}{c c} 
+\includegraphics[height = 0.2\paperheight]{CAT_pieSubcatEGDmixte.eps} & \includegraphics[height = 0.2\paperheight]{CAT_all_subcat_histEGDweightareaEGDmixte.eps} \\
+HIST
+ \end{tabular}
+
+
+
+%\newpage
+
+%\includegraphics[width = 0.95\linewidth, angle = 0]{CAT_LPA.jpg}
+
+\end{document}

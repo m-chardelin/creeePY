@@ -19,5 +19,5 @@ files.SetCats(files.display, '.csv')
 files.SetFiles(inp = files.text, out = files.tex)
 tex = Tex.Tex(files)
 
-tex.Area(files, sort = 'EGDmixte')
-#tex.ThinSection(files)
+#tex.Area(files, sort = 'EGDmixte')
+tex.ThinSection(files)
