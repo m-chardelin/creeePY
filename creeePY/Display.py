@@ -21,9 +21,9 @@ class Display():
         
         self.__dict__.update(kwargs)
 
-        self.param = pd.read_csv(f'{files.param}/param.csv', sep = '&', index_col = 0)
+        self.param = pd.read_csv(f'{files.param}/param.csv', sep = ';', index_col = 0)
         
-        self.samples  = pd.read_csv(f'{files.folder}/samples.csv', sep = '&', index_col = 0)
+        self.samples  = pd.read_csv(f'{files.folder}/samples.csv', sep = ';', index_col = 0)
         
         self.unit = {'um': 0, 'mm': 3, 'cm': 4, 'dm': 5, 'm': 6}
         self.scale = {'1': 'um', '2': 'um', '3': 'mm', '4': 'cm', '5': 'dm', '6': 'm'}
@@ -32,7 +32,7 @@ class Display():
 
 
     def Load(self, table, sort = False):
-        self.df = pd.read_csv(table, sep = '&')
+        self.df = pd.read_csv(table, sep = ';')
         if sort == True:
             self.subcat = set(self.df[self.sort])
         return self.df
@@ -178,7 +178,7 @@ class Display():
         self.df = self.df[self.df['point'] == 'data']
         self.df.index = np.arange(0, self.df.shape[0], 1)
         self.df['id'] = self.df.index
-        self.df.to_csv(f'{files.output}/pointsId.csv', sep = '&', index = None)
+        self.df.to_csv(f'{files.output}/pointsId.csv', sep = ';', index = None)
         self.df = self.df[self.df['cat'] == cat]
         
         if minX != None:
@@ -557,7 +557,7 @@ class Display():
     def Histogram(self, files, cat, sscat):
         self.Load(f'{files.input}/{cat}_{sscat}_Grains.csv', sort = True)
         
-        area = pd.read_csv(f'{files.stats}/resume.csv', sep = '&')
+        area = pd.read_csv(f'{files.stats}/resume.csv', sep = ';')
         area.index = area.id
         neo = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%sscatArea']*100, 2)
         neo2 = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%catArea']*100, 2)

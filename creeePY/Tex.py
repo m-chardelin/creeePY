@@ -11,7 +11,7 @@ class Tex():
                         
         self.__dict__.update(kwargs)
 
-        self.area = pd.read_csv(f'{files.stats}/resume.csv', sep = '&')
+        self.area = pd.read_csv(f'{files.stats}/resume.csv', sep = ';')
 
         #### Functions
     

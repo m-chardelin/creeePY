@@ -11,13 +11,13 @@ class Statistics():
         
         self.__dict__.update(kwargs)
 
-        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = '&', index_col = 'cat')
+        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = ';', index_col = 'cat')
         
         with open(f'{files.folder}/resolution.csv', 'w') as file:
             file.write('cat\tdata\tvalue\n')
      
     def Load(self, table, sort = False):
-        self.df = pd.read_csv(table, sep = '&')
+        self.df = pd.read_csv(table, sep = ';')
         if sort == True:
             self.sort = set(self.df[self.sort])
         return self.df
@@ -60,8 +60,8 @@ class Statistics():
         for cat in set(df['cat']):
             for d in set(df['data']):
                 self.samples.loc[cat, d] = df.loc[f'{cat}_{d}', 'value']
-        self.samples.to_csv(f'{files.folder}/samples.csv', sep = '&')
-        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = '&', index_col = 'cat')
+        self.samples.to_csv(f'{files.folder}/samples.csv', sep = ';')
+        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = ';', index_col = 'cat')
         
         
     def Combine(self, files, cat):
@@ -82,7 +82,7 @@ class Statistics():
 
         if grains.shape[0] > 0:
             grains.sort_values(by = ['id'])
-            grains.to_csv(f'{files.output}/{cat}_{self.out}_{self.table}.csv', sep = '&', index = None)
+            grains.to_csv(f'{files.output}/{cat}_{self.out}_{self.table}.csv', sep = ';', index = None)
 
 
 
@@ -113,21 +113,21 @@ class Statistics():
         elif self.value == 'mixte':
             self.crit = 'mixte'
             self.df.loc[self.df['GOS'] > 1, f'{self.column}{self.crit}'] = 'porph'
-            self.df.loc[self.df['GOS'] <= 1, f'{self.column}{self.crit}'] = 'rex'
+            self.df.loc[self.df['GOS'] <= 1, f'{self.column}{self.crit}'] = 'neo'
             self.df.loc[self.df['EGD'] > 400, f'{self.column}{self.crit}'] = 'porph'
-            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = '&', index = None)
+            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
         else:
             self.crit = self.value
             self.val = self.value
 
         if self.crit != 'mixte':
             self.df.loc[self.df[self.column] > self.val, f'{self.column}{self.crit}'] = 'porph'
-            self.df.loc[self.df[self.column] <= self.val, f'{self.column}{self.crit}'] = 'rex'
-            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = '&', index = None)
+            self.df.loc[self.df[self.column] <= self.val, f'{self.column}{self.crit}'] = 'neo'
+            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
             
         if sscat == 'Amphibole':
-            self.df[f'{self.column}{self.crit}'] = 'rex'
-            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = '&', index = None)
+            self.df[f'{self.column}{self.crit}'] = 'neo'
+            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
 
 
     def DescribeDf(self, df):
@@ -168,7 +168,7 @@ class Statistics():
                 self.stats = pd.concat([self.stats, describe])
         
         self.stats = self.stats.drop_duplicates(keep = 'last')
-        self.stats.to_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = '&', index = None)
+        self.stats.to_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = ';', index = None)
         
         
     def IntermediaryCalculations(self, files, cat, sscat):
@@ -176,7 +176,7 @@ class Statistics():
         
         grains = self.Load(f'{files.input}/{cat}_{sscat}_Grains.csv')
         
-        area = pd.read_csv(f'{files.input}/{cat}_GrainsStats.csv', sep = '&')
+        area = pd.read_csv(f'{files.input}/{cat}_GrainsStats.csv', sep = ';')
         area = area[area['operation'] == 'sum']
         area.index = area['id']
         
@@ -198,14 +198,14 @@ class Statistics():
         for p in self.ponderation:
             self.calculations[f'pond{p}'] = grains[p]*self.calculations['pondArea']
             
-        self.calculations.to_csv(f'{files.output}/{cat}_{sscat}_IntermediaryCalculations.csv', sep = '&', index = None)
+        self.calculations.to_csv(f'{files.output}/{cat}_{sscat}_IntermediaryCalculations.csv', sep = ';', index = None)
         
 
     def AreaResume(self, files, cat):
         """Concatène les tables pour une opération statistique données, avec les bons index, calcule les rapports de surface selon les différentes catégories et calcule les variables pondérées par la surface"""
     
         if os.path.exists(f'{files.output}/resume.csv'):
-            self.resume = pd.read_csv(f'{files.output}/resume.csv', sep = '&')
+            self.resume = pd.read_csv(f'{files.output}/resume.csv', sep = ';')
         else:
             self.resume = pd.DataFrame()
      
@@ -238,7 +238,7 @@ class Statistics():
             add.loc[add['sscat'] == ssc, 'sscatArea'] = sum.loc[f'{cat}_{ssc}_all', 'area']
             add.loc[(add['sscat'] == ssc) & (add['sort'] == 'all'), 'subcatArea'] = sum.loc[f'{cat}_all_all', 'area']
 
-        subcat = ['rex', 'porph']
+        subcat = ['neo', 'porph']
         for it in list(product(subcat, self.sort)):
             add.loc[(add['subcat'] == f'{it[0]}') & (add['sort'] == f'{it[1]}'), 'subcatArea'] = sum.loc[f'{cat}_all_{it[0]}_{it[1]}', 'area']
 
@@ -257,7 +257,7 @@ class Statistics():
                     except:
                         pass
                         
-        self.resume.to_csv(f'{files.output}/resume.csv', sep = '&', index = None)
+        self.resume.to_csv(f'{files.output}/resume.csv', sep = ';', index = None)
 
  
     def ModalResume(self, files):
@@ -299,7 +299,7 @@ class Statistics():
 
         self.modalResume = df
 
-        self.modalResume.to_csv(f'{files.output}/modalResume.csv', sep = '&', index = None)
+        self.modalResume.to_csv(f'{files.output}/modalResume.csv', sep = ';', index = None)
      
 
     def TernaryComposition(self, df):
@@ -337,7 +337,7 @@ class Statistics():
     def SortCategories(self, files):
         """Trie les catégories de lames selon les critères définis"""
         
-        self.resume = pd.read_csv(f'{files.output}/resume.csv', sep = '&', index_col = 'id')
+        self.resume = pd.read_csv(f'{files.output}/resume.csv', sep = ';', index_col = 'id')
         
         for it in list(product(files.cat, self.sort)):
         
@@ -361,33 +361,33 @@ class Statistics():
                 pass
 
             try:
-                if self.resume.loc[f'{cat}_Olivine_rex_{sort}', '%sscatArea'] <= 0.15 :
-                    if self.resume.loc[f'{cat}_Olivine_rex_{sort}', 'pondEGD'] <= 100:
+                if self.resume.loc[f'{cat}_Olivine_neo_{sort}', '%sscatArea'] <= 0.15 :
+                    if self.resume.loc[f'{cat}_Olivine_neo_{sort}', 'pondEGD'] <= 100:
                         self.samples.loc[cat, f'facies_{sort}'] = 'protomylonite BT'
-                    elif self.resume.loc[f'{cat}_Olivine_rex_{sort}', 'pondEGD'] > 100:
+                    elif self.resume.loc[f'{cat}_Olivine_neo_{sort}', 'pondEGD'] > 100:
                         self.samples.loc[cat, f'facies_{sort}'] = 'mylonite HT'
             except:
                 pass
                 
             try:
-                if self.resume.loc[f'{cat}_Olivine_rex_{sort}', '%sscatArea'] > 0.15 and self.resume.loc[f'{cat}_Olivine_rex_{sort}', '%sscatArea'] <= 0.5:
+                if self.resume.loc[f'{cat}_Olivine_neo_{sort}', '%sscatArea'] > 0.15 and self.resume.loc[f'{cat}_Olivine_neo_{sort}', '%sscatArea'] <= 0.5:
                     self.samples.loc[cat, f'facies_{sort}'] = 'mylonite BT'
             except:
                 pass
                 
             try:
-                if self.resume.loc[f'{cat}_Olivine_rex_{sort}', '%sscatArea'] > 0.5:
+                if self.resume.loc[f'{cat}_Olivine_neo_{sort}', '%sscatArea'] > 0.5:
                     self.samples.loc[cat, f'facies_{sort}'] = 'ultramylonite'
             except:
                 pass
 
             #try:
-            #    if self.resume.loc[f'{cat}_all_rex_{sort}', '%catArea'] <= 0.1 and self.resume.loc[f'{cat}_all_rex_{sort}', '%catArea'] <= 800:
+            #    if self.resume.loc[f'{cat}_all_neo_{sort}', '%catArea'] <= 0.1 and self.resume.loc[f'{cat}_all_neo_{sort}', '%catArea'] <= 800:
             #        self.samples.loc[cat, f'facies_{sort}'] = 'protomylonite BT'
             #except:
             #    pass
                 
-        self.samples.to_csv(f'{files.output}/samples.csv', sep = '&')
+        self.samples.to_csv(f'{files.output}/samples.csv', sep = ';')
 
 
     def CalculateMeanGrains(self, files, cat):
@@ -428,7 +428,7 @@ class Statistics():
                 
                 table2 = table2.merge(df, on = 'id', how = 'outer')
             
-                table2.to_csv(f'{files.output}/{cat}_{ssc}_{self.name}.csv', sep = '&', index = None)
+                table2.to_csv(f'{files.output}/{cat}_{ssc}_{self.name}.csv', sep = ';', index = None)
                     
 
     # COMBINER DES DATAFRAMES EN NE GARDANT QUE LES BONNES COLONNES

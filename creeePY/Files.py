@@ -13,7 +13,7 @@ class Files():
 
 
     def Load(self, table, sort = False):
-        self.df = pd.read_csv(table, sep = '&')
+        self.df = pd.read_csv(table, sep = ';')
         if sort == True:
             self.sort = set(self.df[self.sort])
         return self.df
