@@ -168,10 +168,9 @@ class Plot():
         self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}-{label}.png')
 
             
-    def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None):
+    def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None, vmin = 0, vmax = 0):
 
         df = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
-        
 
         if sort != None:
             sort = sort.split('_')
@@ -192,7 +191,7 @@ class Plot():
                 ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap)
                 print(cc, ls[4])
                 #ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4])
-                ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], c = cc, cmap = 'bone', vmin = 0, vmax = 1)
+                ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], c = cc, cmap = cmap, vmin = vmin, vmax = vmax)
             
             
             if ann == None:
@@ -232,18 +231,21 @@ class Plot():
             
                 ax = self.SetAxes(fig, axes, catx, caty, catX, catY)
 
+                dfAll = df.copy()
+                
                 if sortType == 'inner':
                     df = self.SortDataFrameInner(df, sort, values)
                 elif sortType == 'combine': 
                     df = self.SortDataFrameCombine(df, sort, values)
 
-                allDf = df.copy()
-                df, ss, aalpha = self.SetSizeAlpha(allDf, df, s, alpha)
-                vmin, vmax = self.SetMinMaxCmap(allDf, df, vmin, vmax)
-                
                 dcat = df[(df[colCatX] == catx) & (df[colCatY] == caty)]
                 
-                self.PlotXY(ax, dcat, ppx, ppy, colAnn, annT, fc, ec, m, ss, aalpha, c, cmap, vmin, vmax)
+                df, ss, aalpha = self.SetSizeAlpha(dfAll, dcat, df, s, alpha)
+
+                if c != 'no':
+                    vvmin, vvmax = self.SetMinMaxCmap(dfAll, dcat, df, vmin, vmax)
+                
+                self.PlotXY(ax, dcat, ppx, ppy, colAnn, annT, fc, ec, m, ss, aalpha, c, cmap, vvmin, vvmax)
             
                 if textbox == True:
                     ax.text(0, 0.9, f'{catx}, {caty}', transform = ax.transAxes)
@@ -267,7 +269,7 @@ class Plot():
                 xa = len(catX)//2
                 axes[xa, 0].set_ylabel(py)
                 ya = len(catY)//2
-                axes[0, ya].set_xlabel(px)
+                axes[xa, ya].set_xlabel(px)
 
             if labels == True:
                 for ax in fig.get_axes():
@@ -371,7 +373,7 @@ class Plot():
         return ax
 
 
-    def SetSizeAlpha(self, allDf, df, s, alpha):
+    def SetSizeAlpha(self, dfAll, dfCat, df, s, alpha):
         col = []
         for name, element in zip(['s', 'alpha'], [s, alpha]):
             val = element.split('_')
@@ -388,8 +390,10 @@ class Plot():
             elif 'auto' in val:                         # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue
                 if val[1] == 'df':
                     df = df
-                elif val[1] == 'all':
-                    df = allDf
+                elif val[1] == 'dfAll':
+                    df = dfAll
+                elif val[1] == 'dfCat':
+                    df = dfCat
                 cc = val[2]
                 mini = np.min(df[cc])
                 maxi = np.max(df[cc]) + mini
@@ -405,7 +409,7 @@ class Plot():
         return df, s, alpha
 
 
-    def SetMinMaxCmap(self, allDf, df, vmin, vmax):
+    def SetMinMaxCmap(self, dfAll, dfCat, df, vmin, vmax):
         col = []
         for name, element in zip(['vmin', 'vmax'], [vmin, vmax]):
             val = element.split('_')
@@ -414,8 +418,10 @@ class Plot():
             elif 'auto' in val:                         # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue
                 if val[1] == 'df':
                     df = df
-                elif val[1] == 'all':
-                    df = allDf
+                elif val[1] == 'dfAll':
+                    df = dfAll
+                elif val[1] == 'dfCat':
+                    df = dfCat
                 cc = val[2]
 
                 if name == 'vmin':
@@ -426,6 +432,7 @@ class Plot():
                     col.append(v)
         vmin = col[0]
         vmax = col[1]
+        print(val[1], vmin, vmax)
         return vmin, vmax
 
 

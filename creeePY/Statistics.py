@@ -260,6 +260,26 @@ class Statistics():
         self.resume.to_csv(f'{files.output}/resume.csv', sep = ';', index = None)
 
  
+    def CombineTables(self, files, name, table1, table2, how, key, *fields):
+
+        table1 = self.Load(f'{files.input}/{table1}.csv')
+        table2 = self.Load(f'{files.input}/{table2}.csv')
+
+        keys = [key]
+        for e in fields:
+            keys.append(e)
+            
+        table1 = table1.merge(table2[keys], on=key, how=how)       
+        for c in table1.columns:
+            try:
+                table1[c] = table1[c].astype(float)
+            except:
+                pass
+
+        table1.to_csv(f'{files.output}/{name}.csv', sep = ';')
+        return table1
+
+
     def ModalResume(self, files):
 
         self.resume = self.Load(f'{files.stats}/resume.csv')
