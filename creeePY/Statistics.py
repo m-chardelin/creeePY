@@ -35,7 +35,7 @@ class Statistics():
 
             if iterMineral == True:
                 for ssc in files.sscat:
-                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.task}.csv'):
+                    if os.path.exists(f'{files.input}/{c}_{ssc}_{self.table}.csv'):
                         func(files, c, ssc)
                         
                         
@@ -85,6 +85,19 @@ class Statistics():
             grains.to_csv(f'{files.output}/{cat}_{self.out}_{self.table}.csv', sep = ';', index = None)
 
 
+    def Split(self, files, cat):
+
+        df = self.Load(f'{files.input}/{cat}_all_{self.table}.csv')
+
+        sort = list(set(df[self.column]))
+
+        for s in sort:
+            d = df[df[self.column] == s]
+            if d.shape[0] > 0:
+                del d[self.column]
+                d.to_csv(f'{files.output}/{cat}_{s}_{self.table}.csv', sep = ';', index = None)
+
+
 
     def Calculate(self, files, cat, sortRes):
         """Calcul des colonnes voulues sur les tables """
@@ -116,6 +129,9 @@ class Statistics():
             self.df.loc[self.df['GOS'] <= 1, f'{self.column}{self.crit}'] = 'neo'
             self.df.loc[self.df['EGD'] > 400, f'{self.column}{self.crit}'] = 'porph'
             self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
+            size = self.samples.loc[cat, 'XStep']
+            df = self.df[self.df['EGD'] > size]
+            df.to_csv(f'{files.output}/{cat}_{sscat}_GrainsSorted.csv', sep = ';', index = None)
         else:
             self.crit = self.value
             self.val = self.value
@@ -124,10 +140,15 @@ class Statistics():
             self.df.loc[self.df[self.column] > self.val, f'{self.column}{self.crit}'] = 'porph'
             self.df.loc[self.df[self.column] <= self.val, f'{self.column}{self.crit}'] = 'neo'
             self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
+            size = self.samples.loc[cat, 'XStep']
+            df = self.df[self.df['EGD'] > size]
+            df.to_csv(f'{files.output}/{cat}_{sscat}_GrainsSorted.csv', sep = ';', index = None)
             
         if sscat == 'Amphibole':
             self.df[f'{self.column}{self.crit}'] = 'neo'
-            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
+            size = self.samples.loc[cat, 'XStep']
+            df = self.df[self.df['EGD'] > size]
+            df.to_csv(f'{files.output}/{cat}_{sscat}_GrainsSorted.csv', sep = ';', index = None)
 
 
     def DescribeDf(self, df):
@@ -144,7 +165,7 @@ class Statistics():
         self.stats = pd.DataFrame()
         
         c = [cat]
-        
+       
         for it in list(product(c, files.sscat, self.subcat, self.sort)):
             
             names = {'id': f'{it[0]}_{it[1]}_{it[2]}_{it[3]}', 'cat': it[0], 'sscat': it[1], 'subcat': it[2], 'sort': it[3]}
@@ -174,43 +195,54 @@ class Statistics():
     def IntermediaryCalculations(self, files, cat, sscat):
         """Calcule les valeurs d'un champ * les coefficients de l'aire pour chaque grain, garde en mémoire les tri effectués"""
         
-        grains = self.Load(f'{files.input}/{cat}_{sscat}_Grains.csv')
+
+        grains = self.Load(f'{files.input}/{cat}_{sscat}_{self.table}.csv')
         
-        area = pd.read_csv(f'{files.input}/{cat}_GrainsStats.csv', sep = ';')
+        area = pd.read_csv(f'{files.input}/{cat}_{self.stat}.csv', sep = ';')
         area = area[area['operation'] == 'sum']
         area.index = area['id']
         
-        self.calculations = pd.DataFrame()
+
+        if os.path.exists(f'{files.output}/{self.resumeName}.csv'):
+            self.calculations = pd.read_csv(f'{files.output}/{cat}_{sscat}_{self.intermediaryCalculations}.csv', sep = ';')
+        else:
+            self.calculations = pd.DataFrame()
+            self.calculations['id'] = grains['id']
+            self.calculations['area'] = grains['area']
+            self.calculations['catArea'] = area.loc[f'{cat}_all_all', 'area']
+            self.calculations['pondArea'] = self.calculations['area']/self.calculations['catArea']
             
-        self.calculations['id'] = grains['id']
-        self.calculations['area'] = grains['area']
-        self.calculations['catArea'] = area.loc[f'{cat}_all_all', 'area']
-        self.calculations['pondArea'] = self.calculations['area']/self.calculations['catArea']
-            
-        if hasattr(self, 'ponderation') == False:
+        if hasattr(self, 'ponderation') == False :
             col = [c for c in grains.columns if c not in self.sort]
             col = [c for c in col if c not in ['sscat', 'id']]
-            setattr(self, 'ponderation', col)
-                
-        for s in self.sort:
-            self.calculations[f'{s}'] = grains[f'{s}']
-            
-        for p in self.ponderation:
+            col = [c for c in col if grains.dtypes[c] != 'object']
+            setattr(self, 'colPonderation', col)
+        elif hasattr(self, 'ponderation') == True and self.ponderation == False:
+            col = [c for c in grains.columns if c not in self.sort]
+            col = [c for c in col if c not in ['sscat', 'id']]
+            col = [c for c in col if grains.dtypes[c] != 'object']
+            setattr(self, 'colPonderation', col)
+    
+        col = [c for c in grains.columns if grains.dtypes[c] == 'object']
+        for c in col:
+            self.calculations[c] = grains[c]
+    
+        for p in self.colPonderation:
             self.calculations[f'pond{p}'] = grains[p]*self.calculations['pondArea']
-            
-        self.calculations.to_csv(f'{files.output}/{cat}_{sscat}_IntermediaryCalculations.csv', sep = ';', index = None)
         
+        self.calculations.to_csv(f'{files.output}/{cat}_{sscat}_{self.intermediaryCalculations}.csv', sep = ';', index = None)
 
-    def AreaResume(self, files, cat):
+
+    def Resume(self, files, cat):
         """Concatène les tables pour une opération statistique données, avec les bons index, calcule les rapports de surface selon les différentes catégories et calcule les variables pondérées par la surface"""
     
-        if os.path.exists(f'{files.output}/resume.csv'):
-            self.resume = pd.read_csv(f'{files.output}/resume.csv', sep = ';')
+        if os.path.exists(f'{files.output}/{self.resumeName}.csv'):
+            self.resume = pd.read_csv(f'{files.output}/{self.resumeName}.csv', sep = ';')
         else:
             self.resume = pd.DataFrame()
      
-        intStats = self.Load(f'{files.input}/{cat}_IntermediaryStats.csv')
-        grainsStats = self.Load(f'{files.input}/{cat}_GrainsStats.csv')
+        intStats = self.Load(f'{files.input}/{cat}_{self.intermediaryCalculationsStats}.csv')
+        grainsStats = self.Load(f'{files.input}/{cat}_{self.grainsStat}.csv')
         
         sum = grainsStats[grainsStats['operation'] == 'sum']
         intStats = intStats[intStats['operation'] == 'sum']
@@ -249,18 +281,18 @@ class Statistics():
         self.resume = pd.concat([self.resume, add])
         self.resume.index = self.resume.id
 
-        if hasattr(self, 'ponderation'):
-            for p in self.ponderation:
+        if hasattr(self, 'colPonderation'):
+            for p in self.colPonderation:
                 for i in self.resume.index:
                     try:
                         self.resume.loc[i, f'pond{p}'] = intStats.loc[i, f'pond{p}'] / intStats.loc[i, 'pondArea']
                     except:
                         pass
                         
-        self.resume.to_csv(f'{files.output}/resume.csv', sep = ';', index = None)
+        self.resume.to_csv(f'{files.output}/{self.resumeName}.csv', sep = ';', index = None)
 
  
-    def CombineTables(self, files, name, table1, table2, how, key, *fields):
+    def CombineTables(self, files, name, table1, table2, how, save,  key, *fields):
 
         table1 = self.Load(f'{files.input}/{table1}.csv')
         table2 = self.Load(f'{files.input}/{table2}.csv')
@@ -276,7 +308,8 @@ class Statistics():
             except:
                 pass
 
-        table1.to_csv(f'{files.output}/{name}.csv', sep = ';')
+        if save == True:
+            table1.to_csv(f'{files.output}/{name}.csv', sep = ';')
         return table1
 
 
@@ -381,11 +414,11 @@ class Statistics():
                 pass
 
             try:
-                if self.resume.loc[f'{cat}_Olivine_neo_{sort}', '%sscatArea'] <= 0.15 :
-                    if self.resume.loc[f'{cat}_Olivine_neo_{sort}', 'pondEGD'] <= 100:
-                        self.samples.loc[cat, f'facies_{sort}'] = 'protomylonite BT'
-                    elif self.resume.loc[f'{cat}_Olivine_neo_{sort}', 'pondEGD'] > 100:
-                        self.samples.loc[cat, f'facies_{sort}'] = 'mylonite HT'
+                    if self.resume.loc[f'{cat}_Olivine_neo_{sort}', '%sscatArea'] <= 0.15 :
+                        if self.resume.loc[f'{cat}_Olivine_neo_{sort}', 'pondEGD'] <= 100:
+                            self.samples.loc[cat, f'facies_{sort}'] = 'protomylonite BT'
+                        elif self.resume.loc[f'{cat}_Olivine_neo_{sort}', 'pondEGD'] > 100:
+                            self.samples.loc[cat, f'facies_{sort}'] = 'mylonite HT'
             except:
                 pass
                 
@@ -451,8 +484,205 @@ class Statistics():
                 table2.to_csv(f'{files.output}/{cat}_{ssc}_{self.name}.csv', sep = ';', index = None)
                     
 
-    # COMBINER DES DATAFRAMES EN NE GARDANT QUE LES BONNES COLONNES
+    def Neighbors(self, files, cat):
+        '''Calculate the mean values of the parameters of the neighbors of each grain, keeps the id of the neighbors used in calculations, keep the subcat if available for further statistics
+        
+        INPUT :
 
-    # COMBINER DES DATAFRAMES AVEC LES SOUS CATEGORIES
-    
-    # LES VOISINS !
+            cat      : sample name
+
+            (sort)   ; columns for sorting grains in Sort function
+
+        
+        OUTPUT :
+
+            [GrainsNeighbors]
+            | id | id_neighbors | area | perimeter | neighbors{parameters}  |... | sscat | sort | 
+
+        '''
+
+        neighbors = self.Load(f'{files.input}/{cat}_NeighborsPairs.csv')
+        grains = self.Load(f'{files.input}/{cat}_all_Grains.csv')
+        
+        ids = list(set(grains['id']))
+            
+        AllNeighbors = pd.DataFrame()
+
+        for e in range(0, 30):
+
+            i = ids[e]
+                    
+            gn1 = neighbors[neighbors['grain1'] == i]
+            gn2 = neighbors[neighbors['grain2'] == i]
+
+            neighbor = list(gn1['grain2']) + list(gn2['grain1'])
+            segNumber = len(neighbor)
+            neighbor = list(set(neighbor))
+
+            neighDf = grains[grains['id'].isin(neighbor)]
+            neighDf = neighDf.mean(numeric_only=True)
+            neighDf = pd.DataFrame(neighDf)
+            neighDf = neighDf.T
+            del neighDf['id']
+
+            for c in neighDf.columns:
+                if c != 'id':
+                    neighDf = neighDf.rename(columns = {c: f'neighbors{c}'})
+                    
+            neighDf['id_neighbors'] = '_'.join(str(nn) for nn in neighbor)
+            neighDf['id'] = i
+            neighDf['segNumber'] = segNumber
+            neighDf['neighborsNumber'] = len(neighbor)
+
+            AllNeighbors = pd.concat([AllNeighbors, neighDf])
+            
+        if hasattr(self, 'sort'):
+            a = ['id', 'sscat', 'EGD', 'area', 'perimeter']
+            for s in self.sort:
+                a.append(s)
+            AllNeighbors = AllNeighbors.merge(grains[a], on = 'id', how = 'left')
+
+        AllNeighbors.to_csv(f'{files.output}/{cat}_all_GrainsNeighbors.csv', sep = ';', index = None)
+
+        
+
+    def NeighborsCompoStatistics(self, files, cat):
+        ''' Calculate the length and the corresponding percentage of each grain shared with the phasis of the neighbors
+            Return a complete table of neighbors pairs from grains and ebsd table (with mean x and y from ebsd merging)
+
+        INPUT :
+
+            cat      : sample name
+
+            (sort)   ; columns for sorting grains in Sort function
+
+        
+        OUTPUT :
+
+            [NeighborsCompositions]
+            | id | sscat | area | perim | segLength{sscat} | %boundary{sscat} |
+
+
+            [NeighborsPairs]
+            | grain1 | grain2 | ebsd1 | ebsd2 | x | y | mineral1 | mineral2 | {orientation parameters} | 
+
+        '''
+
+
+        neighbors = self.Load(f'{files.input}/{cat}_NeighborsPairs.csv')
+        grains = self.Load(f'{files.input}/{cat}_all_Grains.csv')
+        ebsd = self.Load(f'{files.input}/{cat}_all_EBSD.csv')
+
+        for i in [1, 2]:
+            neighbors = neighbors.merge(grains[['id', 'sscat']], left_on = f'grain{i}', right_on = 'id', how = 'left')
+            neighbors[f'mineral{i}'] = neighbors['sscat']
+            del neighbors['id']
+            del neighbors['sscat']
+        
+        for i in [1, 2]:
+            neighbors = neighbors.merge(ebsd[['id', 'x', 'y']], left_on = f'ebsd{i}', right_on = 'id', how = 'left')
+            neighbors[f'x{i}'] = neighbors['x']
+            neighbors[f'y{i}'] = neighbors['y']
+            del neighbors['id']
+            del neighbors['x']
+            del neighbors['y']
+        
+        for e in ['x', 'y']:
+            neighbors[e] = (neighbors[f'{e}1'] + neighbors[f'{e}2'])/2
+            for f in [1, 2]:
+                del neighbors[f'{e}{f}']
+
+        neighbors.to_csv(f'{files.output}/{cat}_NeighborsPairs.csv', sep = ';', index = None)
+
+        neigh = grains[['id', 'sscat', 'perimeter', 'area', 'GOS', 'EGD']]
+        sscat = list(set(grains.sscat))
+        ids = list(set(neigh['id']))
+        idd = ids[0:30]
+
+        for a in list(product(idd, sscat)):
+
+            g1 = neighbors[(neighbors['grain1'] == a[0]) & (neighbors['mineral2'] == a[1])]
+            g2 = neighbors[(neighbors['grain2'] == a[0]) & (neighbors['mineral1'] == a[1])]
+            s1 = np.sum(g1['segLength'])
+            s2 = np.sum(g2['segLength'])
+
+            mine = a[1]
+            neigh.loc[neigh['id'] == a[0], f'segLength{mine}'] = s1 + s2
+        
+        for ssc in sscat:
+            neigh[f'%boundary{ssc}'] = neigh[f'segLength{ssc}']/neigh['perimeter']
+
+
+        if hasattr(self, 'sort'):
+            a = ['id']
+            for s in self.sort:
+                a.append(s)
+            neigh = neigh.merge(grains[a], on = 'id', how = 'left')
+
+        neigh.to_csv(f'{files.output}/{cat}_all_NeighborsCompositions.csv', sep = ';', index = None)
+
+
+        
+    def SortSlices(self, files, cat):
+        ''' Return a new dataframe with classes defined from a minimum and maximum value with a step. Dataframe is sliced and mean parameters are calculated in order to compare variations with the classes in the wanted column. Ieteration over m and M, down and upper boundary of the class.
+
+        INPUT :
+
+            cat      : sample name
+
+            table    ; name of the dataframe to slice
+        
+        OUTPUT :
+
+            [{cat}_{sscat}_sliced{table}]
+            | columns | m | M | sliced{column} |
+
+        '''
+
+        for ssc in files.sscat:
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_{self.table}.csv'):
+                df = self.Load(f'{files.input}/{cat}_{ssc}_{self.table}.csv')
+
+                if self.maxi == 'auto':
+                    self.end = np.max(df[self.column])
+                else:
+                    self.end = self.maxi
+                if self.mini == 'auto':
+                    self.begin = np.min(df[self.column])
+                else:
+                    self.begin = self.mini
+
+                if self.stepType == 'step':
+                    values = np.arange(self.begin, self.end, self.step)
+                if self.stepType == 'nb':
+                    values = np.linspace(self.begin, self.end, self.step, endpoint=True)
+
+                if type(self.roundo) == 'int':
+                    roundo = self.roundo
+                else:
+                    roundo = 0
+
+                values = [round(val, roundo) for val in values]
+
+                dd = pd.DataFrame()
+
+                for i in range(1, len(values)):
+                    m = values[i-1]
+                    M = values[i]
+                    d = df[(df[self.column] >= m) & (df[self.column] < M)]
+                    if d.shape[0] > 0:
+                        d[f'sliced{self.column}--{self.mini}-{self.maxi}--{self.step}{self.stepType}'] = f'{m}_{M}'
+                        d[f'sliced{self.column}--{self.mini}-{self.maxi}--{self.step}{self.stepType}Value'] = (m + M) /2
+                        dd = pd.concat([dd, d])
+
+                dd.to_csv(f'{files.output}/{cat}_{ssc}_{self.table}.csv', sep = ';', index = None)
+
+
+#    def Resume(self, files):
+#        '''Return the good table from a list of table
+
+#        [resume{bame}]
+#        | cat | sscat | subcat | sort | {stat}{oaram} |
+
+#        '''
+

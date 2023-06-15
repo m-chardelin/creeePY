@@ -97,7 +97,7 @@ class Plot():
                 else:
                     cc = df.loc[i, c]
                     ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
-                    ax.scatter(x, y, marker = ls[2], alpha = a, s = ls[3], c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
+                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3], c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
             if 'MinMax' in s and 'MinMax' not in alpha:
                 size = df.loc[i, s]
                 if c == 'no':
@@ -106,7 +106,7 @@ class Plot():
                 else:
                     cc = df.loc[i, c]
                     ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha, cmap = cmap)
-                    ax.scatter(x, y, marker = ls[2], alpha = ls[3], s = size, c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
+                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size, c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
             elif 'MinMax' in s and 'MinMax' in alpha:
                 size = df.loc[i, s]
                 a = df.loc[i, alpha]
@@ -116,7 +116,7 @@ class Plot():
                 else:
                     cc = df.loc[i, c]
                     ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, cmap = cmap)
-                    ax.scatter(x, y, marker = ls[2], alpha = alpha, s = size, c = cc, cmap = ls[3], vmin = vmin, vmax = vmax)
+                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size, c = cc, cmap = ls[3], vmin = vmin, vmax = vmax)
             else:
                 #ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, c = c, cmap = cmap)
                 if c == 'no':
@@ -125,7 +125,7 @@ class Plot():
                 else:
                     cc = df.loc[i, c]
                     ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, cmap = cmap)
-                    ax.scatter(x, y, marker = ls[2], s = ls[3], alpha = ls[4], c = cc, cmap = ls[5], vmin = vmin, vmax = vmax)
+                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = cc, cmap = ls[5], vmin = vmin, vmax = vmax)
                 #ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = ls[5], cmap = ls[6])
 
             if ann != 'no' and df.loc[i, colAnn] in ann:
@@ -219,31 +219,33 @@ class Plot():
         
         for ind, xx, yy, px, py, dff, fc, ec, m, s, alpha, c, cmap, vmin, vmax, typ, proj, ann, xlim, ylim, sortType, sort, values, textbox, sharex, sharey, labels in zip(plot.id, plot.xx, plot.yy, plot.pX, plot.pY, plot.df, plot.facecolor, plot.edgecolor, plot.marker, plot.s, plot.alpha, plot.c, plot.cmap, plot.vmin, plot.vmax, plot.type, plot.proj, plot.annotate, plot.xlim, plot.ylim, plot.sorttype,  plot.sort, plot.sortvalues, plot.textbox, plot.shareX, plot.shareY, plot.labels):
 
-            df = self.Load(f'{files.input}/{dff}.csv')
+            dfAll = self.Load(f'{files.input}/{dff}.csv')
         
-            catX, colCatX, countCatX = self.readXY(xx, df)
-            catY, colCatY, countCatY = self.readXY(yy, df)
-            annT, colAnn, countAnn = self.readXY(str(ann), df)
+            catX, colCatX, countCatX = self.readXY(xx, dfAll)
+            catY, colCatY, countCatY = self.readXY(yy, dfAll)
+            annT, colAnn, countAnn = self.readXY(str(ann), dfAll)
 
             fig, axes = self.ParamPlot(len(catX), len(catY), sharex = sharex, sharey = sharey)
+
 
             for catx, caty, ppx, ppy in list(product(catX, catY, [px], [py])):
             
                 ax = self.SetAxes(fig, axes, catx, caty, catX, catY)
 
-                dfAll = df.copy()
-                
                 if sortType == 'inner':
-                    df = self.SortDataFrameInner(df, sort, values)
+                    df = self.SortDataFrameInner(dfAll, sort, values)
                 elif sortType == 'combine': 
-                    df = self.SortDataFrameCombine(df, sort, values)
+                    df = self.SortDataFrameCombine(dfAll, sort, values)
 
                 dcat = df[(df[colCatX] == catx) & (df[colCatY] == caty)]
                 
-                df, ss, aalpha = self.SetSizeAlpha(dfAll, dcat, df, s, alpha)
-
+                ddcat, ss, aalpha = self.SetSizeAlpha(dfAll, dcat, df, s, alpha)
+                
                 if c != 'no':
                     vvmin, vvmax = self.SetMinMaxCmap(dfAll, dcat, df, vmin, vmax)
+                else:
+                    vvmin = 'no'
+                    vvmax = 'no'
                 
                 self.PlotXY(ax, dcat, ppx, ppy, colAnn, annT, fc, ec, m, ss, aalpha, c, cmap, vvmin, vvmax)
             
@@ -381,11 +383,11 @@ class Plot():
                 cc = val[1]
             elif 'minmax' in val:                       # min et max indiqué : minmax_col_minSize_minValue_maxValue
                 cc = val[1]
-                mini = val[3]
-                maxi = val[4] + mini
+                mini = float(val[3])
+                maxi = float(val[4] + mini)
                 df[f'{name}MinMax'] = 1 - ((maxi - df[cc]) / maxi)
                 if name == 's':
-                    df[f'{name}MinMax'] = df[f'{name}MinMax'] * val[2]
+                    df[f'{name}MinMax'] = df[f'{name}MinMax'] * float(val[2])
                 cc = f'{name}MinMax'
             elif 'auto' in val:                         # min et max de la colonne : recalcule sur 100% et multiplie pour la taille voulue
                 if val[1] == 'df':
