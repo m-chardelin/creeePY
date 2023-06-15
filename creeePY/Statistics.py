@@ -162,7 +162,11 @@ class Statistics():
     def Describe(self, files, cat):
         """Crée une table annexe dans laquelles sont résumées les statistiques par sous catégorie, catégorie, par échantillon avec la bonne indexation pour un futur résumé"""
         
-        self.stats = pd.DataFrame()
+        
+        if os.path.exists(f'{files.output}/{cat}_{self.stat}.csv'):
+            self.stats = pd.read_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = ';')
+        else:
+            self.stats = pd.DataFrame()
         
         c = [cat]
        
@@ -186,9 +190,16 @@ class Statistics():
                     describe[key] = names[key]
                         
                 describe['operation'] = describe.index
-                self.stats = pd.concat([self.stats, describe])
+               
+                columns = list(self.stats.columns)
+                if len(columns) == 0:
+                    self.stats = pd.concat([self.stats, describe])
+                elif len(columns) > 0:
+                    l = list(self.stats['id'])
+                    if f'{it[0]}_{it[1]}_{it[2]}' not in l: 
+                        self.stats = pd.concat([self.stats, describe])
         
-        self.stats = self.stats.drop_duplicates(keep = 'last')
+        self.stats = self.stats.drop_duplicates()
         self.stats.to_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = ';', index = None)
         
         
@@ -203,7 +214,7 @@ class Statistics():
         area.index = area['id']
         
 
-        if os.path.exists(f'{files.output}/{self.resumeName}.csv'):
+        if os.path.exists(f'{files.output}/{cat}_{sscat}_{self.intermediaryCalculations}.csv'):
             self.calculations = pd.read_csv(f'{files.output}/{cat}_{sscat}_{self.intermediaryCalculations}.csv', sep = ';')
         else:
             self.calculations = pd.DataFrame()
@@ -270,7 +281,7 @@ class Statistics():
             add.loc[add['sscat'] == ssc, 'sscatArea'] = sum.loc[f'{cat}_{ssc}_all', 'area']
             add.loc[(add['sscat'] == ssc) & (add['sort'] == 'all'), 'subcatArea'] = sum.loc[f'{cat}_all_all', 'area']
 
-        subcat = ['neo', 'porph']
+        subcat = [val for val in self.subcat if val != 'all']
         for it in list(product(subcat, self.sort)):
             add.loc[(add['subcat'] == f'{it[0]}') & (add['sort'] == f'{it[1]}'), 'subcatArea'] = sum.loc[f'{cat}_all_{it[0]}_{it[1]}', 'area']
 
