@@ -113,10 +113,10 @@ class Statistics():
         return self.df
 
 
-    def Sort(self, files, cat, sscat):
+    def SortGrains(self, files, cat, sscat):
         """Tri des recristallisations et des porphyroclastes selon les valeurs indiquées et les colonnes indiquées"""
         self.Load(f'{files.input}/{cat}_{sscat}_Grains.csv')
-        
+
         if 'EGD' not in self.df.columns:
             self.df = self.Calculate(files, cat, self.sortRes)
 
@@ -129,9 +129,6 @@ class Statistics():
             self.df.loc[self.df['GOS'] <= 1, f'{self.column}{self.crit}'] = 'neo'
             self.df.loc[self.df['EGD'] > 400, f'{self.column}{self.crit}'] = 'porph'
             self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
-            size = self.samples.loc[cat, 'XStep']
-            df = self.df[self.df['EGD'] > size]
-            df.to_csv(f'{files.output}/{cat}_{sscat}_GrainsSorted.csv', sep = ';', index = None)
         else:
             self.crit = self.value
             self.val = self.value
@@ -140,15 +137,10 @@ class Statistics():
             self.df.loc[self.df[self.column] > self.val, f'{self.column}{self.crit}'] = 'porph'
             self.df.loc[self.df[self.column] <= self.val, f'{self.column}{self.crit}'] = 'neo'
             self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
-            size = self.samples.loc[cat, 'XStep']
-            df = self.df[self.df['EGD'] > size]
-            df.to_csv(f'{files.output}/{cat}_{sscat}_GrainsSorted.csv', sep = ';', index = None)
             
         if sscat == 'Amphibole':
             self.df[f'{self.column}{self.crit}'] = 'neo'
-            size = self.samples.loc[cat, 'XStep']
-            df = self.df[self.df['EGD'] > size]
-            df.to_csv(f'{files.output}/{cat}_{sscat}_GrainsSorted.csv', sep = ';', index = None)
+            self.df.to_csv(f'{files.output}/{cat}_{sscat}_Grains.csv', sep = ';', index = None)
 
 
     def DescribeDf(self, df):
@@ -164,9 +156,9 @@ class Statistics():
         
         
         if os.path.exists(f'{files.output}/{cat}_{self.stat}.csv'):
-            self.stats = pd.read_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = ';')
+            stats = pd.read_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = ';')
         else:
-            self.stats = pd.DataFrame()
+            stats = pd.DataFrame()
         
         c = [cat]
        
@@ -191,16 +183,10 @@ class Statistics():
                         
                 describe['operation'] = describe.index
                
-                columns = list(self.stats.columns)
-                if len(columns) == 0:
-                    self.stats = pd.concat([self.stats, describe])
-                elif len(columns) > 0:
-                    l = list(self.stats['id'])
-                    if f'{it[0]}_{it[1]}_{it[2]}' not in l: 
-                        self.stats = pd.concat([self.stats, describe])
+                stats = pd.concat([stats, describe])
         
-        self.stats = self.stats.drop_duplicates()
-        self.stats.to_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = ';', index = None)
+        stats = stats.drop_duplicates(subset = ['cat', 'sscat', 'subcat', 'sort', 'id', 'operation'], keep = 'last')
+        stats.to_csv(f'{files.output}/{cat}_{self.stat}.csv', sep = ';', index = None)
         
         
     def IntermediaryCalculations(self, files, cat, sscat):
@@ -254,7 +240,10 @@ class Statistics():
      
         intStats = self.Load(f'{files.input}/{cat}_{self.intermediaryCalculationsStats}.csv')
         grainsStats = self.Load(f'{files.input}/{cat}_{self.grainsStat}.csv')
-        
+       
+        with open(f'{files.output}/control.txt', 'a') as file:
+            file.write(f'{files.input}/{cat}_{self.intermediaryCalculationsStats}.csv\n')
+
         sum = grainsStats[grainsStats['operation'] == 'sum']
         intStats = intStats[intStats['operation'] == 'sum']
         
@@ -331,71 +320,86 @@ class Statistics():
         self.modalResume = pd.DataFrame()
 
         for c, ssc in list(product(files.cat, files.sscat)):
-            
+        
             try:
                 a = self.resume[(self.resume['cat'] == c) & (self.resume['sscat'] == ssc) & (self.resume['subcat'] == 'all')]
                 a = a['%catArea']
                 b = self.resume[(self.resume['cat'] == c) & (self.resume['sscat'] == ssc) & (self.resume['subcat'] == 'all')]
                 b = b['area']
                 
-                self.modalResume.loc[c, ssc] = a[0]
+                self.modalResume.loc[c, f'%{ssc}'] = a[0]
                 self.modalResume.loc[c, f'area{ssc}'] = b[0]
                 self.modalResume.loc[c, 'cat'] = c
             except:
-                self.modalResume.loc[c, ssc] = 0
+                self.modalResume.loc[c, f'%{ssc}'] = 0
                 self.modalResume.loc[c, f'area{ssc}'] = 0
                 self.modalResume.loc[c, 'cat'] = c
 
 
         self.modalResume = self.samples.merge(self.modalResume, on = 'cat', how = 'outer')
 
-        df = self.modalResume
 
-        df['Al'] = df['areaClinopyroxene'] + df['areaPlagioclase'] + df['areaSpinelle'] + df['areaAmphibole']
-        df['Cpx'] = df['areaClinopyroxene'] / df['Al']
-        df['PlSp'] = (df['areaPlagioclase'] + df['areaSpinelle']) / df['Al']
-        df['Amph'] = df['areaAmphibole'] / df['Al']
+       # to correct 
+
+        #df = self.modalResume
+
+        #df['tAl'] = df['areaClinopyroxene'] + df['areaPlagioclase'] + df['areaSpinelle'] + df['areaAmphibole']
+        #df['tCpx'] = df['areaClinopyroxene'] / df['tAl']
+        #df['tPlSp'] = (df['areaPlagioclase'] + df['areaSpinelle']) / df['tAl']
+        #df['tAmph'] = df['areaAmphibole'] / df['tAl']
         
-        df['OlOpxAl'] = df['areaOlivine'] + df['areaOrthopyroxene'] + df['Al']
-        df['Ol'] = df['areaOlivine'] / df['OlOpxAl']
-        df['Opx'] = df['areaOrthopyroxene'] / df['OlOpxAl']
-        df['CpxPlSpAmph'] = df['Al'] / df['OlOpxAl']
+        #df['tOlOpxAl'] = df['areaOlivine'] + df['areaOrthopyroxene'] + df['tAl']
+        #df['tOl'] = df['areaOlivine'] / df['tOlOpxAl']
+        #df['tOpx'] = df['areaOrthopyroxene'] / df['tOlOpxAl']
+        #df['tCpxPlSpAmph'] = df['tAl'] / df['tOlOpxAl']
 
-        self.modalResume = df
+        #self.modalResume = df
 
         self.modalResume.to_csv(f'{files.output}/modalResume.csv', sep = ';', index = None)
      
 
-    def TernaryComposition(self, df):
+    def TernaryComposition(self, files, dfInput, dfOutput):
 
+        df = self.Load(f'{files.output}/{dfInput}.csv')
+
+        if hasattr(self, 'ternaryCompositions') == False:
+            dd = pd.DataFrame()
+        else:
+            dd = self.ternaryCompositions
+
+
+        if hasattr(self, 'name'):
+            name = self.name
+        else:
             name = ''.join(self.names)
 
-            for i, j in zip(['a', 'b', 'c'], self.names):
-                setattr(self, i, j)
+        for i, j in zip(['a', 'b', 'c'], self.names):
+            setattr(self, i, j)
             
-            for i, j in zip(['va', 'vb', 'vc'], self.values):
+        for i, j in zip(['va', 'vb', 'vc'], self.values):
+            if '_' in j:
+                elements = j.split('_')
+                ee = elements[0]
+                dd[j] = df[f'area{ee}']
+                for e in range(1, len(elements)):
+                    ele = elements[e]
+                    dd[j] = dd[j] + df[f'area{ele}']
                 setattr(self, i, j)
-                if '_' in j:
-                    elements = j.split('_')
-                    df[i] = df[elements[0]]
-                    print(elements[0])
-                    for e in range(1, len(elements)):
-                        df[i] = df[i] + df[elements[e]]
-                        print(elements[e])
-                    setattr(self, f'{i}col', df[i])
-                else:
-                    setattr(self, f'{i}col', df[j])
-            df['va'] = self.vacol
-            df['vb'] = self.vbcol
-            df['vc'] = self.vccol
-            df[name] = self.vacol + self.vbcol + self.vccol
+            else:
+                setattr(self, i, j)
+                dd[j] = df[f'area{j}']
 
-            for i, j in zip([self.a, self.b, self.c], [self.vacol, self.vbcol, self.vccol]):
-                df[i] = j/df[name]
+        dd['cat'] = df['cat']
+        dd[name] = dd[self.va] + dd[self.vb] + dd[self.vc]
 
-            df[f'control{name}'] = df[self.a] + df[self.b] + df[self.c]
+        for i, j in zip([self.a, self.b, self.c], [self.va, self.vb, self.vc]):
+            dd[i] = dd[j]/dd[name]
 
-            return df
+        dd[f'control{name}'] = dd[self.a] + dd[self.b] + dd[self.c]
+            
+        self.ternaryCompositions = dd
+
+        dd.to_csv(f'{files.output}/{dfOutput}.csv', sep = ';', index = None)
 
 
     def SortCategories(self, files):
@@ -689,11 +693,18 @@ class Statistics():
                 dd.to_csv(f'{files.output}/{cat}_{ssc}_{self.table}.csv', sep = ';', index = None)
 
 
-#    def Resume(self, files):
-#        '''Return the good table from a list of table
+    def GetMaximumColumn(self, files, cat):
 
-#        [resume{bame}]
-#        | cat | sscat | subcat | sort | {stat}{oaram} |
+        for ssc in files.sscat:
+            if os.path.exists(f'{files.input}/{cat}_{ssc}_{self.table}.csv'):
+                df = self.Load(f'{files.input}/{cat}_{ssc}_{self.table}.csv')
+                
+                a = np.max(df[self.column])
+                if hasattr(self, 'maximumColumn') == False:
+                    setattr(self, 'maximumColumn', a)
+                elif hasattr(self, 'maximumColumn') == True and a > self.maximumColumn:
+                    self.maximumColumn = a
 
-#        '''
+        self.maximumColumn = (round(self.maximumColumn, 0)) + 1
+                    
 
