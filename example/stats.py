@@ -17,13 +17,15 @@ files.SetSubFolders(files.tex, ['figures', 'text'])
 files.CleanFiles([files.calculations, files.display, files.graphs, files.ctf, files.stats])
 
 # copie des fichiers utiles dans les répertoires
-files.CopyFiles(dataClean, [files.ctf], extension = '.ctf', exception = ['r.ctf'])
+files.CopyFiles(dataClean, [files.ctf], extension = '.ctf', exception = ['-r.ctf'])
 files.CopyFiles(f'{tasks}/Grains', [files.display], exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
 files.CopyFiles(f'{tasks}/EBSD', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'png', 'eps'])
 files.CopyFiles(f'{tasks}/Boundaries', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
-files.CopyFiles(f'{tasks}/Neighbors', [files.display, files.calculations], extension = 'csv')
+files.CopyFiles(f'{tasks}/Neighbors', [files.display], extension = 'csv')
+files.CopyFiles(f'{tasks}/NeighborsPairs', [files.display], extension = 'csv')
+files.CopyFiles(f'{tasks}/divers', [files.stats], extension = 'csv')
 files.CopyFiles(f'{tasks}/CPO', [files.figures], extension = 'eps')
-files.CopyFiles(f'{tasks}/ipf', [files.figures], extension = 'eps')
+#files.CopyFiles(f'{tasks}/ipf', [files.figures], extension = 'eps')
 
 files.SetCats(f'{tasks}/Grains', '.csv')
 
@@ -46,7 +48,7 @@ for table in ['Grains', 'EBSD']:
 #stats.SetParam(columns1 = ['id', 'grod', 'kam'], table1 = 'EBSD', table2 = 'Grains', columns2 = ['all'], name = 'Chemistry')
 #stats.Iteration(files, stats.CalculateMeanGrains)
 
-files.CopyFiles(files.display, [files.calculations], exception = ['r_', 'EBSD', 'Boundaries'])
+files.CopyFiles(files.display, [files.calculations], exception = ['r_', 'Boundaries'])
 
 files.SetCats(files.display, '.csv')
 
@@ -58,20 +60,21 @@ stats.Res(files)
 
 # tri des porphyroclastes et des néoblastes
 
-columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
-values = ['manuel', 'mixte', 2, 1, 1.5, 0.5, 200]
+columns = ['EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
+values = ['mixte', 2, 1, 1.5, 0.5, 200]
 
 files.SetFiles(inp = files.calculations, out = files.calculations)
 for i in range(0, len(columns)):
-    stats.SetParam(sortRes = False, task = 'Grains', column = columns[i], value = values[i])
-    stats.Iteration(files, stats.Sort, iterMineral = True)
+    stats.SetParam(sortRes = False, table = 'Grains', column = columns[i], value = values[i])
+    stats.Iteration(files, stats.SortGrains, iterMineral = True)
     
 # statistiques sur les grains
 files.SetFiles(inp = files.calculations, out = files.calculations)
-stats.SetParam(subcat = ['all', 'rex', 'porph'], sort = ['EGDmanuel', 'EGDmixte', 'GOS1', 'GOS2', 'GOS1.5', 'GOS0.5', 'EGD200'], stat = 'GrainsStats', table = 'Grains')
+stats.SetParam(subcat = ['all', 'neo', 'porph'], sort = ['EGDmixte', 'GOS1', 'GOS2', 'GOS1.5', 'GOS0.5', 'EGD200'], stat = 'GrainsStats', table = 'Grains')
 stats.Iteration(files, stats.Describe)
 
 # calculs intermédiaires pour pondérer les champs par la surface des grains
+stats.SetParam(table = 'Grains', stat = 'GrainsStats', intermediaryCalculations = 'IntermediaryCalculations')
 stats.Iteration(files, stats.IntermediaryCalculations, iterMineral = True)
 stats.SetParam(stat = 'IntermediaryStats', table = 'IntermediaryCalculations')
 stats.Iteration(files, stats.Describe)
@@ -79,6 +82,7 @@ stats.Iteration(files, stats.Describe)
 # écriture d'un table résumant les principales caractéristiques géométriques des grains, des rapports de surface et des champs pondérés
 stats.SetParam(on = ['50%', 'mean', 'std'])
 files.SetFiles(inp = files.calculations, out = files.stats)
-stats.Iteration(files, stats.AreaResume)
+stats.SetParam(grainsStat = 'GrainsStats', intermediaryCalculationsStats = 'IntermediaryStats', resumeName = 'resume', ponderation = False)
+stats.Iteration(files, stats.Resume)
 
 stats.SortCategories(files)

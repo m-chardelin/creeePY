@@ -5,7 +5,7 @@ import os
 # Directories
 files = Files.Files(analysis, 'ZAB')
 
-files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', results = 'results', verif = 'verif', auto = True)
+files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', auto = True)
 
 files.SetSubFolders(files.tex, ['figures', 'text'])
 

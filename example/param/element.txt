@@ -1,0 +1,11 @@
+element;EN;FR;;;;;;;
+neo;neoblast;néoblastes;;;;;;;
+porph;"porphyroclastes
+";porphyroclastes;;;;;;;
+%cat_Area;% on sample fraction;% sur la surface de l'échantillon;;;;;;;
+%sscat_Area;% on mineral fraction;% sur la surface du minéral;;;;;;;
+pondEGD;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;
+;;;;;;;;;

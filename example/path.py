@@ -1,5 +1,5 @@
-folder = '/Users/marialinechardelin/current'
-#folder = '/storage/emulated/0/toDo'
+#folder = '/Users/marialinechardelin/current'
+folder = '/storage/emulated/0/toDo'
 
 dataset = 'Zabargad'
 

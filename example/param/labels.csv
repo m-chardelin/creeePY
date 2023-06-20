@@ -1,4 +1,15 @@
-element&EN&FR&ENsimp&FRsimp
-SF&Shape factor&Facteur de forme&Grain shape&Forme des grains
-EGD&Equivalent grain diameter&Diamètre de grain équivalent&Grain size&Taille de grains
-area&Grain area (µm2)&Surface de grains (µm2)&Grain area(µm)&Surface de grains (µm)
+element;EN;FR;ENsimp;FRsimp
+SF;Shape factor;Facteur de forme;Grain shape;Forme des grains
+EGD;Equivalent grain diameter;Diamètre de grain équivalent;Grain size;Taille de grains
+area;Grain area (µm2);Surface de grains (µm2);Grain area(µm2);Surface de grains (µm2)
+pondaspectRatio;espact ration, area weighted;facteur d'allongement, pondéré par la surface
+pondEGD; Equivalent grain diameter, area weighted;Diamètre de grain équivalent (µm, pondéré par la surface)
+pondSF;Shape factor, area weighted;Facteur de forme, pondéré par la surface
+pondGOS;GOS, area weighted;GOS (degrés, pondéré par la surface)
+pondGOSOlivine;Olivine GOS, area weighted;GOS des olivines (degrés, pondéré par la surface)
+pondGOSOrthopyroxene;Orthopyroxene GOS, area weighted;GOS des orthopyroxènes (degrés, pondéré par la surface)
+pondSF;GOS, area weighted;GOS (degrés, pondéré par la surface)
+pondSFOlivine;Olivine Shape Factor, area weighted;Facteur de forme des olivines (pondéré par la surface)
+pondSFOrthopyroxene;Orthopyroxene Shape Factor, area weighted;Facteur de forme des orthopyroxènes (pondéré par la surface)
+%catArea;Modal fraction upon sample surface;Fraction modale sur la surface de l'échantillon
+%sscat;Modal fraction upon mineral surface;Fraction modale sur la surface du minéral

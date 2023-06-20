@@ -14,19 +14,21 @@ files.CopyFiles(files.calculations, [files.display], extension = 'csv')
 
 # Display
 
-files.SetFiles(inp = files.display, out = files.plot)
+files.SetFiles(inp = files.calculations, out = files.plot)
 files.SetCats(files.display, '.csv')
 disp = Display.Display(files)
 
 columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
 values = ['manuel', 'mixte', 2, 1, 1.5, 0.5, 200]
 
+labels = {'Olivine': 'Ol', 'Orthopyroxene': 'Opx', 'Clinopyroxene': 'Cpx', 'Plagioclase': 'Plg', 'Spinelle': 'Sp', 'Amphibole': 'Amph'}
 
-for eps in [True]:
+
+for eps in [False]:
     files.SetFiles(inp = files.display, out = files.plot)
     disp.SetParam(fontFamily = 'serif', fontSize = 18, height = 30, width = 15, dpi = 400, version = 'EN', eps = eps, sort = 'EGD_200', barLegend = '12 mm', grad = 6, text = None)
         
-    disp.Iteration(files, disp.PhasesMap)
+    #disp.Iteration(files, disp.PhasesMap)
     #disp.Iteration(files, disp.BoundariesMap)
 
     disp.SetParam(minimum = 0, maximum = 15, color = 'sscat', field = 'grod', colorbar = False, boundaries = True)
@@ -45,8 +47,11 @@ for eps in [True]:
     #disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
+    disp.SetParam(table = 'resumeNeighborsCompositions', sort = ['EGDmixte'], subcat = ['neo', 'porph'], cmap = 'turbo', labels = labels, on = '50%')
+    disp.Iteration(files, disp.PlotPercentBoundary)
+
     for s in ['EGDmixte']:
-        disp.SetParam(subcat = ['rex', 'porph'], sort = s, boundaries = True)
+        disp.SetParam(subcat = ['neo', 'porph'], sort = s, boundaries = True)
         #disp.Iteration(files, disp.SortMap)
         disp.SetParam(sort = s, boundaries = False)
         #disp.Iteration(files, disp.SortMap)
