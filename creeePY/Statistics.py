@@ -523,9 +523,9 @@ class Statistics():
             
         AllNeighbors = pd.DataFrame()
 
-        for e in range(0, 30):
+        for i in ids:
 
-            i = ids[e]
+            #i = ids[e]
                     
             gn1 = neighbors[neighbors['grain1'] == i]
             gn2 = neighbors[neighbors['grain2'] == i]
@@ -614,7 +614,7 @@ class Statistics():
         ids = list(set(neigh['id']))
         idd = ids[0:30]
 
-        for a in list(product(idd, sscat)):
+        for a in list(product(ids, sscat)):
 
             g1 = neighbors[(neighbors['grain1'] == a[0]) & (neighbors['mineral2'] == a[1])]
             g2 = neighbors[(neighbors['grain2'] == a[0]) & (neighbors['mineral1'] == a[1])]
