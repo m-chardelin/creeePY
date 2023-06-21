@@ -71,6 +71,19 @@ class Plot():
             listScatter.append(a[val])
         return listScatter
 
+    
+    def getLabels(self, X, Y):
+
+        for label, axis in zip([X, Y], ['X', 'Y']):
+            try:
+                lab = self.labels.loc[label, self.version]
+            except:
+                lab = f'error{label}'
+            name = f'lab{axis}'
+            lab = str(lab)
+            setattr(self, name, lab)
+        return self.labX, self.labY 
+
 
     def Combine(self, files, key, *fields):
         self.samples = self.Load(f'{files.input}/samples.csv')
@@ -173,10 +186,10 @@ class Plot():
         df = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
 
         if sort != None:
-            sort = sort.split('_')
-            df = df[df[sort[0]] == sort[1]]
-
-
+                ss = sort.split('_')
+                df = df[df[ss[0]] == ss[1]]
+        annnot = str(ss[1])
+        
         fig, ax = self.ParamPlot(1, 1)
         
         for i in df.index:
@@ -189,25 +202,27 @@ class Plot():
             else:
                 cc = df.loc[i, c]
                 ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap)
-                print(cc, ls[4])
-                #ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4])
-                ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], c = cc, cmap = cmap, vmin = vmin, vmax = vmax)
-            
+                ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4], vmin = vmin, vmax = vmax)
             
             if ann == None:
-                annot = ''
+                annot = 'nonannotated'
             else:
                 t = df.loc[i, ann]
                 ax.annotate(t, (x, y))
-                annot = 'ann'
+                annot = 'annotated'
 
         if xlim != None:
             ax.set_xlim(xlim[0], xlim[1])
         if ylim != None:
             ax.set_ylim(ylim[0], ylim[1])
+       
         
-        ax.set_xlabel(X)
-        ax.set_ylabel(Y)
+        labX, labY = self.getLabels(X, Y)
+        
+        ax.set_xlabel(labX)
+        ax.set_ylabel(labY)
+
+        annot = annnot + 'nonannotated'
 
         self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}{annot}.png')
 
@@ -267,11 +282,14 @@ class Plot():
                 else:
                     annot = 'ann'
 
+            labX, labY = self.getLabels(ppx, ppy)
+
             if 'iter' not in catY:
                 xa = len(catX)//2
-                axes[xa, 0].set_ylabel(py)
+                axes[xa, 0].set_ylabel(labY)
                 ya = len(catY)//2
-                axes[xa, ya].set_xlabel(px)
+                xa = len(catX)-1
+                axes[xa, ya].set_xlabel(labX)
 
             if labels == True:
                 for ax in fig.get_axes():

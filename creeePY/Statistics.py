@@ -313,6 +313,51 @@ class Statistics():
         return table1
 
 
+    def CombineSortTables(self, files, df, name, sortColumns, splitColumns, columnsTransfert):
+
+        df = self.Load(f'{files.input}/{df}.csv')
+
+        for i in df.index:
+            s = df.loc[i, 'sort'] 
+            sub = df.loc[i, 'subcat']
+            df.loc[i, 'subcatSort'] = f'{sub}_{s}'
+        
+        for col in sortColumns:
+            cvalues = list(set(df[col]))
+            setattr(self, col, cvalues)
+
+        
+        a = getattr(self, sortColumns[0])
+        b = getattr(self, sortColumns[1])
+        split = list(set(df[splitColumns]))
+
+        ttt = pd.DataFrame()
+        i = 0
+        for aa, bb in list(product(a, b)):
+
+            dd = df.copy()
+            dd = dd[(dd[sortColumns[0]] == aa) & (dd[sortColumns[1]] == bb)]
+            
+            for sp in split:
+
+                ddf = dd[dd[splitColumns] == sp]
+                
+                for ct in columnsTransfert:
+                    if ddf.shape[0] == 1:
+                        pp = ddf[ct]
+                        ttt.loc[i, f'{ct}{sp}'] = pp[pp.index[0]]
+                        ttt.loc[i, sortColumns[0]] = aa
+                        ttt.loc[i, sortColumns[1]] = bb
+                    elif ddf.shape[0] == 0:
+                        ttt.loc[i, f'{ct}{sp}'] = 0
+                        ttt.loc[i, sortColumns[0]] = aa
+                        ttt.loc[i, sortColumns[1]] = bb
+
+        i += 1
+
+        ttt.to_csv(f'{files.output}/{name}.csv', sep = ';', index = None)
+
+
     def ModalResume(self, files):
 
         self.resume = self.Load(f'{files.stats}/resume.csv')
@@ -523,9 +568,10 @@ class Statistics():
             
         AllNeighbors = pd.DataFrame()
 
-        for i in ids:
 
-            #i = ids[e]
+        for e in range(0, 15):
+
+            i = ids[e]
                     
             gn1 = neighbors[neighbors['grain1'] == i]
             gn2 = neighbors[neighbors['grain2'] == i]
@@ -594,6 +640,7 @@ class Statistics():
             del neighbors['id']
             del neighbors['sscat']
         
+        print('grains')
         for i in [1, 2]:
             neighbors = neighbors.merge(ebsd[['id', 'x', 'y']], left_on = f'ebsd{i}', right_on = 'id', how = 'left')
             neighbors[f'x{i}'] = neighbors['x']
@@ -607,6 +654,8 @@ class Statistics():
             for f in [1, 2]:
                 del neighbors[f'{e}{f}']
 
+        print('x y')
+
         neighbors.to_csv(f'{files.output}/{cat}_NeighborsPairs.csv', sep = ';', index = None)
 
         neigh = grains[['id', 'sscat', 'perimeter', 'area', 'GOS', 'EGD']]
@@ -614,8 +663,8 @@ class Statistics():
         ids = list(set(neigh['id']))
         idd = ids[0:30]
 
-        for a in list(product(ids, sscat)):
-
+        for a in list(product(idd, sscat)):
+            print(a)
             g1 = neighbors[(neighbors['grain1'] == a[0]) & (neighbors['mineral2'] == a[1])]
             g2 = neighbors[(neighbors['grain2'] == a[0]) & (neighbors['mineral1'] == a[1])]
             s1 = np.sum(g1['segLength'])
