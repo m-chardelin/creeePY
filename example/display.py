@@ -6,7 +6,7 @@ import os
 
 files = Files.Files(analysis, 'ZAB')
 
-files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', results = 'results', verif = 'verif', auto = True)
+files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf',  auto = True)
 
 files.SetSubFolders(files.tex, ['figures', 'text'])
 
@@ -16,10 +16,11 @@ files.CopyFiles(files.calculations, [files.display], extension = 'csv')
 
 files.SetFiles(inp = files.calculations, out = files.plot)
 files.SetCats(files.display, '.csv')
+files.sscat = [f for f in files.sscat if 'notIndexed' not in f]
 disp = Display.Display(files)
 
-columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
-values = ['manuel', 'mixte', 2, 1, 1.5, 0.5, 200]
+columns = ['EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
+values = ['mixte', 2, 1, 1.5, 0.5, 200]
 
 labels = {'Olivine': 'Ol', 'Orthopyroxene': 'Opx', 'Clinopyroxene': 'Cpx', 'Plagioclase': 'Plg', 'Spinelle': 'Sp', 'Amphibole': 'Amph'}
 
@@ -32,7 +33,7 @@ for eps in [False]:
     #disp.Iteration(files, disp.BoundariesMap)
 
     disp.SetParam(minimum = 0, maximum = 15, color = 'sscat', field = 'grod', colorbar = False, boundaries = True)
-    #disp.Iteration(files, disp.FieldMap)
+    disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 'all', maximum = 'all', color = 'black', field = 'area', colorbar = False, boundaries = True, all = True)
@@ -44,28 +45,28 @@ for eps in [False]:
     #disp.Iteration(files, disp.ColorBar)
 
     disp.SetParam(minimum = 0, maximum = 4, color = 'sscat', field = 'kam', colorbar = False, boundaries = True)
-    #disp.Iteration(files, disp.FieldMap)
+    disp.Iteration(files, disp.FieldMap)
     #disp.Iteration(files, disp.ColorBar)
 
-    disp.SetParam(table = 'resumeNeighborsCompositions', sort = ['EGDmixte'], subcat = ['neo', 'porph'], cmap = 'turbo', labels = labels, on = '50%')
-    disp.Iteration(files, disp.PlotPercentBoundary)
+    #disp.SetParam(table = 'resumeNeighborsCompositions', sort = ['EGDmixte'], subcat = ['neo', 'porph'], cmap = 'turbo', labels = labels, on = '50%')
+    #disp.Iteration(files, disp.PlotPercentBoundary)
 
     for s in ['EGDmixte']:
         disp.SetParam(subcat = ['neo', 'porph'], sort = s, boundaries = True)
         #disp.Iteration(files, disp.SortMap)
         disp.SetParam(sort = s, boundaries = False)
-        #disp.Iteration(files, disp.SortMap)
+        disp.Iteration(files, disp.SortMap)
 
 
     for col, val in zip(columns, values):
 
         disp.SetParam(column = col, value = val, sort = f'{col}{val}')
-        #disp.Pie(files)
-        #disp.PieSubcat(files)
+        disp.Pie(files)
+        disp.PieSubcat(files)
 
         disp.SetParam(height = 6, width = 9, bins = 40, density = False, task = 'Grains', weight = 'area', fontSize = 14)
         disp.SetParam(field = 'EGD', legend = 'EGD (µm)')
-        #disp.Iteration(files, disp.Histogram, iterMineral = True)
+        disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'shapeFactor', legend = 'Shape Factor')
         #disp.Iteration(files, disp.Histogram, iterMineral = True)
         #disp.SetParam(field = 'GOS', legend = 'GOS')

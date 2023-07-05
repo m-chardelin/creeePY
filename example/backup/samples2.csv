@@ -1,0 +1,49 @@
+cat;Plot;YStep;XCells;YCells;XStep;triEGD;lithology;deformation;massif;lithologyDef;facies_EGDmanuel;facies_EGDmixte;facies_GOS1;facies_GOS2;facies_GOS1.5;facies_GOS0.5;facies_EGD200
+85ZA11;1a;17.0;2014;1018;17.0;150.0;peridotite;ultramylonite;south;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA11Z1-cp;1b;3.5;1444;708;3.5;15.0;peridotite;ultramylonite;south;peridotite;mylonite BT;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA11Z2-cp;1b;2.5;1127;920;2.5;15.0;peridotite;ultramylonite;south;peridotite;mylonite BT;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA15;n;20.0;1658;823;20.0;500.0;peridotite;ultramylonite;south;peridotite;mylonite BT;protomylonite BT;protomylonite BT;mylonite HT;mylonite HT;protomylonite BT;protomylonite BT
+85ZA17;n;22.0;1642;707;22.0;400.0;peridotite;mylonite;south;peridotite;mylonite BT;protomylonite BT;protomylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA1;n;24.0;1423;724;24.0;400.0;peridotite;protomylonite;south;peridotite;mylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite HT;mylonite HT;mylonite HT
+85ZA21;n;25.0;1415;636;25.0;400.0;peridotite;mylonite;south;peridotite;mylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;mylonite HT
+85ZA22A;n;15.0;1983;1167;15.0;400.0;peridotite;protomylonite;south;peridotite;mylonite BT;protomylonite BT;protomylonite BT;mylonite BT;mylonite HT;protomylonite BT;mylonite BT
+85ZA22b;n;17.0;2087;1040;17.0;1500.0;peridotite;mylonite;south;peridotite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA26;2a;25.0;1430;668;25.0;400.0;peridotite;protomylonite;south;peridotite;mylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite HT;mylonite HT;mylonite HT
+85ZA26c;2b;24.0;1360;646;24.0;300.0;Peridotite-pyroxenite;mylonite;south;pyroxenite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA31b-myl-cp;3b;5.0;708;1135;5.0;15.0;amphibolite;ultramylonite;south;amphibolite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA31b-umyl-cp;3b;1.0;1216;988;1.0;10.0;peridotite;ultramylonite;south;peridotite;protomylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;ultramylonite
+85ZA31c;3a;28.0;1169;599;28.0;200.0;Peridotite-pyroxenite;mylonite;south;peridotite;mylonite BT;protomylonite BT;protomylonite BT;protomylonite BT;protomylonite BT;protomylonite BT;mylonite BT
+85ZA36;n;17.0;1932;1034;17.0;300.0;Peridotite-pyroxenite;mylonite;south;peridotite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT
+85ZA37;n;27.0;1391;665;27.0;800.0;peridotite;mylonite;south;peridotite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA38;n;30.0;1253;587;30.0;300.0;peridotite;mylonite;south;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT
+85ZA3;n;17.0;1967;1022;17.0;500.0;Peridotite-pyroxenite;mylonite;south;peridotite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA41;n;16.0;2164;992;16.0;400.0;peridotite;protomylonite;north;peridotite;mylonite HT;protomylonite BT;mylonite HT;mylonite HT;mylonite HT;protomylonite BT;protomylonite BT
+85ZA42b;n;29.0;1016;593;29.0;400.0;pyroxenite;protomylonite;north;pyroxenite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA43b-umyl-cp;4b;2.0;2204;927;2.0;100.0;peridotite;ultramylonite;north;peridotite;ultramylonite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA43b;4b;17.0;1920;1001;17.0;100.0;peridotite;ultramylonite;north;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA43;4a;19.0;1340;800;19.0;100.0;peridotite;ultramylonite;north;pyroxenite;protomylonite BT;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;mylonite BT
+85ZA45microZ1;5b;5.0;1053;887;5.0;200.0;peridotite;ultramylonite;north;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45microZ2;5b;5.0;734;1146;5.0;180.0;peridotite;ultramylonite;north;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45microZ3;5b;5.0;1088;1153;5.0;200.0;peridotite;ultramylonite;north;peridotite;ultramylonite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA48;n;18.0;2000;935;18.0;400.0;peridotite;ultramylonite;north;peridotite;ultramylonite;mylonite BT;mylonite BT;ultramylonite;mylonite BT;mylonite BT;ultramylonite
+85ZA50;n;18.0;2010;972;18.0;400.0;peridotite;mylonite;north;peridotite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA51;n;35.0;621;500;35.0;150.0;peridotite;mylonite;north;peridotite;protomylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite HT;mylonite BT
+85ZA61a;n;17.0;2092;995;17.0;300.0;amphibolite;ultramylonite;center;pyroxenite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite
+85ZA63;n;17.0;2009;1021;17.0;200.0;Peridotite-pyroxenite;ultramylonite;center;pyroxenite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite
+85ZA65;n;44.0;733;377;44.0;500.0;Peridotite-pyroxenite;protomylonite;center;peridotite;mylonite HT;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;mylonite HT
+85ZA66;n;16.0;2343;1135;16.0;400.0;pyroxenite;ultramylonite;center;pyroxenite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite
+85ZA71-13;6b;7.0;2019;1959;7.0;500.0;peridotite;ultramylonite;south;peridotite;ultramylonite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;ultramylonite
+85ZA71-13large;6b;28.0;1111;603;28.0;500.0;peridotite;ultramylonite;south;peridotite;ultramylonite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA71-1;6b;20.0;1733;589;20.0;500.0;peridotite;mylonite;south;peridotite;mylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite HT;mylonite HT;mylonite HT
+85ZA71-2;6b;17.0;2132;1005;17.0;500.0;peridotite;mylonite;south;peridotite;ultramylonite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA71-3;6b;18.0;2030;986;18.0;500.0;peridotite;mylonite;south;peridotite;mylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;mylonite BT
+85ZA71;6a;18.0;1897;936;18.0;500.0;Peridotite-pyroxenite;mylonite;south;peridotite;ultramylonite;protomylonite BT;protomylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA9;7b;22.0;1494;747;22.0;400.0;Peridotite-pyroxenite;protomylonite;south;peridotite;mylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZF2;n;20.0;1482;701;20.0;500.0;peridotite;mylonite;south;peridotite;mylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite BT;mylonite HT;mylonite BT
+86Z30;n;25.0;1317;684;25.0;300.0;Peridotite-pyroxenite;protomylonite;center;peridotite;mylonite HT;mylonite HT;mylonite HT;mylonite HT;mylonite HT;protomylonite BT;protomylonite BT
+86Z31a;n;27.0;1317;635;27.0;80.0;peridotite;protomylonite;center;peridotite;protomylonite BT;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;protomylonite BT
+86Z31b;n;35.0;894;474;35.0;400.0;pyroxenite;protomylonite;center;pyroxenite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT
+86Z31c;n;16.0;1960;1043;16.0;400.0;peridotite;ultramylonite;center;peridotite;ultramylonite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45-new;;14.0;2004;1105;14.0;200.0;peridotite;;north;peridotite;;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA71-12-new;;26.0;1325;677;26.0;200;peridotite;;south;pyroxenite;;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite HT;mylonite BT
+85ZA7b-new;;16.0;2027;1038;16.0;200;peridotite;;south;peridotite;;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;ultramylonite

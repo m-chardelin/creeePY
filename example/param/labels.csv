@@ -2,14 +2,27 @@ element;EN;FR;ENsimp;FRsimp
 SF;Shape factor;Facteur de forme;Grain shape;Forme des grains
 EGD;Equivalent grain diameter;Diamètre de grain équivalent;Grain size;Taille de grains
 area;Grain area (µm2);Surface de grains (µm2);Grain area(µm2);Surface de grains (µm2)
-pondaspectRatio;espact ration, area weighted;facteur d'allongement, pondéré par la surface
+pondaspectRatio;aspect ration, area weighted;facteur d'allongement, pondéré par la surface
 pondEGD; Equivalent grain diameter, area weighted;Diamètre de grain équivalent (µm, pondéré par la surface)
 pondSF;Shape factor, area weighted;Facteur de forme, pondéré par la surface
 pondGOS;GOS, area weighted;GOS (degrés, pondéré par la surface)
-pondGOSOlivine;Olivine GOS, area weighted;GOS des olivines (degrés, pondéré par la surface)
-pondGOSOrthopyroxene;Orthopyroxene GOS, area weighted;GOS des orthopyroxènes (degrés, pondéré par la surface)
-pondSF;GOS, area weighted;GOS (degrés, pondéré par la surface)
-pondSFOlivine;Olivine Shape Factor, area weighted;Facteur de forme des olivines (pondéré par la surface)
-pondSFOrthopyroxene;Orthopyroxene Shape Factor, area weighted;Facteur de forme des orthopyroxènes (pondéré par la surface)
 %catArea;Modal fraction upon sample surface;Fraction modale sur la surface de l'échantillon
 %sscat;Modal fraction upon mineral surface;Fraction modale sur la surface du minéral
+J;J index;Index J
+BA;BA index;Index BA
+BC;BC index;Index BC
+pondGOSrexEGDmixte;Neoblast GOS (area weighted, EGD mixte);fr
+pondaspectRatiorexEGDmixte;Neoblast aspect ratio (area weighted, EGD mixte);fr
+pondEGDrexEGDmixte;Neoblast equivalent grain diameter (area weighted, EGD mixte);fr
+pondSFrexEGDmixte;Neoblast shape factor (area weighted, EGD mixte);fr
+pondGOSporphEGDmixte;Porphyroclast GOS (area weighted, EGD mixte);fr
+pondaspectRatioporphEGDmixte;Porphyroclast aspect ratio (area weighted, EGD mixte);fr
+pondEGDporphEGDmixte;Porphyroclast equivalent grain diameter (area weighted, EGD mixte);fr
+pondSFporphEGDmixte;Porphyroclast shape factor (area weighted, EGD mixte);fr
+pondSFOlivine;Olivine shape factor (area weighted);fr
+pondSFOrthopyroxene;Orthopyroxene shape factor (area weighted);fr
+pondGOSOlivine;Olivine GOS (area weighted);fr
+pondGOSOrthopyroxene;Orthopyroxene GOS (area weighted);fr
+pondaspectRatioOlivine;Olivine aspect ratio (area weighted);fr
+pondaspectRatioOrthopyroxene;Orthopyroxene aspect ratio (area weighted);fr
+

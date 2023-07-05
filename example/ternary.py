@@ -51,3 +51,6 @@ values = ['Olivine', 'Orthopyroxene', 'Clinopyroxene_Plagioclase_Spinelle_Amphib
 stats.SetParam(names = names, values = values, name = 'OlOpxAl')
 stats.TernaryComposition(files, 'modalResume', 'ternaryCompositions')
 stats.CombineTables(files, 'ternaryFinal', 'ternaryCompositions', 'samples', 'outer', True, 'cat', 'massif', 'lithologyDef', 'facies_EGDmixte')
+
+#stats.CombineSortTables(files, 'resume', 'combSscat', ['cat', 'subcatSort'], 'sscat', ['meanSF', 'meanaspectRatio', 'meanEGD', 'pondSF', 'pondaspectRatio', 'pondEGD'])
+#stats.CombineSortTables(files, 'resume', 'combSscat', ['cat', 'sscat'], 'subcatSort', ['meanSF', 'meanaspectRatio', 'meanEGD', 'pondSF', 'pondaspectRatio', 'pondEGD'])

@@ -1,9 +1,9 @@
 value;color;facecolor;edgecolor;marker;hatches;alpha;size;cmap
-Olivine;red;red;red;o;;1;200;Reds
-Orthopyroxene;blue;blue;blue;s;;1;200;Blues
-Clinopyroxene;lime;lime;lime;D;;1;200;Greens
-Spinelle;magenta;magenta;magenta;*;;1;200;PuRd
-Plagioclase;yellow;yellow;yellow;+;;1;200;Wistia
+Olivine;red;red;red;o;;1;200;magma
+Orthopyroxene;blue;blue;blue;s;;1;200;magma
+Clinopyroxene;lime;lime;lime;D;;1;200;magma
+Spinelle;magenta;magenta;magenta;*;;1;200;magma
+Plagioclase;yellow;yellow;yellow;+;;1;200;magma
 Amphibole;aquamarine;aquamarine;aquamarine;.;;1;200;GnBu
 Calcite;grey;grey;grey;_;;1;200;bone
 Chlorite;grey;grey;grey;_;;1;200;bone

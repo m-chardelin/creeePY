@@ -18,13 +18,13 @@ files.CleanFiles([files.calculations, files.display, files.graphs, files.ctf, fi
 
 # copie des fichiers utiles dans les répertoires
 files.CopyFiles(dataClean, [files.ctf], extension = '.ctf', exception = ['-r.ctf'])
-files.CopyFiles(f'{tasks}/Grains', [files.display], exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
-files.CopyFiles(f'{tasks}/EBSD', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'png', 'eps'])
+files.CopyFiles(f'{tasks}/Grains', [files.display], exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'notIndexed'])
+files.CopyFiles(f'{tasks}/EBSD', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'png', 'eps', 'notIndexed'])
 files.CopyFiles(f'{tasks}/Boundaries', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
 files.CopyFiles(f'{tasks}/Neighbors', [files.display], extension = 'csv')
 files.CopyFiles(f'{tasks}/NeighborsPairs', [files.display], extension = 'csv')
 files.CopyFiles(f'{tasks}/divers', [files.stats], extension = 'csv')
-files.CopyFiles(f'{tasks}/CPO', [files.figures], extension = 'eps')
+files.CopyFiles(f'{tasks}/CPOcombined', [files.figures], extension = 'eps')
 #files.CopyFiles(f'{tasks}/ipf', [files.figures], extension = 'eps')
 
 files.SetCats(f'{tasks}/Grains', '.csv')

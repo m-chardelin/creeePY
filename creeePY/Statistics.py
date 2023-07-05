@@ -11,7 +11,7 @@ class Statistics():
         
         self.__dict__.update(kwargs)
 
-        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = ';', index_col = 'cat')
+        self.samples = pd.read_csv(f'{files.folder}/EBSD.csv', sep = ';', index_col = 'cat')
         
         with open(f'{files.folder}/resolution.csv', 'w') as file:
             file.write('cat\tdata\tvalue\n')

@@ -402,7 +402,7 @@ class Display():
                 if self.field not in self.df.columns:
                     grains = self.Load(f'{files.input}/{cat}_{ssc}_Grains.csv')
                     ebsd = ebsd.merge(grains, left_on='grain', right_on='id' , how='outer')
-
+                    print(ebsd.columns)
                 if self.color == 'sscat':
                     self.ColorScale(self.param.loc[ssc, 'color'], min = self.minimum, max = self.maximum, step = int(self.maximum - self.minimum))
                 else:

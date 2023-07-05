@@ -2,12 +2,8 @@ import pandas as pd
 from itertools import product
 
 
-df = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/resume.csv', sep = '&')
-samples = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/samples.csv', sep = '&')
-resume = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/resume.csv', sep = '&')
-final = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/finalArticle.csv', sep = ';')
-
-index = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/indexMerge.csv', sep = ',')
+df = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/resume.csv', sep = ';')
+samples = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/samples.csv', sep = ';')
 
 ddf = pd.DataFrame()
 
@@ -46,21 +42,7 @@ ddf = ddf.merge(samp, on = 'cat', how = 'outer')
 ddf.to_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/combSort.csv', sep = ';')
 
 
-def CombinaisonSort(self, files, df, on):
-
-    for col in on:
-        l = list(df[col])
-        setattr(self, col, l)
-
-   
-
-
-
-
-
-
-
-df = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/resume.csv', sep = '&')
+df = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/resume.csv', sep = ';')
 
 cat = list(set(df['cat']))
 sscat = list(set(df['sscat']))
