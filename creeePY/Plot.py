@@ -181,7 +181,7 @@ class Plot():
         self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}-{label}.png')
 
             
-    def PlotScatterXYSave(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None, vmin = 0, vmax = 0):
+    def SimplePlot(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None, vmin = 0, vmax = 0):
 
         df = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
 
