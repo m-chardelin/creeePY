@@ -395,6 +395,8 @@ class Display():
             self.maximum = np.max(ebsd[self.field])
         
         sscat = [ssc for ssc in files.sscat if ssc != 'all']
+        sscat = [ssc for ssc in sscat if ssc != 'notIndexed']
+
         for ssc in sscat:
             if os.path.exists(f'{files.input}/{cat}_{ssc}_EBSD.csv'):
                 ebsd = self.Load(f'{files.input}/{cat}_{ssc}_EBSD.csv')
@@ -418,7 +420,6 @@ class Display():
             boundaries = 'Noboundaries'
             
         self.barScale(cat, ax, self.df, self.barLegend, text = self.text)
-        
         
         plt.axis('off')
         plt.axis('scaled')
