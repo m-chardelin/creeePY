@@ -24,7 +24,7 @@ class Display():
 
         self.param = pd.read_csv(f'{files.param}/param.csv', sep = ';', index_col = 0)
         
-        self.samples  = pd.read_csv(f'{files.folder}/samples.csv', sep = ';', index_col = 0)
+        self.samples  = pd.read_csv(f'{files.folder}/EBSD.csv', sep = ';', index_col = 0)
         
         self.unit = {'um': 0, 'mm': 3, 'cm': 4, 'dm': 5, 'm': 6}
         self.scale = {'1': 'um', '2': 'um', '3': 'mm', '4': 'cm', '5': 'dm', '6': 'm'}

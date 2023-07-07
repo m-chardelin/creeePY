@@ -60,8 +60,8 @@ class Statistics():
         for cat in set(df['cat']):
             for d in set(df['data']):
                 self.samples.loc[cat, d] = df.loc[f'{cat}_{d}', 'value']
-        self.samples.to_csv(f'{files.folder}/samples.csv', sep = ';')
-        self.samples = pd.read_csv(f'{files.folder}/samples.csv', sep = ';', index_col = 'cat')
+        self.samples.to_csv(f'{files.folder}/EBSD.csv', sep = ';')
+        self.samples = pd.read_csv(f'{files.folder}/EBSD.csv', sep = ';', index_col = 'cat')
         
         
     def Combine(self, files, cat):
@@ -500,7 +500,7 @@ class Statistics():
             #except:
             #    pass
                 
-        self.samples.to_csv(f'{files.output}/samples.csv', sep = ';')
+        self.samples.to_csv(f'{files.output}/EBSD.csv', sep = ';')
 
 
     def CalculateMeanGrains(self, files, cat):
