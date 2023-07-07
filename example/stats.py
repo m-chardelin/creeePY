@@ -12,7 +12,7 @@ pgrm = ['bash', 'python3']
 #files.SetConfig(pgrm)
 
 # arborescence des fichiers
-files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', results = 'results', auto = True)
+files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', auto = True)
 files.SetSubFolders(files.tex, ['figures', 'text'])
 files.CleanFiles([files.calculations, files.display, files.graphs, files.ctf, files.stats])
 
@@ -21,10 +21,10 @@ files.CopyFiles(dataClean, [files.ctf], extension = '.ctf', exception = ['-r.ctf
 files.CopyFiles(f'{tasks}/Grains', [files.display], exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'notIndexed'])
 files.CopyFiles(f'{tasks}/EBSD', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende', 'png', 'eps', 'notIndexed'])
 files.CopyFiles(f'{tasks}/Boundaries', [files.display], extension = 'csv', exception = ['Antigorite', 'Antigorite2', 'Antigorite3', 'Pargasite', 'Pargasite2', 'Phlogopite', 'Anorthite', 'Tremolite', 'Bytownite', 'Hornblende'])
-files.CopyFiles(f'{tasks}/Neighbors', [files.display], extension = 'csv')
+#files.CopyFiles(f'{tasks}/Neighbors', [files.display], extension = 'csv')
 files.CopyFiles(f'{tasks}/NeighborsPairs', [files.display], extension = 'csv')
 files.CopyFiles(f'{tasks}/divers', [files.stats], extension = 'csv')
-files.CopyFiles(f'{tasks}/CPOcombined', [files.figures], extension = 'eps')
+#files.CopyFiles(f'{tasks}/CPOcombined', [files.figures], extension = 'eps')
 #files.CopyFiles(f'{tasks}/ipf', [files.figures], extension = 'eps')
 
 files.SetCats(f'{tasks}/Grains', '.csv')

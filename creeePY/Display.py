@@ -561,8 +561,14 @@ class Display():
         
         area = pd.read_csv(f'{files.stats}/resume.csv', sep = ';')
         area.index = area.id
-        neo = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%sscatArea']*100, 2)
-        neo2 = round(area.loc[f'{cat}_{sscat}_rex_{self.sort}', '%catArea']*100, 2)
+        try:
+            nneo = round(area.loc[f'{cat}_{sscat}_neo_{self.sort}', '%sscatArea']*100, 2)
+        except:
+            nneo = 0
+        try:
+            nneo2 = round(area.loc[f'{cat}_{sscat}_neo_{self.sort}', '%catArea']*100, 2)
+        except:
+            nneo2 = 0
         m = round(area.loc[f'{cat}_{sscat}_all', '%catArea']*100, 2)
         
         # values
@@ -595,17 +601,17 @@ class Display():
         plt.rcParams["font.family"] = self.fontFamily
         plt.rcParams["font.size"] = self.fontSize
 
-        rex = self.df[self.df[self.sort] == 'rex']
+        neo = self.df[self.df[self.sort] == 'neo']
         porph = self.df[self.df[self.sort] == 'porph']
 
-        #axes[0].hist(rex[self.field], density = False, bins = self.bins, color = 'gray', alpha = 0.4, weights = rex[self.weight])
+        #axes[0].hist(neo[self.field], density = False, bins = self.bins, color = 'gray', alpha = 0.4, weights = neo[self.weight])
 
-        hist, bins = np.histogram(rex[self.field], weights = rex[self.weight], bins = self.bins)
-        axes[0].plot(list(bins)[0:self.bins], hist, color = self.param.loc['rex', 'color'])
-        axes[0].tick_params(axis = 'y', labelcolor = self.param.loc['rex', 'color'])
+        hist, bins = np.histogram(neo[self.field], weights = neo[self.weight], bins = self.bins)
+        axes[0].plot(list(bins)[0:self.bins], hist, color = self.param.loc['neo', 'color'])
+        axes[0].tick_params(axis = 'y', labelcolor = self.param.loc['neo', 'color'])
         axes[0].set_ylim([np.min(hist), np.max(hist)])
-        self.weights = rex[self.weight]
-        axes[0].yaxis.label.set_color(self.param.loc['rex', 'color'])
+        self.weights = neo[self.weight]
+        axes[0].yaxis.label.set_color(self.param.loc['neo', 'color'])
         self.ticks(axes[0])
 
         ax2 = axes[0].twinx()
@@ -631,13 +637,12 @@ class Display():
 
         ax.set_title(f'{len(self.df[self.field])} values')
         axes[0].set_xlabel(self.legend)
-        axes[0].set_ylabel('recristallisations %')
+        axes[0].set_ylabel('neoblates %')
         ax2.set_ylabel('porphyroclastes %')
         ax3.set_xlabel(self.legend)
         axes[0].set_xlabel(self.legend)
         ax3.set_ylabel('total %')
-        
-        fig.suptitle(f'{len(self.df[self.field])} grains, {neo}% neoblasts in mineral, {neo2}% in total thin section ({self.sort})')
+        fig.suptitle(f'{nneo}% neoblasts in mineral fraction, {nneo2}% in thin section fraction')
         fig.tight_layout()
         self.Save(fig, f'{files.output}/{cat}_{sscat}_subcat_hist{self.field}weight{self.weight}{self.sort}.png')
 

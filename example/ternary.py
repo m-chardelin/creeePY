@@ -12,7 +12,7 @@ pgrm = ['bash', 'python3']
 #files.SetConfig(pgrm)
 
 # arborescence des fichiers
-files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', results = 'results', auto = True)
+files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', auto = True)
 files.SetSubFolders(files.tex, ['figures', 'text'])
 
 

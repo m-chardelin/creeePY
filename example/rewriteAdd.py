@@ -3,7 +3,7 @@ from itertools import product
 
 
 df = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/resume.csv', sep = ';')
-samples = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/samples.csv', sep = ';')
+samples = pd.read_csv('/storage/emulated/0/toDo/Zabargad/3_4_deformation/4_analysis/stats/EBSD.csv', sep = ';')
 
 ddf = pd.DataFrame()
 
