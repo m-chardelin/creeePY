@@ -108,8 +108,7 @@ class Statistics():
         self.df['SF'] = self.df.perimeter/(2*np.pi*r)
         
         if sortRes == True:
-            res = self.samples.loc[cat, 'XStep']
-            self.df = self.df[self.df['EGD'] >= 1.5*res]
+            self.df = self.df[self.df['grainSize'] > self.grainSize]
         return self.df
 
 

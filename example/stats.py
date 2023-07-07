@@ -65,7 +65,7 @@ values = ['mixte', 2, 1, 1.5, 0.5, 200]
 
 files.SetFiles(inp = files.calculations, out = files.calculations)
 for i in range(0, len(columns)):
-    stats.SetParam(sortRes = False, table = 'Grains', column = columns[i], value = values[i])
+    stats.SetParam(sortRes = True, grainSize = 3, table = 'Grains', column = columns[i], value = values[i])
     stats.Iteration(files, stats.SortGrains, iterMineral = True)
     
 # statistiques sur les grains
