@@ -227,7 +227,6 @@ class Display():
         fig.clear()
         plt.close(fig)
         plt.clf()
-        plt.close()
 
 
 #### Plot functions

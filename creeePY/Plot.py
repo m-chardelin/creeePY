@@ -45,10 +45,12 @@ class Plot():
         fig, axes = plt.subplots(nrows = n, ncols = m, figsize=(self.width, self.height), dpi = self.dpi, **kwargs)
         return fig, axes
         
-    
-    def ColorScale(self, color1, color2 = 'white', step = 10):
+       
+    def ColorScale(self, color1, min, max, color2 = 'white', step = 10):
         self.colorScale = mplc.LinearSegmentedColormap.from_list('', [color2, color1])
-        
+        self.normScale = mpl.colors.Normalize(vmin = min, vmax = max)
+        self.cmap = mpl.cm.ScalarMappable(norm=self.normScale, cmap=self.colorScale)
+
         
     def GetParam(self):
         index = self.param.index
@@ -102,6 +104,12 @@ class Plot():
             x = df.loc[i, xx]
             y = df.loc[i, yy]
 
+            if c != 'no' and '_' in cmap:
+                val = cmap.split('_')
+                ls = self.SetScatterParam(cmap = val[1])
+                colors = ls[0].split('_')
+                self.ColorScale(self, colors[0], vmin, vmax, color2 = colors[1], step = 100)
+
             if 'MinMax' in alpha and 'MinMax' not in s:
                 a = df.loc[i, alpha]
                 if c == 'no':
@@ -109,8 +117,12 @@ class Plot():
                     ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3])
                 else:
                     cc = df.loc[i, c]
-                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
-                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3], c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
+                    if '_' in cmap:
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3], c = cc, cmap = self.cmap, vmin = vmin, vmax = vmax)
+                    else:
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = a, s = ls[3], c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
             if 'MinMax' in s and 'MinMax' not in alpha:
                 size = df.loc[i, s]
                 if c == 'no':
@@ -118,8 +130,12 @@ class Plot():
                     ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size)
                 else:
                     cc = df.loc[i, c]
-                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha, cmap = cmap)
-                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size, c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
+                    if '_' in cmap:
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size, c = cc, cmap = self.cmap, vmin = vmin, vmax = vmax)
+                    else: 
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, alpha = alpha, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = ls[3], s = size, c = cc, cmap = ls[4], vmin = vmin, vmax = vmax)
             elif 'MinMax' in s and 'MinMax' in alpha:
                 size = df.loc[i, s]
                 a = df.loc[i, alpha]
@@ -128,8 +144,12 @@ class Plot():
                     ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size)
                 else:
                     cc = df.loc[i, c]
-                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, cmap = cmap)
-                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size, c = cc, cmap = ls[3], vmin = vmin, vmax = vmax)
+                    if '_' in cmap:
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size, c = cc, cmap = self.cmap, vmin = vmin, vmax = vmax)
+                    else: 
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], alpha = alpha, s = size, c = cc, cmap = ls[3], vmin = vmin, vmax = vmax)
             else:
                 #ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, c = c, cmap = cmap)
                 if c == 'no':
@@ -137,15 +157,19 @@ class Plot():
                     ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4])
                 else:
                     cc = df.loc[i, c]
-                    ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, cmap = cmap)
-                    ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = cc, cmap = ls[5], vmin = vmin, vmax = vmax)
+                    if '_' in cmap:
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = cc, cmap = self.cmap, vmin = vmin, vmax = vmax)
+                    else: 
+                        ls = self.SetScatterParam(i, df, facecolor = fc, edgecolor = ec, marker = m, size = s, alpha = alpha, cmap = cmap)
+                        ax.scatter(x, y, edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = cc, cmap = ls[5], vmin = vmin, vmax = vmax)
                 #ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3], alpha = ls[4], c = ls[5], cmap = ls[6])
 
             if ann != 'no' and df.loc[i, colAnn] in ann:
                 ax.annotate(df.loc[i, colAnn], (x, y))
 
             
-    def PlotTernary(self, files, T, L, R, df, facecolor, edgecolor, marker, labels = True):
+    def PlotTernary(self, files, T, L, R, df, facecolor, edgecolor, marker, s, c = None, cmap = None, labels = True, vmin = 0, vmax = 0):
 
         df = self.Load(f'{files.input}/{df}.csv')
         
@@ -158,14 +182,16 @@ class Plot():
             left = df.loc[i, L]
             right = df.loc[i, R]
 
-            ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker )
-
-            if ls[2] in ['*', '.']:
-                self.s = 450
+            #ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker )
+            #ax.scatter(top, left, right, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
+            
+            if c == None:
+                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s)
+                ax.scatter(top, left, right, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3])
             else:
-                self.s = 300
-
-            ax.scatter(top, left, right, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = self.s)
+                cc = df.loc[i, c]
+                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap)
+                ax.scatter(top, left, right, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4], vmin = vmin, vmax = vmax)
 
         ax.set_tlabel(T)
         ax.set_llabel(L)
@@ -181,14 +207,16 @@ class Plot():
         self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}-{label}.png')
 
             
-    def SimplePlot(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sort = None, c = None, cmap = None, vmin = 0, vmax = 0):
+    def SimplePlot(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sortType = None, sort = None, values = None, c = None, cmap = None, vmin = 0, vmax = 0):
 
-        df = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
+        dfAll = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
 
-        if sort != None:
-                ss = sort.split('_')
-                df = df[df[ss[0]] == ss[1]]
-        annnot = str(ss[1])
+        if sortType == 'inner':
+            df = self.SortDataFrameInner(dfAll, sort, values)
+        elif sortType == 'combine': 
+            df = self.SortDataFrameCombine(dfAll, sort, values)
+        elif sortType == None:
+            df = dfAll.copy()
         
         fig, ax = self.ParamPlot(1, 1)
         
@@ -222,11 +250,9 @@ class Plot():
         ax.set_xlabel(labX)
         ax.set_ylabel(labY)
 
-        annot = annnot + 'nonannotated'
-
         self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}{annot}.png')
 
-
+    
     def IterationPlot(self, files):
 
         self.ColumnsPlot(files)
@@ -251,6 +277,8 @@ class Plot():
                     df = self.SortDataFrameInner(dfAll, sort, values)
                 elif sortType == 'combine': 
                     df = self.SortDataFrameCombine(dfAll, sort, values)
+                elif sortType == 'no':
+                    df = dfAll.copy()
 
                 dcat = df[(df[colCatX] == catx) & (df[colCatY] == caty)]
                 

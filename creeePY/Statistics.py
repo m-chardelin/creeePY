@@ -295,7 +295,7 @@ class Statistics():
 
         table1 = self.Load(f'{files.input}/{table1}.csv')
         table2 = self.Load(f'{files.input}/{table2}.csv')
-
+        
         keys = [key]
         for e in fields:
             keys.append(e)
@@ -312,49 +312,90 @@ class Statistics():
         return table1
 
 
-    def CombineSortTables(self, files, df, name, sortColumns, splitColumns, columnsTransfert):
+    def SortDataFrameCombine(self, df, sort, values):
+        sort = sort.split('_')
+        values = values.split('_')
+        ddf = pd.DataFrame()
+        for s, val in zip(sort, values):
+            d = df[df[s] == val]
+            ddf = pd.concat([ddf, d])
+        return ddf
+
+                                                                            
+    def SortDataFrameInner(self, df, sort, values):
+        sort = sort.split('_')
+        values = values.split('_')
+        for s, val in zip(sort, values):
+            df = df[df[s] == val]
+        return df
+
+
+    def Tuple2List(self, l):
+
+        l = [list[ll] for ll in l]
+        l = [[str(lll) for lll in ll] for ll in l]
+        l = ['_'.join(ll) for ll in l]
+        return l
+
+
+    def ItertoolProduct(self, listValues):
+        l = list(product(listValues[0], listValues[1]))
+        l = self.Tuple2List(l)
+        for a in listValues[2:]:
+            l = list(product(l, a))
+            l = self.Tuple2List(l)
+        l = [ll.split('_') for ll in l]
+        return l
+
+    
+    def CheckComb(self, df, columns, values):
+
+        df = self.SortDataFrameInner(df, columns, values)
+        if df.shape[0] == 1:
+            a = True
+        elif df.shape[0] == 0:
+            a = False
+        else:
+            a = df.shape[0]
+        return a, df
+
+
+    def CombineSortTables(self, files, df, name, pivotColumns, values = 'all'):
 
         df = self.Load(f'{files.input}/{df}.csv')
+        df.index = np.arange(0, df.shape[0], 1)
 
-        for i in df.index:
-            s = df.loc[i, 'sort'] 
-            sub = df.loc[i, 'subcat']
-            df.loc[i, 'subcatSort'] = f'{sub}_{s}'
+        dfComb = pd.DataFrame()
+
+        if values != 'all':
+            values = list(df.select_dtypes(exclude = 'object'))
+
+        transfertColumns = list(df.select_dtypes(include = 'object'))
+        for col in transfertColumns:
+            a = list(set(df[col]))
+            setattr(self, col, a)
+        transfertColumns = [col for col in transfertColumns if col not in pivotColumns]
         
-        for col in sortColumns:
-            cvalues = list(set(df[col]))
-            setattr(self, col, cvalues)
-
+        transfertValues = [getattr(self, col) for col in transfertColumns]
+        pivotValues = [getattr(self, col) for col in pivotColumns]
         
-        a = getattr(self, sortColumns[0])
-        b = getattr(self, sortColumns[1])
-        split = list(set(df[splitColumns]))
+        for it in  self.IterToolProduct(pivotValues)
+            ddf = SortDataFrameInner(df, pivotColumns, pivotValues)
 
-        ttt = pd.DataFrame()
-        i = 0
-        for aa, bb in list(product(a, b)):
+            for itt in self.IterToolProduct(transfertValues):
+                a, ddff = self.CheckComb(ddf, transfertColumns, transfertValues)
 
-            dd = df.copy()
-            dd = dd[(dd[sortColumns[0]] == aa) & (dd[sortColumns[1]] == bb)]
-            
-            for sp in split:
+                if a == 1:
+                    i = ddff.index
+                    ind = it
+                    for col in values:
+                        indd = ind.append(col)
+                        colName = ''.join(indd)
+                        dfComb.loc[i, indd] = ddff.loc[i, col]
+                    for col, val in zip(transfertColumns, itt):
+                        dfComb.loc[i, col] = val    
 
-                ddf = dd[dd[splitColumns] == sp]
-                
-                for ct in columnsTransfert:
-                    if ddf.shape[0] == 1:
-                        pp = ddf[ct]
-                        ttt.loc[i, f'{ct}{sp}'] = pp[pp.index[0]]
-                        ttt.loc[i, sortColumns[0]] = aa
-                        ttt.loc[i, sortColumns[1]] = bb
-                    elif ddf.shape[0] == 0:
-                        ttt.loc[i, f'{ct}{sp}'] = 0
-                        ttt.loc[i, sortColumns[0]] = aa
-                        ttt.loc[i, sortColumns[1]] = bb
-
-        i += 1
-
-        ttt.to_csv(f'{files.output}/{name}.csv', sep = ';', index = None)
+        dfComb.to_csv(f'{files.output}/{name}.csv', sep = ';', index = None)
 
 
     def ModalResume(self, files):
@@ -363,7 +404,10 @@ class Statistics():
         self.resume.index = self.resume['id']
         self.modalResume = pd.DataFrame()
 
-        for c, ssc in list(product(files.cat, files.sscat)):
+        cat = list(set(self.resume['cat']))
+        sscat = list(set(self.resume['sscat']))
+
+        for c, ssc in list(product(cat, sscat)):
         
             try:
                 a = self.resume[(self.resume['cat'] == c) & (self.resume['sscat'] == ssc) & (self.resume['subcat'] == 'all')]
@@ -756,3 +800,4 @@ class Statistics():
         self.maximumColumn = (round(self.maximumColumn, 0)) + 1
                     
 
+######## TO DO ############################################################################
