@@ -1,60 +1,60 @@
-catRaw;cat;catEBSD;microscope;EDS;sample;thinSection
-85Z31C-DETAIL-r;85Z31C-DETAIL-c;85Z31C-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85Z31C;85Z31C
-85ZA1-DETAIL-r;85ZA1-DETAIL-c;85ZA1-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA1;85ZA1
-85ZA1-r;85ZA1-c;85ZA1;JEOL 5600;n;85ZA1;85ZA1
-85ZA11-DETAIL-r;85ZA11-DETAIL-c;85ZA11-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA11;85ZA11
-85ZA11-MICRO1-r;85ZA11-MICRO1-c;85ZA11-MICRO1;JEOL 5600;n;85ZA11;85ZA11
-85ZA11-MICRO2-r;85ZA11-MICRO2-c;85ZA11-MICRO2;JEOL 5600;n;85ZA11;85ZA11
-85ZA11-r;85ZA11-c;85ZA11;JEOL 5600;n;85ZA11;85ZA11
-85ZA11Z1-CP-r;85ZA11Z1-CP-c;85ZA11Z1-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA11;85ZA11
-85ZA11Z2-CP-r;85ZA11Z2-CP-c;85ZA11Z2-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA11;85ZA11
-85ZA15-r;85ZA15-c;85ZA15;JEOL 5600;n;85ZA15;85ZA15
-85ZA17-DETAIL-r;85ZA17-DETAIL-c;85ZA17-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA17;85ZA17
-85ZA17-r;85ZA17-c;85ZA17;JEOL 5600;n;85ZA17;85ZA17
-85ZA21-r;85ZA21-c;85ZA21;JEOL 5600;n;85ZA21;85ZA21
-85ZA22A-r;85ZA22A-c;85ZA22A;JEOL 5600;n;85ZA22A;85ZA22A
-85ZA22B-r;85ZA22B-c;85ZA22B;JEOL 5600;n;85ZA22B;85ZA22B
-85ZA26-r;85ZA26-c;85ZA26;JEOL 5600;n;85ZA26;85ZA26
-85ZA26C-r;85ZA26C-c;85ZA26C;JEOL 5600;n;85ZA26C;85ZA26C
-85ZA3-r;85ZA3-c;85ZA3;JEOL 5600;n;85ZA3;85ZA3
-85ZA31B-MYL-CP-r;85ZA31B-MYL-CP-c;85ZA31B-MYL-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA31B-MYL;85ZA31B-MYL
-85ZA31B-UMYL-CP-r;85ZA31B-UMYL-CP-c;85ZA31B-UMYL-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA31B-UMYL;85ZA31B-UMYL
-85ZA31C-r;85ZA31C-c;85ZA31C;JEOL 5600;n;85ZA31C;85ZA31C
-85ZA36-r;85ZA36-c;85ZA36;JEOL 5600;n;85ZA36;85ZA36
-85ZA37-r;85ZA37-c;85ZA37;JEOL 5600;n;85ZA37;85ZA37
-85ZA38-r;85ZA38-c;85ZA38;JEOL 5600;n;85ZA38;85ZA38
-85ZA41-r;85ZA41-c;85ZA41;JEOL 5600;n;85ZA41;85ZA41
-85ZA42B-r;85ZA42B-c;85ZA42B;JEOL 5600;n;85ZA42B;85ZA42B
-85ZA43-r;85ZA43-c;85ZA43;JEOL 5600;n;85ZA43;85ZA43
-85ZA43B-UMYL-CP-r;85ZA43B-UMYL-CP-c;85ZA43B-UMYL-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA43B-UMYL;85ZA43B-UMYL-CP
-85ZA43B-r;85ZA43B-c;85ZA43B;JEOL 5600;n;85ZA43B;85ZA43B
-85ZA45-AREA1-DETAIL-r;85ZA45-AREA1-DETAIL-c;85ZA45-AREA1-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA45;85ZA45
-85ZA45-AREA2-DETAIL-r;85ZA45-AREA2-DETAIL-c;85ZA45-AREA2-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA45;85ZA45
-85ZA45-MICROZ1-r;85ZA45-MICROZ1-c;85ZA45-MICROZ1;JEOL 5600;n;85ZA45;85ZA45
-85ZA45-MICROZ2-r;85ZA45-MICROZ2-c;85ZA45-MICROZ2;JEOL 5600;n;85ZA45;85ZA45
-85ZA45-MICROZ3-r;85ZA45-MICROZ3-c;85ZA45-MICROZ3;JEOL 5600;n;85ZA45;85ZA45
-85ZA45-NEW-r;85ZA45-NEW-c;85ZA45-NEW;JEOL 5600;n;85ZA45;85ZA45
-85ZA48-DETAIL-r;85ZA48-DETAIL-c;85ZA48-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA48;85ZA48
-85ZA48-r;85ZA48-c;85ZA48;JEOL 5600;n;85ZA48;85ZA48
-85ZA50-r;85ZA50-c;85ZA50;JEOL 5600;n;85ZA50;85ZA50
-85ZA51-DETAIL-r;85ZA51-DETAIL-c;85ZA51-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA51;85ZA51
-85ZA51-r;85ZA51-c;85ZA51;JEOL 5600;n;85ZA51;85ZA51
-85ZA61A-r;85ZA61A-c;85ZA61A;JEOL 5600;n;85ZA61A;85ZA61A
-85ZA63-r;85ZA63-c;85ZA63;JEOL 5600;n;85ZA63;85ZA63
-85ZA65-r;85ZA65-c;85ZA65;JEOL 5600;n;85ZA65;85ZA65
-85ZA66-r;85ZA66-c;85ZA66;JEOL 5600;n;85ZA66;85ZA66
-85ZA71-1-r;85ZA71-1-c;85ZA71-1;JEOL 5600;n;85ZA71-1;85ZA71-1
-85ZA71-12-NEW-r;85ZA71-12-NEW-c;85ZA71-12-NEW;JEOL 5600;n;85ZA71-12;85ZA71-12
-85ZA71-13-r;85ZA71-13-c;85ZA71-13;JEOL 5600;n;85ZA71-13;85ZA71-13
-85ZA71-13LARGE-r;85ZA71-13LARGE-c;85ZA71-13LARGE;JEOL 5600;n;85ZA71-13;85ZA71-13
-85ZA71-2-r;85ZA71-2-c;85ZA71-2;JEOL 5600;n;85ZA71-2;85ZA71-2
-85ZA71-3-r;85ZA71-3-c;85ZA71-3;JEOL 5600;n;85ZA71-3;85ZA71-3
-85ZA71-r;85ZA71-c;85ZA71;JEOL 5600;n;85ZA71;85ZA71
-85ZA7B-DETAIL-r;85ZA7B-DETAIL-c;85ZA7B-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA7B;85ZA7B
-85ZA7B-NEW-r;85ZA7B-NEW-c;85ZA7B-NEW;JEOL 5600;n;85ZA7B;85ZA7B
-85ZA9-r;85ZA9-c;85ZA9;JEOL 5600;n;85ZA9;85ZA9
-85ZF2-r;85ZF2-c;85ZF2;JEOL 5600;n;85ZF2;85ZF2
-86Z30-r;86Z30-c;86Z30;JEOL 5600;n;86Z30;86Z30
-86Z31A-r;86Z31A-c;86Z31A;JEOL 5600;n;86Z31A;86Z31A
-86Z31B-r;86Z31B-c;86Z31B;JEOL 5600;n;86Z31B;86Z31B
-86Z31C-r;86Z31C-c;86Z31C;JEOL 5600;n;86Z31C;86Z31C
+cat;catRaw;catEBSD;microscope;EDS;sample;thinSection;XCells;XStep;YStep;YCells;lithologyDef;facies_EGDmixte;facies_GOS1;facies_GOS2;facies_GOS1.5;facies_GOS0.5;facies_EGD200
+85Z31C-DETAIL-c;85Z31C-DETAIL-r;85Z31C-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85Z31C;85Z31C;4525.0;5.0;5.0;1523.0;peridotite;mylonite BT;mylonite BT;ultramylonite;mylonite BT;mylonite BT;ultramylonite
+85ZA1-DETAIL-c;85ZA1-DETAIL-r;85ZA1-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA1;85ZA1;1250.0;10.0;10.0;1267.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;mylonite HT;mylonite HT
+85ZA1-c;85ZA1-r;85ZA1;JEOL 5600;n;85ZA1;85ZA1;1423.0;24.0;24.0;724.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;mylonite HT;mylonite HT
+85ZA11-DETAIL-c;85ZA11-DETAIL-r;85ZA11-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA11;85ZA11;1353.0;5.5;5.5;2349.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA11-MICRO1-c;85ZA11-MICRO1-r;85ZA11-MICRO1;JEOL 5600;n;85ZA11;85ZA11;1444.0;3.5;3.5;708.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA11-MICRO2-c;85ZA11-MICRO2-r;85ZA11-MICRO2;JEOL 5600;n;85ZA11;85ZA11;1127.0;2.5;2.5;920.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA11-c;85ZA11-r;85ZA11;JEOL 5600;n;85ZA11;85ZA11;2014.0;17.0;17.0;1018.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA11Z1-CP-c;85ZA11Z1-CP-r;85ZA11Z1-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA11;85ZA11;1444.0;3.5;3.5;708.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA11Z2-CP-c;85ZA11Z2-CP-r;85ZA11Z2-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA11;85ZA11;1127.0;2.5;2.5;920.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA15-c;85ZA15-r;85ZA15;JEOL 5600;n;85ZA15;85ZA15;1658.0;20.0;20.0;823.0;peridotite;protomylonite BT;protomylonite BT;mylonite HT;mylonite HT;protomylonite BT;protomylonite BT
+85ZA17-DETAIL-c;85ZA17-DETAIL-r;85ZA17-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA17;85ZA17;1631.0;12.5;12.5;1159.0;peridotite;protomylonite BT;protomylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA17-c;85ZA17-r;85ZA17;JEOL 5600;n;85ZA17;85ZA17;1642.0;22.0;22.0;707.0;peridotite;protomylonite BT;protomylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA21-c;85ZA21-r;85ZA21;JEOL 5600;n;85ZA21;85ZA21;1415.0;25.0;25.0;636.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;mylonite HT
+85ZA22A-c;85ZA22A-r;85ZA22A;JEOL 5600;n;85ZA22A;85ZA22A;1983.0;15.0;15.0;1167.0;peridotite;protomylonite BT;protomylonite BT;mylonite BT;mylonite HT;protomylonite BT;mylonite BT
+85ZA22B-c;85ZA22B-r;85ZA22B;JEOL 5600;n;85ZA22B;85ZA22B;2087.0;17.0;17.0;1040.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA26-c;85ZA26-r;85ZA26;JEOL 5600;n;85ZA26;85ZA26;1430.0;25.0;25.0;668.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;mylonite HT;mylonite HT
+85ZA26C-c;85ZA26C-r;85ZA26C;JEOL 5600;n;85ZA26C;85ZA26C;1360.0;24.0;24.0;646.0;pyroxenite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA3-c;85ZA3-r;85ZA3;JEOL 5600;n;85ZA3;85ZA3;1967.0;17.0;17.0;1022.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA31B-MYL-CP-c;85ZA31B-MYL-CP-r;85ZA31B-MYL-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA31B;85ZA31B-MYL;708.0;5.0;5.0;1135.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite
+85ZA31B-UMYL-CP-c;85ZA31B-UMYL-CP-r;85ZA31B-UMYL-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA31B;85ZA31B-UMYL;1216.0;1.0;1.0;988.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;ultramylonite
+85ZA31C-c;85ZA31C-r;85ZA31C;JEOL 5600;n;85ZA31C;85ZA31C;1169.0;28.0;28.0;599.0;peridotite;protomylonite BT;protomylonite BT;protomylonite BT;protomylonite BT;protomylonite BT;mylonite BT
+85ZA36-c;85ZA36-r;85ZA36;JEOL 5600;n;85ZA36;85ZA36;1932.0;17.0;17.0;1034.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT
+85ZA37-c;85ZA37-r;85ZA37;JEOL 5600;n;85ZA37;85ZA37;1391.0;27.0;27.0;665.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA38-c;85ZA38-r;85ZA38;JEOL 5600;n;85ZA38;85ZA38;1253.0;30.0;30.0;587.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT
+85ZA41-c;85ZA41-r;85ZA41;JEOL 5600;n;85ZA41;85ZA41;2164.0;16.0;16.0;992.0;peridotite;protomylonite BT;mylonite HT;mylonite HT;mylonite HT;protomylonite BT;protomylonite BT
+85ZA42B-c;85ZA42B-r;85ZA42B;JEOL 5600;n;85ZA42B;85ZA42B;1016.0;29.0;29.0;593.0;pyroxenite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA43-c;85ZA43-r;85ZA43;JEOL 5600;n;85ZA43;85ZA43;1340.0;19.0;19.0;800.0;amphibolite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;mylonite BT
+85ZA43B-UMYL-CP-c;85ZA43B-UMYL-CP-r;85ZA43B-UMYL-CP;CAMSCAN CRYSTAL PROBE X500FE;n;85ZA43B;85ZA43B-UMYL-CP;2204.0;2.0;2.0;927.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA43B-c;85ZA43B-r;85ZA43B;JEOL 5600;n;85ZA43B;85ZA43B;1920.0;17.0;17.0;1001.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45-AREA1-DETAIL-c;85ZA45-AREA1-DETAIL-r;85ZA45-AREA1-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA45;85ZA45;1541.0;1.5;1.5;1620.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45-AREA2-DETAIL-c;85ZA45-AREA2-DETAIL-r;85ZA45-AREA2-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA45;85ZA45;3117.0;4.0;4.0;2082.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45-MICROZ1-c;85ZA45-MICROZ1-r;85ZA45-MICROZ1;JEOL 5600;n;85ZA45;85ZA45;1053.0;5.0;5.0;887.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45-MICROZ2-c;85ZA45-MICROZ2-r;85ZA45-MICROZ2;JEOL 5600;n;85ZA45;85ZA45;734.0;5.0;5.0;1146.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45-MICROZ3-c;85ZA45-MICROZ3-r;85ZA45-MICROZ3;JEOL 5600;n;85ZA45;85ZA45;1088.0;5.0;5.0;1153.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA45-NEW-c;85ZA45-NEW-r;85ZA45-NEW;JEOL 5600;n;85ZA45;85ZA45;2004.0;14.0;14.0;1105.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA48-DETAIL-c;85ZA48-DETAIL-r;85ZA48-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA48;85ZA48;1620.0;5.0;5.0;3254.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA48-c;85ZA48-r;85ZA48;JEOL 5600;n;85ZA48;85ZA48;2000.0;18.0;18.0;935.0;peridotite;mylonite BT;mylonite BT;ultramylonite;mylonite BT;mylonite BT;ultramylonite
+85ZA50-c;85ZA50-r;85ZA50;JEOL 5600;n;85ZA50;85ZA50;2010.0;18.0;18.0;972.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA51-DETAIL-c;85ZA51-DETAIL-r;85ZA51-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA51;85ZA51;1713.0;10.0;10.0;1109.0;peridotite;mylonite HT;mylonite BT;mylonite BT;mylonite BT;mylonite HT;mylonite BT
+85ZA51-c;85ZA51-r;85ZA51;JEOL 5600;n;85ZA51;85ZA51;621.0;35.0;35.0;500.0;amphibolite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite HT;mylonite BT
+85ZA61A-c;85ZA61A-r;85ZA61A;JEOL 5600;n;85ZA61A;85ZA61A;2092.0;17.0;17.0;995.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite
+85ZA63-c;85ZA63-r;85ZA63;JEOL 5600;n;85ZA63;85ZA63;2009.0;17.0;17.0;1021.0;pyroxenite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite
+85ZA65-c;85ZA65-r;85ZA65;JEOL 5600;n;85ZA65;85ZA65;733.0;44.0;44.0;377.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;mylonite HT
+85ZA66-c;85ZA66-r;85ZA66;JEOL 5600;n;85ZA66;85ZA66;2343.0;16.0;16.0;1135.0;peridotite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite
+85ZA71-1-c;85ZA71-1-r;85ZA71-1;JEOL 5600;n;85ZA71-1;85ZA71-1;1733.0;20.0;20.0;589.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;mylonite HT;mylonite HT
+85ZA71-12-NEW-c;85ZA71-12-NEW-r;85ZA71-12-NEW;JEOL 5600;n;85ZA71-12;85ZA71-12;1325.0;26.0;26.0;677.0;pyroxenite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite HT;mylonite BT
+85ZA71-13-c;85ZA71-13-r;85ZA71-13;JEOL 5600;n;85ZA71-13;85ZA71-13;2019.0;7.0;7.0;1959.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;ultramylonite
+85ZA71-13LARGE-c;85ZA71-13LARGE-r;85ZA71-13LARGE;JEOL 5600;n;85ZA71-13;85ZA71-13;1111.0;28.0;28.0;603.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA71-2-c;85ZA71-2-r;85ZA71-2;JEOL 5600;n;85ZA71-2;85ZA71-2;2132.0;17.0;17.0;1005.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA71-3-c;85ZA71-3-r;85ZA71-3;JEOL 5600;n;85ZA71-3;85ZA71-3;2030.0;18.0;18.0;986.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;mylonite BT
+85ZA71-c;85ZA71-r;85ZA71;JEOL 5600;n;85ZA71;85ZA71;1897.0;18.0;18.0;936.0;peridotite;protomylonite BT;protomylonite BT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZA7B-DETAIL-c;85ZA7B-DETAIL-r;85ZA7B-DETAIL;CAMSCAN CRYSTAL PROBE X500FE;y;85ZA7B;85ZA7B;1397.0;4.0;4.0;1481.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite
+85ZA7B-NEW-c;85ZA7B-NEW-r;85ZA7B-NEW;JEOL 5600;n;85ZA7B;85ZA7B;2027.0;16.0;16.0;1038.0;peridotite;mylonite BT;mylonite BT;mylonite BT;mylonite BT;mylonite BT;ultramylonite
+85ZA9-c;85ZA9-r;85ZA9;JEOL 5600;n;85ZA9;85ZA9;1494.0;22.0;22.0;747.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite BT;protomylonite BT;mylonite BT
+85ZF2-c;85ZF2-r;85ZF2;JEOL 5600;n;85ZF2;85ZF2;1482.0;20.0;20.0;701.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite BT;mylonite HT;mylonite BT
+86Z30-c;86Z30-r;86Z30;JEOL 5600;n;86Z30;86Z30;1317.0;25.0;25.0;684.0;peridotite;mylonite HT;mylonite HT;mylonite HT;mylonite HT;protomylonite BT;protomylonite BT
+86Z31A-c;86Z31A-r;86Z31A;JEOL 5600;n;86Z31A;86Z31A;1317.0;27.0;27.0;635.0;peridotite;mylonite HT;mylonite HT;mylonite BT;mylonite HT;protomylonite BT;protomylonite BT
+86Z31B-c;86Z31B-r;86Z31B;JEOL 5600;n;86Z31B;86Z31B;894.0;35.0;35.0;474.0;pyroxenite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;ultramylonite;mylonite BT
+86Z31C-c;86Z31C-r;86Z31C;JEOL 5600;n;86Z31C;86Z31C;1960.0;16.0;16.0;1043.0;peridotite;mylonite BT;mylonite BT;ultramylonite;ultramylonite;mylonite BT;ultramylonite

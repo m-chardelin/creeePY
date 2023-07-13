@@ -12,7 +12,7 @@ pgrm = ['bash', 'python3']
 #files.SetConfig(pgrm)
 
 # arborescence des fichiers
-files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', results = 'results', auto = True)
+files.SetFolders(display = 'display', calculations = 'calculations', graphs = 'graphs', plot = 'plot', param = 'param', stats = 'stats', tex = 'tex', config = 'config', ctf = 'ctf', auto = True)
 files.SetSubFolders(files.tex, ['figures', 'text'])
 
 
@@ -24,8 +24,8 @@ stats = Statistics.Statistics(files)
 
 files.SetCats(files.display, '.csv')
 
-columns = ['EGD', 'EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
-values = ['manuel', 'mixte', 2, 1, 1.5, 0.5, 200]
+columns = ['EGD', 'GOS', 'GOS', 'GOS', 'GOS', 'EGD']
+values = ['mixte', 2, 1, 1.5, 0.5, 200]
 stats.SetParam(on = ['50%', 'mean', 'std'], subcat = ['all', 'neo', 'porph'], sort = ['EGDmixte', 'GOS1', 'GOS2', 'GOS1.5', 'GOS0.5', 'EGD200'], mean = True)
 
 files.SetFiles(inp = files.calculations, out = files.calculations)

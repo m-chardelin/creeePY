@@ -1,96 +1,42 @@
-cat&Plot&YStep&XCells&YCells&XStep&triEGD&lithology&deformation&massif&lithologyDef&facies_EGDmixte&facies_GOS1&facies_GOS2&facies_GOS1.5&facies_GOS0.5&facies_EGD200&facies_EGDmanuel
-85ZA11c&1a&17.0&2014.0&1018.0&17.0&150.0&peridotite&ultramylonite&south&&&&&&&&
-85ZA11Z1-cpc&1b&3.5&1444.0&708.0&3.5&15.0&peridotite&ultramylonite&south&&&&&&&&
-85ZA11Z2-cpc&1b&2.5&1127.0&920.0&2.5&15.0&peridotite&ultramylonite&south&&&&&&&&
-85ZA15c&n&20.0&1658.0&823.0&20.0&500.0&peridotite&ultramylonite&south&&&&&&&&
-85ZA17c&n&22.0&1642.0&707.0&22.0&400.0&peridotite&mylonite&south&&&&&&&&
-85ZA1c&n&24.0&1423.0&724.0&24.0&400.0&peridotite&protomylonite&south&&&&&&&&
-85ZA21c&n&25.0&1415.0&636.0&25.0&400.0&peridotite&mylonite&south&&&&&&&&
-85ZA22Ac&n&15.0&1983.0&1167.0&15.0&400.0&peridotite&protomylonite&south&&&&&&&&
-85ZA22bc&n&17.0&2087.0&1040.0&17.0&1500.0&peridotite&mylonite&south&&&&&&&&
-85ZA26c&2a&24.0&1360.0&646.0&24.0&400.0&peridotite&protomylonite&south&pyroxenite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&ultramylonite
-85ZA26cc&2b&24.0&1360.0&646.0&24.0&300.0&Peridotite-pyroxenite&mylonite&south&&&&&&&&
-85ZA31b-myl-cpc&3b&5.0&708.0&1135.0&5.0&15.0&amphibolite&ultramylonite&south&&&&&&&&
-85ZA31b-umyl-cpc&3b&1.0&1216.0&988.0&1.0&10.0&peridotite&ultramylonite&south&&&&&&&&
-85ZA31cc&3a&28.0&1169.0&599.0&28.0&200.0&Peridotite-pyroxenite&mylonite&south&&&&&&&&
-85ZA36c&n&17.0&1932.0&1034.0&17.0&300.0&Peridotite-pyroxenite&mylonite&south&&&&&&&&
-85ZA37c&n&27.0&1391.0&665.0&27.0&800.0&peridotite&mylonite&south&&&&&&&&
-85ZA38c&n&30.0&1253.0&587.0&30.0&300.0&peridotite&mylonite&south&&&&&&&&
-85ZA3c&n&17.0&1967.0&1022.0&17.0&500.0&Peridotite-pyroxenite&mylonite&south&&&&&&&&
-85ZA41c&n&16.0&2164.0&992.0&16.0&400.0&peridotite&protomylonite&north&&&&&&&&
-85ZA42bc&n&29.0&1016.0&593.0&29.0&400.0&pyroxenite&protomylonite&north&&&&&&&&
-85ZA43b-umyl-cpc&4b&2.0&2204.0&927.0&2.0&100.0&peridotite&ultramylonite&north&&&&&&&&
-85ZA43bc&4b&17.0&1920.0&1001.0&17.0&100.0&peridotite&ultramylonite&north&&&&&&&&
-85ZA43c&4a&19.0&1340.0&800.0&19.0&100.0&peridotite&ultramylonite&north&&&&&&&&
-85ZA45microZ1c&5b&5.0&1053.0&887.0&5.0&200.0&peridotite&ultramylonite&north&&&&&&&&
-85ZA45microZ2c&5b&5.0&734.0&1146.0&5.0&180.0&peridotite&ultramylonite&north&&&&&&&&
-85ZA45microZ3c&5b&5.0&1088.0&1153.0&5.0&200.0&peridotite&ultramylonite&north&&&&&&&&
-85ZA48c&n&18.0&2000.0&935.0&18.0&400.0&peridotite&ultramylonite&north&&&&&&&&
-85ZA50c&n&18.0&2010.0&972.0&18.0&400.0&peridotite&mylonite&north&&&&&&&&
-85ZA51c&n&35.0&621.0&500.0&35.0&150.0&peridotite&mylonite&north&&&&&&&&
-85ZA61ac&n&17.0&2092.0&995.0&17.0&300.0&amphibolite&ultramylonite&center&&&&&&&&
-85ZA63c&n&17.0&2009.0&1021.0&17.0&200.0&Peridotite-pyroxenite&ultramylonite&center&&&&&&&&
-85ZA65c&n&44.0&733.0&377.0&44.0&500.0&Peridotite-pyroxenite&protomylonite&center&&&&&&&&
-85ZA66c&n&16.0&2343.0&1135.0&16.0&400.0&pyroxenite&ultramylonite&center&&&&&&&&
-85ZA71-13c&6b&7.0&2019.0&1959.0&7.0&500.0&peridotite&ultramylonite&south&&&&&&&&
-85ZA71-13largec&6b&28.0&1111.0&603.0&28.0&500.0&peridotite&ultramylonite&south&&&&&&&&
-85ZA71-1c&6b&20.0&1733.0&589.0&20.0&500.0&peridotite&mylonite&south&&&&&&&&
-85ZA71-2c&6b&17.0&2132.0&1005.0&17.0&500.0&peridotite&mylonite&south&&&&&&&&
-85ZA71-3c&6b&18.0&2030.0&986.0&18.0&500.0&peridotite&mylonite&south&&&&&&&&
-85ZA71c&6a&18.0&1897.0&936.0&18.0&500.0&Peridotite-pyroxenite&mylonite&south&&&&&&&&
-85ZA9c&7b&22.0&1494.0&747.0&22.0&400.0&Peridotite-pyroxenite&protomylonite&south&&&&&&&&
-85ZF2c&n&20.0&1482.0&701.0&20.0&500.0&peridotite&mylonite&south&&&&&&&&
-86Z30c&n&25.0&1317.0&684.0&25.0&300.0&Peridotite-pyroxenite&protomylonite&center&&&&&&&&
-86Z31ac&n&27.0&1317.0&635.0&27.0&80.0&peridotite&protomylonite&center&&&&&&&&
-86Z31bc&n&35.0&894.0&474.0&35.0&400.0&pyroxenite&protomylonite&center&&&&&&&&
-86Z31cc&n&16.0&1960.0&1043.0&16.0&400.0&peridotite&ultramylonite&center&&&&&&&&
-85ZA45-newc&&14.0&2004.0&1105.0&14.0&&&&&&&&&&&&
-85ZA71-12-newc&&26.0&1325.0&677.0&26.0&&&&&&&&&&&&
-85ZA7b-newc&&16.0&2027.0&1038.0&16.0&&&&&&&&&&&&
-86Z31c&&16.0&1960.0&1043.0&16.0&&&&&peridotite&mylonite BT&mylonite BT&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA71-13&&7.0&2019.0&1959.0&7.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite BT&ultramylonite&
-85ZA31b-umyl-cp&&1.0&1216.0&988.0&1.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite BT&ultramylonite&
-85ZA17&&22.0&1642.0&707.0&22.0&&&&&peridotite&protomylonite BT&protomylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-85ZA11&&17.0&2014.0&1018.0&17.0&&&&&peridotite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA38&&30.0&1253.0&587.0&30.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite BT&
-85ZA63&&17.0&2009.0&1021.0&17.0&&&&&pyroxenite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&
-85ZA45-new&&14.0&2004.0&1105.0&14.0&&&&&peridotite&mylonite BT&mylonite BT&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA31b-myl-cp&&5.0&708.0&1135.0&5.0&&&&&amphibolite&&&&&&&
-85ZA15&&20.0&1658.0&823.0&20.0&&&&&peridotite&protomylonite BT&protomylonite BT&mylonite HT&mylonite HT&protomylonite BT&protomylonite BT&
-85ZA43&&19.0&1340.0&800.0&19.0&&&&&pyroxenite&mylonite BT&mylonite BT&ultramylonite&ultramylonite&mylonite BT&mylonite BT&
-85ZA22A&&15.0&1983.0&1167.0&15.0&&&&&peridotite&protomylonite BT&protomylonite BT&mylonite BT&mylonite HT&protomylonite BT&mylonite BT&
-85ZA45microZ1&&5.0&1053.0&887.0&5.0&&&&&peridotite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA71-13large&&28.0&1111.0&603.0&28.0&&&&&peridotite&mylonite BT&mylonite BT&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA37&&27.0&1391.0&665.0&27.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-85ZA26&&25.0&1430.0&668.0&25.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite HT&mylonite HT&mylonite HT&
-85ZA11Z2-cp&&2.5&1127.0&920.0&2.5&&&&&peridotite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA3&&17.0&1967.0&1022.0&17.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-86Z31a&&27.0&1317.0&635.0&27.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite HT&protomylonite BT&protomylonite BT&
-85ZA1&&24.0&1423.0&724.0&24.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite HT&mylonite HT&mylonite HT&
-85ZA71-1&&20.0&1733.0&589.0&20.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite HT&mylonite HT&mylonite HT&
-85ZA22b&&17.0&2087.0&1040.0&17.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-85ZA42b&&29.0&1016.0&593.0&29.0&&&&&pyroxenite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-85ZA48&&18.0&2000.0&935.0&18.0&&&&&peridotite&mylonite BT&mylonite BT&ultramylonite&mylonite BT&mylonite BT&ultramylonite&
-85ZA51&&35.0&621.0&500.0&35.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite HT&mylonite BT&
-85ZA45microZ2&&5.0&734.0&1146.0&5.0&&&&&peridotite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZF2&&20.0&1482.0&701.0&20.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite BT&mylonite HT&mylonite BT&
-85ZA50&&18.0&2010.0&972.0&18.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-85ZA9&&22.0&1494.0&747.0&22.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-85ZA31c&&28.0&1169.0&599.0&28.0&&&&&peridotite&protomylonite BT&protomylonite BT&protomylonite BT&protomylonite BT&protomylonite BT&mylonite BT&
-85ZA41&&16.0&2164.0&992.0&16.0&&&&&peridotite&protomylonite BT&mylonite HT&mylonite HT&mylonite HT&protomylonite BT&protomylonite BT&
-85ZA66&&16.0&2343.0&1135.0&16.0&&&&&pyroxenite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&
-85ZA43b&&17.0&1920.0&1001.0&17.0&&&&&peridotite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA36&&17.0&1932.0&1034.0&17.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite BT&
-85ZA61a&&17.0&2092.0&995.0&17.0&&&&&pyroxenite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&
-85ZA43b-umyl-cp&&2.0&2204.0&927.0&2.0&&&&&peridotite&mylonite BT&mylonite BT&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA11Z1-cp&&3.5&1444.0&708.0&3.5&&&&&peridotite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA71-12-new&&26.0&1325.0&677.0&26.0&&&&&pyroxenite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite HT&mylonite BT&
-85ZA65&&44.0&733.0&377.0&44.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite HT&protomylonite BT&mylonite HT&
-85ZA7b-new&&16.0&2027.0&1038.0&16.0&&&&&peridotite&mylonite BT&mylonite BT&mylonite BT&mylonite BT&mylonite BT&ultramylonite&
-85ZA71-2&&17.0&2132.0&1005.0&17.0&&&&&peridotite&mylonite BT&mylonite BT&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-85ZA71-3&&18.0&2030.0&986.0&18.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite HT&protomylonite BT&mylonite BT&
-86Z30&&25.0&1317.0&684.0&25.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite HT&mylonite HT&protomylonite BT&protomylonite BT&
-85ZA71&&18.0&1897.0&936.0&18.0&&&&&peridotite&protomylonite BT&protomylonite BT&mylonite BT&mylonite BT&protomylonite BT&mylonite BT&
-85ZA21&&25.0&1415.0&636.0&25.0&&&&&peridotite&mylonite HT&mylonite HT&mylonite BT&mylonite HT&protomylonite BT&mylonite HT&
-85ZA45microZ3&&5.0&1088.0&1153.0&5.0&&&&&peridotite&mylonite BT&mylonite BT&ultramylonite&ultramylonite&mylonite BT&ultramylonite&
-86Z31b&&35.0&894.0&474.0&35.0&&&&&pyroxenite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&ultramylonite&mylonite BT&
+sample;triEGD;lithology;deformation;massif
+85ZA1;400;peridotite;protomylonite;south
+85ZA11;150;peridotite;ultramylonite;south
+85ZA15;500;peridotite;ultramylonite;south
+85ZA17;400;peridotite;mylonite;south
+85ZA21;400;peridotite;mylonite;south
+85ZA22A;400;peridotite;protomylonite;south
+85ZA22B;1500;peridotite;mylonite;south
+85ZA26;400;peridotite;protomylonite;south
+85ZA26C;300;peridotite-pyroxenite;mylonite;south
+85ZA3;500;peridotite-pyroxenite;mylonite;south
+85ZA31B;10;peridotite;ultramylonite;south
+85ZA31C;200;peridotite-pyroxenite;mylonite;south
+85ZA36;300;peridotite-pyroxenite;mylonite;south
+85ZA37;800;peridotite;mylonite;south
+85ZA38;300;peridotite;mylonite;south
+85ZA41;400;peridotite;protomylonite;north
+85ZA42B;400;pyroxenite;protomylonite;north
+85ZA43;100;peridotite;ultramylonite;north
+85ZA43B;100;peridotite;ultramylonite;north
+85ZA45;200;peridotite;ultramylonite;north
+85ZA48;400;peridotite;ultramylonite;north
+85ZA50;400;peridotite;mylonite;north
+85ZA51;150;peridotite;mylonite;north
+85ZA61A;300;amphibolite;ultramylonite;center
+85ZA63;200;peridotite-pyroxenite;ultramylonite;center
+85ZA65;500;peridotite-pyroxenite;protomylonite;center
+85ZA66;400;pyroxenite;ultramylonite;center
+85ZA71;500;peridotite-pyroxenite;mylonite;south
+85ZA71-1;500;peridotite;mylonite;south
+85ZA71-12;200;peridotite;ultramylonite;south
+85ZA71-13;500;peridotite;ultramylonite;south
+85ZA71-13;500;peridotite;ultramylonite;south
+85ZA71-2;500;peridotite;mylonite;south
+85ZA71-3;500;peridotite;mylonite;south
+85ZA7B;200;peridotite;mylonite;south
+85ZA9;400;peridotite-pyroxenite;protomylonite;south
+85ZF2;500;peridotite;mylonite;south
+86Z30;300;peridotite-pyroxenite;protomylonite;center
+86Z31A;80;peridotite;protomylonite;center
+86Z31B;400;pyroxenite;protomylonite;center
+86Z31C;400;peridotite;ultramylonite;center

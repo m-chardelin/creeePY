@@ -323,28 +323,39 @@ class Statistics():
 
                                                                             
     def SortDataFrameInner(self, df, sort, values):
-        sort = sort.split('_')
-        values = values.split('_')
+        if '_' in sort:
+            sort = sort.split('_')
+        else:
+            sort = sort
+        
+        if '_' in values:    
+            values = values.split('_')
+        else:
+            values = values
+       
         for s, val in zip(sort, values):
             df = df[df[s] == val]
         return df
 
 
     def Tuple2List(self, l):
-
-        l = [list[ll] for ll in l]
+        #l = [list[ll] for ll in l]
         l = [[str(lll) for lll in ll] for ll in l]
         l = ['_'.join(ll) for ll in l]
         return l
 
 
     def ItertoolProduct(self, listValues):
-        l = list(product(listValues[0], listValues[1]))
-        l = self.Tuple2List(l)
-        for a in listValues[2:]:
-            l = list(product(l, a))
+        if len(listValues) == 1:
+            l = listValues[0]
+            l = [[ll] for ll in l]
+        if len(listValues) > 1:
+            l = list(product(listValues[0], listValues[1]))
             l = self.Tuple2List(l)
-        l = [ll.split('_') for ll in l]
+            for a in listValues[2:]:
+                l = list(product(l, a))
+                l = self.Tuple2List(l)
+            l = [ll.split('_') for ll in l]
         return l
 
     
@@ -353,47 +364,75 @@ class Statistics():
         df = self.SortDataFrameInner(df, columns, values)
         if df.shape[0] == 1:
             a = True
+            i = df.index[0]
         elif df.shape[0] == 0:
             a = False
+            i = False
         else:
             a = df.shape[0]
-        return a, df
+            i = 'check'
+        return a, i, df
 
 
     def CombineSortTables(self, files, df, name, pivotColumns, values = 'all'):
 
         df = self.Load(f'{files.input}/{df}.csv')
-        df.index = np.arange(0, df.shape[0], 1)
+        
+        if 'id' in df.columns:
+            del df['id']
 
         dfComb = pd.DataFrame()
 
-        if values != 'all':
+        if values == 'all':
             values = list(df.select_dtypes(exclude = 'object'))
+        else:
+            values = values
 
         transfertColumns = list(df.select_dtypes(include = 'object'))
         for col in transfertColumns:
             a = list(set(df[col]))
             setattr(self, col, a)
+
         transfertColumns = [col for col in transfertColumns if col not in pivotColumns]
         
         transfertValues = [getattr(self, col) for col in transfertColumns]
         pivotValues = [getattr(self, col) for col in pivotColumns]
-        
-        for it in  self.IterToolProduct(pivotValues)
-            ddf = SortDataFrameInner(df, pivotColumns, pivotValues)
 
-            for itt in self.IterToolProduct(transfertValues):
-                a, ddff = self.CheckComb(ddf, transfertColumns, transfertValues)
-
-                if a == 1:
-                    i = ddff.index
-                    ind = it
-                    for col in values:
-                        indd = ind.append(col)
-                        colName = ''.join(indd)
-                        dfComb.loc[i, indd] = ddff.loc[i, col]
-                    for col, val in zip(transfertColumns, itt):
-                        dfComb.loc[i, col] = val    
+        for it in self.ItertoolProduct(pivotValues):
+            #ddf = self.SortDataFrameInner(df, '_'.join(pivotColumns), '_'.join(it))
+            ddf = self.SortDataFrameInner(df, pivotColumns, it)
+            
+            if ddf.shape[0] > 0:
+                for itt in self.ItertoolProduct(transfertValues):
+                    a, ig, ddff = self.CheckComb(ddf, transfertColumns, itt)
+                
+                    if dfComb.shape[0] == 0:
+                        i = dfComb.shape[0] + 1
+                    elif dfComb.shape[0] > 0:
+                        aa, ie, ddfff = self.CheckComb(dfComb, transfertColumns, itt)
+                        if ie > 0:
+                            i = ie
+                        elif ie == False:
+                            i = dfComb.shape[0] + 1
+                        else:
+                            i = 'check'
+                    
+                    if a == True:
+                        ind = ''.join(it)
+                        for col in values:
+                            indd = ind + f'_{col}'
+                            ii = ddff.index[0]
+                            dfComb.loc[i, indd] = ddff.loc[ii, col]
+                        for col, val in zip(transfertColumns, itt):
+                            dfComb.loc[i, col] = val    
+                    elif a == False:
+                        ind = ''.join(it)
+                        for col in values:
+                            indd = ind + f'_{col}'
+                        for col, val in zip(transfertColumns, itt):
+                            dfComb.loc[i, col] = val   
+                    else:
+                        print('not enough columns')
 
         dfComb.to_csv(f'{files.output}/{name}.csv', sep = ';', index = None)
 

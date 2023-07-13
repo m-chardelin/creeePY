@@ -1,25 +1,25 @@
-value;color;facecolor;edgecolor;marker;hatches;alpha;size;cmap
-Olivine;red;red;red;o;;1;200;magma
-Orthopyroxene;blue;blue;blue;s;;1;200;magma
-Clinopyroxene;lime;lime;lime;D;;1;200;magma
-Spinelle;magenta;magenta;magenta;*;;1;200;magma
-Plagioclase;yellow;yellow;yellow;+;;1;200;magma
-Amphibole;aquamarine;aquamarine;aquamarine;.;;1;200;GnBu
-Calcite;grey;grey;grey;_;;1;200;bone
-Chlorite;grey;grey;grey;_;;1;200;bone
-notIndexed;white;white;white;.;;1;200;bone
-nan;white;white;white;.;;1;200;bone
-neo;orange;orange;orange;o;;1;200;bone
-porph;purple;purple;purple;o;/;1;200;bone
-all;black;black;black;o;/;1;200;bone
-south;black;black;black;.;;1;200;bone
-center;grey;grey;black;.;;1;200;bone
-north;white;white;black;.;;1;200;bone
-protomylonite BT;grey;grey;grey;*;;1;450;bone
-mylonite HT;grey;grey;grey;s;;1;300;bone
-mylonite BT;grey;grey;grey;D;;1;300;bone
-ultramylonite;grey;grey;grey;o;;1;450;bone
-no;grey;grey;grey;.;;1;450;bone
-peridotite;grey;grey;green;o;;1;450;bone
-pyroxenite;grey;grey;red;o;;1;450;bone
-amphibolite;grey;grey;aquamarine;o;;1;450;bone
+value;color;facecolor;edgecolor;marker;hatches;alpha;size;cmap;vmin;vmax
+Olivine;red;red;red;o;;1;200;magma;0;1
+Orthopyroxene;blue;blue;blue;s;;1;200;magma;0;1
+Clinopyroxene;lime;lime;lime;D;;1;200;magma;0;1
+Spinelle;magenta;magenta;magenta;*;;1;200;magma;0;1
+Plagioclase;yellow;yellow;yellow;+;;1;200;magma;0;1
+Amphibole;aquamarine;aquamarine;aquamarine;.;;1;200;GnBu;0;1
+Calcite;grey;grey;grey;_;;1;200;bone;0;1
+Chlorite;grey;grey;grey;_;;1;200;bone;0;1
+notIndexed;white;white;white;.;;1;200;bone;0;1
+nan;white;white;white;.;;1;200;bone;0;1
+neo;orange;orange;orange;o;;1;200;bone;0;1
+porph;purple;purple;purple;o;/;1;200;bone;0;1
+all;black;black;black;o;/;1;200;bone;0;1
+south;black;black;black;s;;1;300;bone;0;1
+center;grey;grey;black;D;;1;300;bone;0;1
+north;white;white;black;o;;1;450;bone;0;1
+protomylonite BT;grey;grey;grey;*;;1;450;bone;0;1
+mylonite HT;grey;grey;grey;s;;1;300;hot;0;1
+mylonite BT;grey;grey;grey;D;;1;300;bone;0;1
+ultramylonite;grey;grey;grey;o;;1;450;bone;0;1
+no;grey;grey;grey;.;;1;450;bone;0;1
+peridotite;black;black;black;o;;1;450;bone;0;1
+pyroxenite;grey;grey;red;o;;1;450;bone;0;1
+amphibolite;grey;grey;aquamarine;o;;1;450;bone;0;1

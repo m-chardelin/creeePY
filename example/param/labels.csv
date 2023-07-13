@@ -11,18 +11,17 @@ pondGOS;GOS, area weighted;GOS (degrés, pondéré par la surface)
 J;J index;Index J
 BA;BA index;Index BA
 BC;BC index;Index BC
-pondGOSrexEGDmixte;Neoblast GOS (area weighted, EGD mixte);fr
-pondaspectRatiorexEGDmixte;Neoblast aspect ratio (area weighted, EGD mixte);fr
-pondEGDrexEGDmixte;Neoblast equivalent grain diameter (area weighted, EGD mixte);fr
-pondSFrexEGDmixte;Neoblast shape factor (area weighted, EGD mixte);fr
-pondGOSporphEGDmixte;Porphyroclast GOS (area weighted, EGD mixte);fr
-pondaspectRatioporphEGDmixte;Porphyroclast aspect ratio (area weighted, EGD mixte);fr
-pondEGDporphEGDmixte;Porphyroclast equivalent grain diameter (area weighted, EGD mixte);fr
-pondSFporphEGDmixte;Porphyroclast shape factor (area weighted, EGD mixte);fr
-pondSFOlivine;Olivine shape factor (area weighted);fr
-pondSFOrthopyroxene;Orthopyroxene shape factor (area weighted);fr
-pondGOSOlivine;Olivine GOS (area weighted);fr
-pondGOSOrthopyroxene;Orthopyroxene GOS (area weighted);fr
-pondaspectRatioOlivine;Olivine aspect ratio (area weighted);fr
-pondaspectRatioOrthopyroxene;Orthopyroxene aspect ratio (area weighted);fr
-
+neoEGDmixte_pondGOS;GOS (degree, area ponderated, neoblasts);fr
+porphEGDmixte_pondGOS;GOS (microns, area ponderated, porphyroclasts);fr
+neoEGDmixte_pondaspectRatio; aspect ratio (area ponderated, neoblasts);fr
+porphEGDmixte_pondaspectRatio;aspect ratio (area ponderated, porphyroclasts);fr
+OlivineporphEGDmixte_pondSF;shape factor (area ponderated, Olivine porphyroclasts);fr
+OrthopyroxeneporphEGDmixte_pondSF;shape factor (area ponderated, Orthopyroxene porphyroclasts);fr
+OlivineporphEGDmixte_pondGOS;GOS (degree, area ponderated, Olivine porphyroclasts);fr
+OrthopyroxeneporphEGDmixte_pondGOS;GOS (degree, area ponderated, Orthopyroxene porphyroclasts);fr
+OlivineporphEGDmixte_pondaspectRatio;aspect ratio (area ponderated, Olivine porphyroclasts);fr
+OrthopyroxeneporphEGDmixte_pondaspectRatio;aspect ratio (area ponderated, Orthopyroxene porphyroclasts);fr
+OlivineporphEGDmixte_pondEGD;EGD (microns, area ponderated, Olivine porphyroclasts);fr
+OrthopyroxeneporphEGDmixte_pondEGD;EGD (microns, area ponderated, Orthopyroxene porphyroclasts);fr
+OlivineneoEGDmixte_pondEGD;EGD (microns, area ponderated, neoblasts of Olivine);fr
+Ol%sscatArea;Area fraction of neoblasts upon total Olivine;fr

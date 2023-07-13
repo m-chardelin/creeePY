@@ -169,7 +169,7 @@ class Plot():
                 ax.annotate(df.loc[i, colAnn], (x, y))
 
             
-    def PlotTernary(self, files, T, L, R, df, facecolor, edgecolor, marker, s, c = None, cmap = None, labels = True, vmin = 0, vmax = 0):
+    def PlotTernary(self, files, T, L, R, df, facecolor, edgecolor, marker, s, c = None, cmap = None, labels = True, vmin = 0, vmax = 0, colorBar = 'off'):
 
         df = self.Load(f'{files.input}/{df}.csv')
         
@@ -190,8 +190,11 @@ class Plot():
                 ax.scatter(top, left, right, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3])
             else:
                 cc = df.loc[i, c]
-                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap)
-                ax.scatter(top, left, right, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4], vmin = vmin, vmax = vmax)
+                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap, vmin = vmin, vmax = vmax)
+                ax.scatter(top, left, right, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4], vmin = ls[5], vmax = ls[6])
+                if colorBar == 'on':
+                    cbar = fig.colorBar(cmapPlot, ax = ax, extend = 'both')
+                    cbar.minorticks_on()
 
         ax.set_tlabel(T)
         ax.set_llabel(L)
@@ -207,16 +210,19 @@ class Plot():
         self.Save(fig, f'{files.output}/TernaryPlot_{T}{L}{R}-{label}.png')
 
             
-    def SimplePlot(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sortType = None, sort = None, values = None, c = None, cmap = None, vmin = 0, vmax = 0):
+    def SimplePlot(self, files, X, Y, df, facecolor, edgecolor, marker, s, sep, xlim = None, ylim = None, ann = None, sortType = None, sort = None, values = None, c = None, cmap = None, colorBar = 'off', vmin = None, vmax = None):
 
         dfAll = pd.read_csv(f'{files.input}/{df}.csv', sep = sep)
 
         if sortType == 'inner':
             df = self.SortDataFrameInner(dfAll, sort, values)
+            sortannot = sortType+sort
         elif sortType == 'combine': 
             df = self.SortDataFrameCombine(dfAll, sort, values)
+            sortannot = sortType+sort
         elif sortType == None:
             df = dfAll.copy()
+            sortannot = ''
         
         fig, ax = self.ParamPlot(1, 1)
         
@@ -229,9 +235,13 @@ class Plot():
                 ax.scatter(x, y, facecolor = ls[0], edgecolor = ls[1], marker = ls[2], s = ls[3])
             else:
                 cc = df.loc[i, c]
-                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap)
-                ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4], vmin = vmin, vmax = vmax)
-            
+                ls = self.SetScatterParam(i, df, facecolor = facecolor, edgecolor = edgecolor, marker = marker, size = s, cmap = cmap, vmin = vmin, vmax = vmax)
+                cmapPlot = ax.scatter(x, y, c = cc, edgecolor = ls[1], marker = ls[2], s = ls[3], cmap = ls[4], vmin = ls[5], vmax = ls[6])
+                if colorBar == 'on':
+                    cbar = fig.colorBar(cmapPlot, ax = ax, extend = 'both')
+                    cbar.minorticks_on()
+
+
             if ann == None:
                 annot = 'nonannotated'
             else:
@@ -250,7 +260,7 @@ class Plot():
         ax.set_xlabel(labX)
         ax.set_ylabel(labY)
 
-        self.Save(fig, f'{files.output}/Plot_{X}{Y}{sort[1]}{annot}.png')
+        self.Save(fig, f'{files.output}/Plot_{X}{Y}{sortannot}{annot}.png')
 
     
     def IterationPlot(self, files):
